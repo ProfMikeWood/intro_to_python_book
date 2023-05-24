@@ -1,0 +1,34 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts: 
+  - caption: Getting Started
+    chapters:
+    - file: getting_started/installation
+    - file: getting_started/conda-environments
+  - caption: Python Basics
+    chapters:
+    - file: python_basics/primitive-data-types
+    - file: python_basics/sequence-data
+    - file: python_basics/dicts-and-sets
+    - file: python_basics/control-flow
+    - file: python_basics/functions
+    - file: python_basics/modules
+    - file: python_basics/file-io
+    - file: python_basics/packages
+  - caption: Object-Oriented Programming
+    chapters:
+    - file: object_oriented_programming/classes-notebooks
+    - file: object_oriented_programming/classes-in-python
+  - caption: Beyond the Basics
+    chapters:
+    - file: beyond_the_basics/scraping-the-web
+    - file: beyond_the_basics/gui-with-tkinter
+    - file: beyond_the_basics/flask-web_development
+  - caption: Data Analysis and Visualization
+    chapters:
+    - file: data_analysis_and_visualization/numpy-intro
+    - file: data_analysis_and_visualization/pandas-intro
+    - file: data_analysis_and_visualization/plotting_with_matplotlib
