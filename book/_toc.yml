@@ -22,6 +22,7 @@ parts:
     chapters:
     - file: object_oriented_programming/classes-notebooks
     - file: object_oriented_programming/classes-in-python
+    - file: object_oriented_programming/object_types
   - caption: Beyond the Basics
     chapters:
     - file: beyond_the_basics/scraping-the-web
