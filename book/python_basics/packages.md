@@ -1,57 +1,35 @@
 # Packages
 
-In this book, 
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+## Check your understanding
 
-## What is MyST?
+1. What is a package?  
+	a. a single file with related functions  
+	b. a pre-compiled set of code  
+	c. a directory containing related modules  
+	d. a 
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+2. Packages can organize files into a directory structure with several subdirectories. When importing a module from a package subdirectory, what delimiter is used for the relative path components?  
+	a. `/`  
+	b. `\`  
+	c. `,`  
+	d. `.`  
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+3. When files are placed in a directory to form a package, what must be done to ensure the files form a package?  
+	a. the package name must be placed in the header of each file  
+	b. the files must be zipped into a `.pkg` file  
+	c. each directory in the package must contain an `__init__.py` file  
+	d. each file must be explicitly added to the `PYTHONPATH`  
 
-## Sample Roles and Directives
+4. Suppose you have a package module that needs to import a module 2 levels up its directory tree. Which of the following statements can be used to define a relative path 2 levels up?  
+	a. `..`  
+	b. `....`  
+	c. `../../`  
+	d. `^^`
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+5. When calling `from mymodule import *`, which of the following is true?  
+	a. the statement will import all files in the current directory  
+	b. the statement will import all files in the current directory except those starting with an underscore  
+	c. the statement will import all files listed in the ``__all__`` list of the ``__init__.py`` script  
+	d. the statement will import files in the current directory and all subdirectories
 
-Here is a "note" directive:
-
-```{note}
-Here is a note
-```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
-
-
-## Citations
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-```{bibliography}
-```
-
-## Learn more
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).

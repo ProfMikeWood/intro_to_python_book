@@ -1,57 +1,66 @@
 # Control Flow
 
-In this book, 
+## Check your understanding
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+1. Which of the following can you use to end a control flow statement?  
+	a. Reduce the indentation level   
+	b. Closed curley brace `}`  
+	c. Closed parentheses `)`  
+	d. The `end` keyword  
 
-## What is MyST?
+2. Which of the following can be used as an iterator in a for loop?  
+	a. lists  
+	b. a range of integers  
+	c. string  
+	d. all of the above  
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+3. Define `x = [5, 6, 7, 8, 9]`. Which of the following prints the numbers 5, 6, 7, 8, 9, each on a separate line?  
+	a.
+	```
+	for n in range(len(x)):
+            print n
+	```  
+	b.
+	```
+	for j in x:
+            print x
+	```
+	c.
+	```
+	for k in range(5,9):
+            print k
+	```  
+	d.
+	```
+	for k in range(5,10):
+            print k
+	```  
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+4. The \_\_\_\_\_\_\_\_\_\_ statement will terminate a loop when it is reached while the \_\_\_\_\_\_\_\_\_\_ statement will terminate a particular iteration of the loop.  
+	a. break, break  
+	b. break, continue  
+	c. continue, break  
+	d. continue, continue  
 
-## Sample Roles and Directives
+5. Define `list1 = ['Hello','World']` and `list2 = [j[0] for j in list1]`. Which of the following yields an equivalent list2?  
+	a. `list2 = list1[0][0] + list1[1][0]`  
+	b. `list2 = ['h','w']`  
+	c. 
+	```
+	list2 = []
+	for j in list1:
+	    list2.append(j[0])
+	```
+	d. `list2 = list1[:][:1]`
 
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
+6. What character do you use to split long strings across lines?  
+	a. `:`  
+	b. `\n`  
+	c. `/`  
+	d. `/`
 
-Here is a "note" directive:
-
-```{note}
-Here is a note
-```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
-
-
-## Citations
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-```{bibliography}
-```
-
-## Learn more
-
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+7. What boolean comparison can you use to check two conditions?  
+	a. `logical_and`  
+	b. `&&`  
+	c. `and`  
+	d. `||`
