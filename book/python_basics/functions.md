@@ -1,57 +1,72 @@
 # Functions
 
-In this book, 
+## Check your understanding
 
-Whether you write your book's content in Jupyter Notebooks (`.ipynb`) or
-in regular markdown files (`.md`), you'll write in the same flavor of markdown
-called **MyST Markdown**.
-This is a simple file to help you get started and show off some syntax.
+1. What is the best way to provide a human-readable synopsis of a function?  
+	a. provide comments with # symbols throughout your code  
+	b. provide a docustring comment on the first line of the function  
+	c. name the function a descriptive name  
+	d. write a separate documentation file to provide a summary of the function  
 
-## What is MyST?
+2. What is the main way you can pass arguments to a function?  
+	a. pass arguments in the orfer they are defined  
+	b. pass arguments by giving the name of the variable  
+	c. pass argumnts as a list or a dictionary  
+	d. all of the above  
 
-MyST stands for "Markedly Structured Text". It
-is a slight variation on a flavor of markdown called "CommonMark" markdown,
-with small syntax extensions to allow you to write **roles** and **directives**
-in the Sphinx ecosystem.
+3. What is the difference between a function `func` defined with `func(*args)` vs `func(**args)`?  
+	a. the latter option is the same as the first but the valueds are squared  
+	b. the latter option can be a list of variable size while the former is a list of fixed size  
+	b. the latter option puts arguments into a dict while the former puts them into a list  
+	d. the latter option puts arguments into a list while the former puts them into a dict  
 
-For more about MyST, see [the MyST Markdown Overview](https://jupyterbook.org/content/myst.html).
+4. Which of the following would modify the object or variable stored in `x`?  
+	a.   
+	```
+	x = {1: "one", 2: "two"}
+	def add_three(x):
+		x[3] = "three"
+	```
+	b.   
+	```
+	x = 1
+	def add_three(x):
+		x += 3
+	```
+	c.   
+	```
+	x = "one"
+	def add_three(x):
+		x = x + " three"
+	```
+	d.   
+	```
+	x = (1, 2)
+	def add_three(x):
+		x[0] += 3
+		x[1] += 3
+	```
 
-## Sample Roles and Directives
-
-Roles and directives are two of the most powerful tools in Jupyter Book. They
-are kind of like functions, but written in a markup language. They both
-serve a similar purpose, but **roles are written in one line**, whereas
-**directives span many lines**. They both accept different kinds of inputs,
-and what they do with those inputs depends on the specific role or directive
-that is being called.
-
-Here is a "note" directive:
-
-```{note}
-Here is a note
+5. Consider the following code:
 ```
-
-It will be rendered in a special box when you build your book.
-
-Here is an inline directive to refer to a document: {doc}`markdown-notebooks`.
-
-
-## Citations
-
-You can also cite references that are stored in a `bibtex` file. For example,
-the following syntax: `` {cite}`holdgraf_evidence_2014` `` will render like
-this: {cite}`holdgraf_evidence_2014`.
-
-Moreover, you can insert a bibliography into your page with this syntax:
-The `{bibliography}` directive must be used for all the `{cite}` roles to
-render properly.
-For example, if the references for your book are stored in `references.bib`,
-then the bibliography is inserted with:
-
-```{bibliography}
+a = 2
+def add_number(integer):
+	a = a + integer
+print(a)
 ```
+	a. Traceback (error) because `a` is not defined inside `add_number`.  
+	b. The function will run but `a` will not change since the operation is local.  
+	c. The function will look into the global scope, find `a` and add an integer.  
+	d. The function will raise a warning because `a` is not defined in the function, but there will not be a traceback error.  
 
-## Learn more
+6. What is a `lambda` function?  
+	a. an abstract function  
+	b. a function with only one output  
+	c. a function with only one input argument  
+	d. an inline function  
 
-This is just a simple starter to get you started.
-You can learn a lot more at [jupyterbook.org](https://jupyterbook.org).
+7. What keyword indicates that a function is a generator?  
+	a. yield  
+	b. return  
+	c. generate  
+	d. while 
