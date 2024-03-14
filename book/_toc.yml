@@ -15,12 +15,16 @@ parts:
     - file: python_basics/dicts-and-sets
     - file: python_basics/control-flow
     - file: python_basics/functions
-    - file: python_basics/modules
-    - file: python_basics/packages
-    - file: python_basics/libraries
+    - file: python_basics/exceptions
+  - caption: Code Organization
+    chapters:
+    - file: code_organization/modules
+    - file: code_organization/packages
+    - file: code_organization/libraries
   - caption: File IO
     chapters:
-    - file: file_io/file-io
+    - file: files/using_the_filesystem
+    - file: files/file-io
   - caption: Object-Oriented Programming
     chapters:
     - file: object_oriented_programming/classes-in-python
