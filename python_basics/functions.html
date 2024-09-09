@@ -159,22 +159,13 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types and Strings</a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="dicts-and-sets.html">Dictionaries</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="control-flow.html">Control Flow</a></li>
-
-
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Functions</a></li>
-
-
 </ul>
 
     </div>
@@ -368,15 +359,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Functions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
@@ -384,9 +376,6 @@ document.write(`
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -406,9 +395,8 @@ By the end of this lesson, you should be able to:</p>
 <li><p>Differentiate between local and global variables, and when they can be modified</p></li>
 <li><p>Implement the lambda keyword to create short in-line functions</p></li>
 </ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="part-1-defining-functions">
-<h1>Part 1: Defining Functions<a class="headerlink" href="#part-1-defining-functions" title="Permalink to this headline">#</a></h1>
+<section id="part-1-defining-functions">
+<h2>Part 1: Defining Functions<a class="headerlink" href="#part-1-defining-functions" title="Permalink to this headline">#</a></h2>
 <p>Functions in Python start with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> and follow a similar syntax to other code blocks we have seen in Python so far - they use the typical colon and indentation formatting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,7 +547,7 @@ None
 </div>
 </div>
 <section id="mini-exercise">
-<h2>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h2>
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
 <p>Goal: Define a function called <code class="docutils literal notranslate"><span class="pre">convert_miles</span></code> to convert miles to kilometers. Provide an optional keyword that allows the user to convert to meters instead of kilometers. There are 6.2 miles in 10 kilometers and 1000 meters in 1 kilometer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,7 +577,7 @@ None
 </div>
 </section>
 <section id="functions-with-an-indefinite-number-of-arguments">
-<h2>Functions with an indefinite number of arguments<a class="headerlink" href="#functions-with-an-indefinite-number-of-arguments" title="Permalink to this headline">#</a></h2>
+<h3>Functions with an indefinite number of arguments<a class="headerlink" href="#functions-with-an-indefinite-number-of-arguments" title="Permalink to this headline">#</a></h3>
 <p>It is often handy to define functions that have an open ended number of arguments. There are two primary ways that this type of feature can be implemented.</p>
 <p>First, a function can allow for an open number of arguments to be read in as a tuple. To store the arguments as a tuple, use the single astericks syntax:</p>
 <div class="cell docutils container">
@@ -661,11 +649,11 @@ None
 </div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="part-2-local-vs-global-variables">
-<h1>Part 2: Local vs Global Variables<a class="headerlink" href="#part-2-local-vs-global-variables" title="Permalink to this headline">#</a></h1>
+<section id="part-2-local-vs-global-variables">
+<h2>Part 2: Local vs Global Variables<a class="headerlink" href="#part-2-local-vs-global-variables" title="Permalink to this headline">#</a></h2>
 <p>Local variables are those which are defined inside of a function while global variables are those stored outside of a function. But when does the global variable space know about the local variables, and vice versa? Even more importantly, when can a function modify a global variable?</p>
 <section id="local-variables">
-<h2>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h2>
+<h3>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a function to calculate the area of a circle given its radius</span>
@@ -691,7 +679,7 @@ None
 <p>A local variable can be made accessible in the global namespace using the keyword <code class="docutils literal notranslate"><span class="pre">global</span></code>. Try this in the code above.</p>
 </section>
 <section id="global-variables">
-<h2>Global Variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">#</a></h2>
+<h3>Global Variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">#</a></h3>
 <p>The code on the interior of functions knows about global variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -750,6 +738,7 @@ CS [&#39;122&#39;, &#39;123&#39;, &#39;101&#39;]
 </div>
 </div>
 <p>❗ Caution! Be careful about the naming of variables inside and outside your functions. If you do not intend for your function to change your global variables, be sure to make copies or otherwise ensure you are not operating on the global object.</p>
+</section>
 </section>
 <section id="part-3-doc-strings">
 <h2>Part 3: Doc Strings<a class="headerlink" href="#part-3-doc-strings" title="Permalink to this headline">#</a></h2>
@@ -1002,15 +991,16 @@ The list:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Functions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
@@ -1018,9 +1008,6 @@ The list:
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
