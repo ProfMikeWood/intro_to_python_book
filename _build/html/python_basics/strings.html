@@ -158,22 +158,13 @@ const thebe_selector_output = ".output, .cell_output"
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Strings</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types and Strings</a></li>
 
 
 
 <li class="toctree-l1"><a class="reference internal" href="dicts-and-sets.html">Dictionaries</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="control-flow.html">Control Flow</a></li>
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
-
-
 </ul>
 
     </div>
@@ -367,25 +358,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -405,9 +390,8 @@ By the end of this lesson, you should be able to:</p>
 <li><p>Maniputate strings with built-in string methods</p></li>
 <li><p>Format numbers as strings with specified round-off and/or padding</p></li>
 </ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="part-1-declaring-strings">
-<h1>Part 1: Declaring Strings<a class="headerlink" href="#part-1-declaring-strings" title="Permalink to this headline">#</a></h1>
+<section id="part-1-declaring-strings">
+<h2>Part 1: Declaring Strings<a class="headerlink" href="#part-1-declaring-strings" title="Permalink to this headline">#</a></h2>
 <p>Strings are declared in Python using either double quotes or single quotes – and it doesn’t matter which! All that matters is that they are opened and closed with the same quote type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -480,8 +464,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="part-2-manipulating-strings">
-<h1>Part 2: Manipulating Strings<a class="headerlink" href="#part-2-manipulating-strings" title="Permalink to this headline">#</a></h1>
+<section id="part-2-manipulating-strings">
+<h2>Part 2: Manipulating Strings<a class="headerlink" href="#part-2-manipulating-strings" title="Permalink to this headline">#</a></h2>
 <p>Beyond concatenation and accessing elements in a string, Python has many built-in methods for manipulating strings. The following table lists some of the common methods:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -520,7 +504,7 @@ By the end of this lesson, you should be able to:</p>
 </tbody>
 </table>
 <section id="splitting-and-joining">
-<h2>Splitting and joining<a class="headerlink" href="#splitting-and-joining" title="Permalink to this headline">#</a></h2>
+<h3>Splitting and joining<a class="headerlink" href="#splitting-and-joining" title="Permalink to this headline">#</a></h3>
 <p>Often, it is helpful to split a string into a list, make some edits and then rejoin the string. The <code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">join</span></code> methods have different approachs to syntax. The split method operates on the string and takes a substring as an argument as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">&lt;</span><span class="n">substring</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
@@ -582,6 +566,7 @@ This string is split across three different lines.
 </div>
 </div>
 </div>
+</section>
 <section id="mini-exercise">
 <h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
 <p>Goal: Convert the tab-delimited line to a comma-delimited line that could be opened in Excel. To accomplish this, split the line at the tabs, “wrap” each item in double quotes, and then join back to a single string. The double quotes will ensure proper formatting in Excel. Your output should look as follows:</p>
@@ -643,11 +628,10 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="part-3-formatting-numbers-as-strings">
-<h1>Part 3: Formatting Numbers as Strings<a class="headerlink" href="#part-3-formatting-numbers-as-strings" title="Permalink to this headline">#</a></h1>
+<section id="part-3-formatting-numbers-as-strings">
+<h2>Part 3: Formatting Numbers as Strings<a class="headerlink" href="#part-3-formatting-numbers-as-strings" title="Permalink to this headline">#</a></h2>
 <section id="floats-with-decimal-places">
-<h2>Floats with decimal places<a class="headerlink" href="#floats-with-decimal-places" title="Permalink to this headline">#</a></h2>
+<h3>Floats with decimal places<a class="headerlink" href="#floats-with-decimal-places" title="Permalink to this headline">#</a></h3>
 <p>Often, it is desireable to format numbers with strings. For example, Python, like all programming languages, is suceptible to round off errors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +667,7 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </section>
 <section id="padding-integers">
-<h2>Padding Integers<a class="headerlink" href="#padding-integers" title="Permalink to this headline">#</a></h2>
+<h3>Padding Integers<a class="headerlink" href="#padding-integers" title="Permalink to this headline">#</a></h3>
 <p>When formatting integers as text, its often desireable to align numbers to easily compare values.</p>
 <p>For example, conside the following numbers:</p>
 <div class="cell docutils container">
@@ -728,6 +712,7 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </div>
 </div>
+</section>
 <section id="id1">
 <h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Goal: Use the format method to write the following list of numbers padded with room for 8 digits before the decimal place and 5 digits after the decimal place.</p>
@@ -830,25 +815,19 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
