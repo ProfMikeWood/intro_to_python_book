@@ -4,9 +4,9 @@
 format: jb-book
 root: intro
 parts: 
-  # - caption: Getting Started
-  #   chapters:
-  #   - file: getting_started/installation
+  - caption: Getting Started
+    chapters:
+    - file: getting_started/installation
   #   - file: getting_started/conda-environments
   - caption: Python Basics
     chapters:
