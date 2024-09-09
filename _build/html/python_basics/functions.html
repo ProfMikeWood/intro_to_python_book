@@ -1,0 +1,1076 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Functions &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_basics/functions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Control Flow" href="control-flow.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types and Strings</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="dicts-and-sets.html">Dictionaries</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="control-flow.html">Control Flow</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Functions</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_basics/functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/python_basics/functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
+<p>Learning Objectives:
+By the end of this lesson, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Define a Python function with one or more arguments that returns one or more objects.</p></li>
+<li><p>Differentiate between local and global variables, and when they can be modified</p></li>
+<li><p>Implement the lambda keyword to create short in-line functions</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-1-defining-functions">
+<h1>Part 1: Defining Functions<a class="headerlink" href="#part-1-defining-functions" title="Permalink to this headline">#</a></h1>
+<p>Functions in Python start with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> and follow a similar syntax to other code blocks we have seen in Python so far - they use the typical colon and indentation formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a simple function to describe the weather</span>
+<span class="k">def</span> <span class="nf">weather_report</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Its hot!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the above code block, we can observe 3 things:</p>
+<ul class="simple">
+<li><p>Functions do not need to be defined with input arguments</p></li>
+<li><p>Functions do not need to have to return objects</p></li>
+<li><p>Functions are not run when they are defined - they must be called to be run</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># call the weather report function</span>
+<span class="n">weather_report</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Its hot!
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a lot of flexibility in how function in Python can be defined. For example, we may choose to define input arguments and implement code blocks within our function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># update the weather report function to include an input argument for temperature</span>
+<span class="k">def</span> <span class="nf">weather_report</span><span class="p">(</span><span class="n">temperature</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="mi">75</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - its hot!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - its not hot.&#39;</span><span class="p">)</span>
+
+<span class="c1"># call the function to view its output</span>
+<span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
+
+<span class="c1"># call the function again by explicitly calling the input parameter</span>
+<span class="n">weather_report</span><span class="p">(</span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">70</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
+The temperature is 70 F - its not hot.
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also define optional arguments that are given a default value. These default values may be changed by the function user, if desired.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># update the weather report function to include an optional input argument</span>
+<span class="c1"># to convert the temperature to celsius</span>
+<span class="k">def</span> <span class="nf">weather_report</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">convert_to_celsius</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="c1"># add a code block to allow for conversion into celsius</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
+    <span class="n">hot_temperature</span> <span class="o">=</span> <span class="mi">75</span>
+    <span class="k">if</span> <span class="n">convert_to_celsius</span><span class="p">:</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">temperature</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+        <span class="n">hot_temperature</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hot_temperature</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="n">hot_temperature</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its hot!&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its not hot.&#39;</span><span class="p">)</span>
+
+<span class="c1"># call the function to view its output</span>
+<span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
+
+<span class="c1"># call the function again, this time converting to celsius</span>
+<span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="n">convert_to_celsius</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
+The temperature is 27.222222222222225 C - its hot!
+</pre></div>
+</div>
+</div>
+</div>
+<p>All functions in Python have an output object. If its not defined, then the value is None. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assign the output of the weather report function to a variable</span>
+<span class="n">output_test</span> <span class="o">=</span> <span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
+
+<span class="c1"># print the variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
+None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Often, we would like our functions to return a given statement or other output rather than just printing something to the screen. In this case, we can use the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># update the weather report function to output the statement</span>
+<span class="c1"># instead of printing it</span>
+<span class="k">def</span> <span class="nf">weather_report</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">convert_to_celsius</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="c1"># add a code block to allow for conversion into celsius</span>
+    <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
+    <span class="n">hot_temperature</span> <span class="o">=</span> <span class="mi">75</span>
+    <span class="k">if</span> <span class="n">convert_to_celsius</span><span class="p">:</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">temperature</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+        <span class="n">hot_temperature</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hot_temperature</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="n">hot_temperature</span><span class="p">:</span>
+        <span class="n">output_statement</span> <span class="o">=</span> <span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its hot!&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_statement</span> <span class="o">=</span> <span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its not hot.&#39;</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">output_statement</span><span class="p">)</span>
+
+<span class="c1"># store the output of weather_report into a variable called report</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">,</span> <span class="n">convert_to_celsius</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When defined with an output, we can print the statement when desired:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now print the report variable</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mini-exercise">
+<h2>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h2>
+<p>Goal: Define a function called <code class="docutils literal notranslate"><span class="pre">convert_miles</span></code> to convert miles to kilometers. Provide an optional keyword that allows the user to convert to meters instead of kilometers. There are 6.2 miles in 10 kilometers and 1000 meters in 1 kilometer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the convert_miles function</span>
+<span class="k">def</span> <span class="nf">convert_miles</span><span class="p">(</span><span class="n">miles</span><span class="p">,</span> <span class="n">convert_to_meters</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">miles</span><span class="o">*</span><span class="mi">10</span><span class="o">/</span><span class="mf">6.2</span>
+
+    <span class="k">if</span> <span class="n">convert_to_meters</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">*</span><span class="mi">1000</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+<span class="c1"># test your function with 3.1 miles (should return 5)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">convert_miles</span><span class="p">(</span><span class="mf">3.1</span><span class="p">))</span>
+
+<span class="c1"># test your function with 9.3 miles and the optional parameter to return meters (should return 15000)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">convert_miles</span><span class="p">(</span><span class="mf">9.3</span><span class="p">,</span> <span class="n">convert_to_meters</span> <span class="o">=</span> <span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+15000.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-with-an-indefinite-number-of-arguments">
+<h2>Functions with an indefinite number of arguments<a class="headerlink" href="#functions-with-an-indefinite-number-of-arguments" title="Permalink to this headline">#</a></h2>
+<p>It is often handy to define functions that have an open ended number of arguments. There are two primary ways that this type of feature can be implemented.</p>
+<p>First, a function can allow for an open number of arguments to be read in as a tuple. To store the arguments as a tuple, use the single astericks syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that calculates the average of an indefinite set of numbers</span>
+<span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="o">*</span><span class="n">numbers</span><span class="p">):</span>
+
+    <span class="c1"># print the type of numbers</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+
+    <span class="c1"># write code to compute the average</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">number</span>
+        <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="nb">sum</span><span class="o">/</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="c1"># test your function with a set of numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;tuple&#39;&gt;
+2.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, a function can be used to take in a set of arguments and store them in a dictionary. The syntax is similar except that two astericks symbols are used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that will calulate the molecular mass of one mole of a given molecule</span>
+<span class="c1"># the function should take in a dictionary of the number of each atom in the molecule</span>
+<span class="c1"># for example, for molecule propane (C3H8), the function would be called as</span>
+<span class="c1"># molecule_mass(C=3, H=8) which would be read into the dictionary {&#39;C&#39;:3, &#39;H&#39;:8}</span>
+<span class="k">def</span> <span class="nf">molecule_mass</span><span class="p">(</span><span class="o">**</span><span class="n">atoms</span><span class="p">):</span>
+
+    <span class="c1"># define some atomic masses in a dictionary</span>
+    <span class="n">masses</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.008</span><span class="p">,</span>
+               <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mf">12.01</span><span class="p">,</span>
+               <span class="s1">&#39;O&#39;</span><span class="p">:</span><span class="mf">15.99</span><span class="p">}</span>
+    
+    <span class="c1"># print atoms and the type</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">atoms</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">atoms</span><span class="p">))</span>
+
+    <span class="c1"># add the masses of each atom to the total mass</span>
+    <span class="n">total_mass</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;O&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atoms</span><span class="p">:</span>
+            <span class="n">total_mass</span> <span class="o">+=</span> <span class="n">masses</span><span class="p">[</span><span class="n">atom</span><span class="p">]</span><span class="o">*</span><span class="n">atoms</span><span class="p">[</span><span class="n">atom</span><span class="p">]</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">total_mass</span><span class="p">)</span>
+
+<span class="c1"># calculate the mass of carbon dioxide (CO2)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">molecule_mass</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">O</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;C&#39;: 1, &#39;O&#39;: 2}
+&lt;class &#39;dict&#39;&gt;
+43.99
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="part-2-local-vs-global-variables">
+<h1>Part 2: Local vs Global Variables<a class="headerlink" href="#part-2-local-vs-global-variables" title="Permalink to this headline">#</a></h1>
+<p>Local variables are those which are defined inside of a function while global variables are those stored outside of a function. But when does the global variable space know about the local variables, and vice versa? Even more importantly, when can a function modify a global variable?</p>
+<section id="local-variables">
+<h2>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a function to calculate the area of a circle given its radius</span>
+<span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+<span class="c1"># print the circle area</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circle_area</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># print the variable pi - what happens?</span>
+<span class="c1"># print(pi)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.53750000000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>A local variable can be made accessible in the global namespace using the keyword <code class="docutils literal notranslate"><span class="pre">global</span></code>. Try this in the code above.</p>
+</section>
+<section id="global-variables">
+<h2>Global Variables<a class="headerlink" href="#global-variables" title="Permalink to this headline">#</a></h2>
+<p>The code on the interior of functions knows about global variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the number pi with 4 decimal places</span>
+<span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415</span>
+
+<span class="c1"># write a function to calculate the area of a circle given its radius</span>
+<span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+
+<span class="c1"># print the circle area</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">circle_area</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># print the variable pi - what happens?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.53750000000001
+3.1415
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, a function cannot modify a global variable - try to change the value of pi inside the function above. What happens?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a string for department and a list of strings for classes</span>
+<span class="n">department</span> <span class="o">=</span> <span class="s1">&#39;CS&#39;</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;122&#39;</span><span class="p">,</span><span class="s1">&#39;123&#39;</span><span class="p">,</span><span class="s1">&#39;146&#39;</span><span class="p">]</span>
+
+<span class="c1"># print the deparment and classes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">department</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+
+<span class="c1"># define a function to change the department and classes</span>
+<span class="k">def</span> <span class="nf">change_schedule</span><span class="p">(</span><span class="n">dept</span><span class="p">,</span> <span class="n">class_list</span><span class="p">):</span>
+    <span class="n">dept</span> <span class="o">=</span> <span class="s1">&#39;Math&#39;</span>
+    <span class="n">class_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">class_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;101&#39;</span><span class="p">)</span>
+
+<span class="c1"># call the function</span>
+<span class="n">change_schedule</span><span class="p">(</span><span class="n">department</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+
+<span class="c1"># print the deparment and classes again - how do they differ?</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">department</span><span class="p">,</span> <span class="n">classes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CS [&#39;122&#39;, &#39;123&#39;, &#39;146&#39;]
+CS [&#39;122&#39;, &#39;123&#39;, &#39;101&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>❗ Caution! Be careful about the naming of variables inside and outside your functions. If you do not intend for your function to change your global variables, be sure to make copies or otherwise ensure you are not operating on the global object.</p>
+</section>
+<section id="part-3-doc-strings">
+<h2>Part 3: Doc Strings<a class="headerlink" href="#part-3-doc-strings" title="Permalink to this headline">#</a></h2>
+<p>It is good practice to document your functions with “doc strings”. Doc strings are encapsulated with triple quotes at the top of the function body. When formatted correctly the <code class="docutils literal notranslate"><span class="pre">help</span></code> method can print the description. In addition, the doc strings can be used to automatically format a ReadTheDocs page when code is published online.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a function to calculate the area of a circle given its radius</span>
+<span class="c1"># add a doc string note to the function</span>
+<span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Function to calculate the area of a circle given its radius</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">circle_area</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function circle_area in module __main__:
+
+circle_area(radius)
+    Function to calculate the area of a circle given its radius
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="part-4-lambda-functions">
+<h2>Part 4: Lambda Functions<a class="headerlink" href="#part-4-lambda-functions" title="Permalink to this headline">#</a></h2>
+<p>The main way to define a function in Python uses the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword as shown above. However, if the function is a 1-line function designed to be used on the fly, it can be declared as a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function called sqrt that returns the square root of x</span>
+<span class="k">def</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="c1"># use the function to print the square root of 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function called sqrt_lambda that defines the square root function</span>
+<span class="c1"># using the lambda notation</span>
+<span class="n">sqrt_lambda</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
+
+<span class="c1"># use the function to print the square root of 9</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sqrt_lambda</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lambda functions are get their name from “Lambda Calculus” - a system of mathematical logic based on function abstraction.</p>
+<section id="lambda-example-indices-of-a-sorted-list">
+<h3><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list<a class="headerlink" href="#lambda-example-indices-of-a-sorted-list" title="Permalink to this headline">#</a></h3>
+<p>One way that <code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions are useful is when providing a sorting key. First, explore the <code class="docutils literal notranslate"><span class="pre">sorted</span></code> function with an intuitive example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a list with 5 numbers</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># sort the list with the values given</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
+
+<span class="c1"># define a function to calculate the absolute value</span>
+<span class="k">def</span> <span class="nf">abs_val</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">number</span><span class="o">*=-</span><span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="c1"># sort the list passing the key for the absolute value</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">abs_val</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-7, -3, 1, 2, 8]
+[1, 2, -3, -7, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A function can also be used to provide the indices of a sorted list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function to return the </span>
+<span class="k">def</span> <span class="nf">list_val</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+
+<span class="c1"># define a list of the indices</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
+
+<span class="c1"># print the indices of a sorted list</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Indices of sorted list:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">list_val</span><span class="p">))</span>
+
+<span class="c1"># print the list as a reminder</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The list:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Indices of sorted list:
+[2, 1, 3, 4, 0]
+The list:
+[8, -3, -7, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, this function can be written with a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function as a one-liner as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the indices with the lambda function</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_list</span><span class="p">)),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="n">my_list</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 1, 3, 4, 0]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Goal: Use a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function inside Python’s <code class="docutils literal notranslate"><span class="pre">map</span></code> function to quickly calculate the <strong>sine</strong> of a list of numbers.</p>
+<p>Python has a built-in function called <code class="docutils literal notranslate"><span class="pre">map</span></code> to quickly apply a function to a list of numbers. For example, consider the following code to calculate the square of a list of numbers:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a squared function</span>
+<span class="k">def</span> <span class="nf">squared</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># define a list of numbers</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># calculate the square of the numbers</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">squared</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following code block, calculate the <code class="docutils literal notranslate"><span class="pre">sin</span></code> of the numbers -π/2, 0, and π/2. The sine of a number can be estimated with the first four terms of its Taylor expansion as:</p>
+<div class="math notranslate nohighlight">
+\[ sin(x) \approx x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} \]</div>
+<p>You can estimate π as 3.1415.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the list of values</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># calculate the sin of the values as described above</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="o">/</span><span class="mi">120</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">7</span><span class="o">/</span><span class="mi">5040</span><span class="p">,</span> <span class="n">values</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.9998431417619411, 0.0, 0.9998431417619411]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cs122"
+        },
+        kernelOptions: {
+            name: "cs122",
+            path: "./python_basics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cs122'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="control-flow.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Control Flow</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Functions</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
