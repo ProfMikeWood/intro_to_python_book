@@ -12,7 +12,7 @@ After you have downloaded miniconda, set up a conda environment. Begin by openin
 With your terminal open, create a conda environment called cs122 with Python version 3.11 using the following command:
 
 ```
-conda create --name cs185c python=3.11
+conda create --name cs122 python=3.11
 ```
 By default, conda will automatically activate a "base" environment on your machine. To disable this behavior, you may want to run the following:
 ```

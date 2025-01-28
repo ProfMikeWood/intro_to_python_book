@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sequential Data Types and Strings &#8212; Introduction to Python</title>
+    <title>Sequential Data Types &#8212; Introduction to Python</title>
   
   
   
@@ -63,8 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_basics/sequence-data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dictionaries" href="dicts-and-sets.html" />
-    <link rel="prev" title="Strings" href="strings.html" />
+    <link rel="prev" title="Getting Familiar with Python" href="getting-familiar.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -155,25 +154,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
-
-
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sequential Data Types and Strings</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="dicts-and-sets.html">Dictionaries</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="control-flow.html">Control Flow</a></li>
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
-
-
+<li class="toctree-l1"><a class="reference internal" href="getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sequential Data Types</a></li>
 </ul>
 
     </div>
@@ -357,7 +345,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sequential Data Types and Strings</h1>
+    <h1>Sequential Data Types</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,20 +355,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sequential Data Types and Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">💡 Check your understanding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-list-methods">Common List Methods:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-list-methods">Common List Methods:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -391,8 +382,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sequential-data-types-and-strings">
-<h1>Sequential Data Types and Strings<a class="headerlink" href="#sequential-data-types-and-strings" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="sequential-data-types">
+<h1>Sequential Data Types<a class="headerlink" href="#sequential-data-types" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
 <p>Learning Outcomes:
 By the end of this lesson, you should be able to:</p>
 <ol class="arabic simple">
@@ -400,15 +392,16 @@ By the end of this lesson, you should be able to:</p>
 <li><p>Explain the differences between Python’s sequential data types</p></li>
 <li><p>Call built-in methods on sequential data types and change from one sequential type to another</p></li>
 </ol>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="lists">
-<h1>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h1>
-<p>Lists are used to carry groups of objects - primitive data types, objects, or even other lists</p>
+<section id="lists">
+<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h2>
+<p>One of the most common sequential data types used in Python is the list. Lists are used to carry groups of objects - primitive data types, objects, or even other lists.</p>
 <p>Lists typically hold homogenous data, such as integers or strings, and are delineated by square brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of integers called my_numbers</span>
 <span class="n">my_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># print the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_numbers</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -422,7 +415,9 @@ By the end of this lesson, you should be able to:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of strings called my_words</span>
-<span class="n">my_words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;This&quot;</span><span class="p">,</span><span class="s2">&quot;is&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;list&quot;</span><span class="p">,</span><span class="s2">&quot;of&quot;</span><span class="p">,</span><span class="s2">&quot;words&quot;</span><span class="p">]</span>
+<span class="n">my_words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;This&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;list&quot;</span><span class="p">,</span> <span class="s2">&quot;of&quot;</span><span class="p">,</span> <span class="s2">&quot;words&quot;</span><span class="p">]</span>
+
+<span class="c1"># print the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_words</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -438,6 +433,8 @@ By the end of this lesson, you should be able to:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list called mixed_list which has an integer, a string, and another list</span>
 <span class="n">mixed_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,[</span><span class="s2">&quot;Another&quot;</span><span class="p">,</span><span class="s2">&quot;list&quot;</span><span class="p">]]</span>
+
+<span class="c1"># print the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mixed_list</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -448,11 +445,27 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </div>
+<p>As we can see, lists are extremely flexible objects!</p>
+<p>To check how many objects are in a list, we can use the <code class="docutils literal notranslate"><span class="pre">len</span></code> method (short for length):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mixed_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
 <p>To access an object within a list, use the index of the item you are interested in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the 3rd word in the my_words list</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the 3rd word in the my_words list and store it to a variable</span>
 <span class="n">third_word</span> <span class="o">=</span> <span class="n">my_words</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># print the variable</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">third_word</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -482,6 +495,8 @@ By the end of this lesson, you should be able to:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the index of the word &#39;list&#39; in the my_words list</span>
 <span class="n">list_index</span> <span class="o">=</span> <span class="n">my_words</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">)</span>
+
+<span class="c1"># print the index</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">list_index</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -492,13 +507,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </div>
-<section id="check-your-understanding">
-<h2>💡 Check your understanding<a class="headerlink" href="#check-your-understanding" title="Permalink to this headline">#</a></h2>
-<p>What integer corresponds to the first index in a Python list?</p>
-<p>Answer: 0</p>
-</section>
 <section id="mini-exercise">
-<h2>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h2>
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
 <p>Goal: Print the string representation of a given integer.</p>
 <p>Method: Use the <code class="docutils literal notranslate"><span class="pre">.index</span></code> method to get the location of the given number in the integer list and use the index to retrieve the string representation from the string list. Be sure to print out your string.</p>
 <div class="cell docutils container">
@@ -512,8 +522,15 @@ By the end of this lesson, you should be able to:</p>
 
 <span class="c1"># get the string repesentation of this integer</span>
 <span class="n">given_integer</span> <span class="o">=</span> <span class="mi">3</span>
-
-<span class="c1"># enter code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solution">
+<h4>💡 Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter solution here</span>
 <span class="n">string_representation</span> <span class="o">=</span> <span class="n">str_list</span><span class="p">[</span><span class="n">int_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">given_integer</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">string_representation</span><span class="p">)</span>
 </pre></div>
@@ -526,8 +543,9 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </section>
+</section>
 <section id="common-list-methods">
-<h2>Common List Methods:<a class="headerlink" href="#common-list-methods" title="Permalink to this headline">#</a></h2>
+<h3>Common List Methods:<a class="headerlink" href="#common-list-methods" title="Permalink to this headline">#</a></h3>
 <p>The following table summarizes some common list methods:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -573,13 +591,15 @@ By the end of this lesson, you should be able to:</p>
 </table>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tuples">
-<h1>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h1>
+<section id="tuples">
+<h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">#</a></h2>
 <p>Tuples are very similar to lists - they are groups of objects that can be of any size. Tuples are delineated by round parentheses:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a tuple called my_numbers_tuple which has the intergers 1-5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a tuple called my_numbers_tuple which has the integers 1-5</span>
 <span class="n">my_numbers_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># print the tuple</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_numbers_tuple</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -595,6 +615,8 @@ By the end of this lesson, you should be able to:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a tuple which has an integer, a string, and a list</span>
 <span class="n">my_mixed_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,[</span><span class="s2">&quot;Another&quot;</span><span class="p">,</span><span class="s2">&quot;list&quot;</span><span class="p">])</span>
+
+<span class="c1"># print the tuple</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_mixed_tuple</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -627,7 +649,10 @@ By the end of this lesson, you should be able to:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try to change the last element in my_numbers_tuple to the integer 6</span>
+<span class="c1"># by uncommenting the line below</span>
+
 <span class="c1"># my_numbers_tuple[-1] = 6</span>
+
 <span class="c1"># what happens?</span>
 </pre></div>
 </div>
@@ -669,8 +694,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="sets">
-<h1>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">#</a></h1>
+<section id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">#</a></h2>
 <p>Sets are similar to lists and tuples except that they only store unique values. They are initialized with curly brackets <code class="docutils literal notranslate"><span class="pre">{}</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,15 +737,22 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 <section id="id1">
-<h2>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Goal: Get a list of unqiue values in a list with duplicates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of student surnames with duplicates</span>
 <span class="n">student_surnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Wood&#39;</span><span class="p">,</span> <span class="s1">&#39;Chen&#39;</span><span class="p">,</span> <span class="s1">&#39;Nguyen&#39;</span><span class="p">,</span> <span class="s1">&#39;Ho&#39;</span><span class="p">,</span> <span class="s1">&#39;Koh&#39;</span><span class="p">,</span> <span class="s1">&#39;Jones&#39;</span><span class="p">,</span> <span class="s1">&#39;Nguyen&#39;</span><span class="p">,</span> <span class="s1">&#39;Jones&#39;</span><span class="p">,</span>
                     <span class="s1">&#39;Nguyen&#39;</span><span class="p">,</span> <span class="s1">&#39;Arora&#39;</span><span class="p">,</span> <span class="s1">&#39;Mamidi&#39;</span><span class="p">,</span> <span class="s1">&#39;Nguyen&#39;</span><span class="p">,</span> <span class="s1">&#39;Phan&#39;</span><span class="p">,</span> <span class="s1">&#39;Wood&#39;</span><span class="p">]</span>
-
-<span class="c1"># make a list of unique student surnames</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h4>💡 Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a list of unique student surnames</span>
 <span class="c1"># print the surnames in alphabetical order</span>
 <span class="n">unique_student_surnames</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">student_surnames</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">unique_student_surnames</span><span class="p">)</span>
@@ -735,6 +767,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </section>
 </section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -745,16 +779,16 @@ By the end of this lesson, you should be able to:</p>
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cs122"
+            mode: "teaching"
         },
         kernelOptions: {
-            name: "cs122",
+            name: "teaching",
             path: "./python_basics"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cs122'</script>
+    <script>kernelName = 'teaching'</script>
 
                 </article>
               
@@ -768,22 +802,13 @@ By the end of this lesson, you should be able to:</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="strings.html"
+       href="getting-familiar.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Strings</p>
+        <p class="prev-next-title">Getting Familiar with Python</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="dicts-and-sets.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dictionaries</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -803,20 +828,23 @@ By the end of this lesson, you should be able to:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sequential Data Types and Strings</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">💡 Check your understanding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-list-methods">Common List Methods:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-list-methods">Common List Methods:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>

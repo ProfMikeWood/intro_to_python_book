@@ -10,12 +10,12 @@ parts:
   #   - file: getting_started/conda-environments
   - caption: Python Basics
     chapters:
-    # - file: python_basics/primitive-data-types
-    - file: python_basics/strings
-    - file: python_basics/sequence-data
-    - file: python_basics/dicts-and-sets
-    - file: python_basics/control-flow
-    - file: python_basics/functions
+     - file: python_basics/getting-familiar
+     - file: python_basics/sequence-data
+#    - file: python_basics/strings
+#    - file: python_basics/dicts-and-sets
+#    - file: python_basics/control-flow
+#    - file: python_basics/functions
     # - file: python_basics/exceptions
   # - caption: Code Organization
   #   chapters:
