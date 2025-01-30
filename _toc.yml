@@ -12,7 +12,7 @@ parts:
     chapters:
      - file: python_basics/getting-familiar
      - file: python_basics/sequence-data
-#    - file: python_basics/strings
+     - file: python_basics/strings
 #    - file: python_basics/dicts-and-sets
 #    - file: python_basics/control-flow
 #    - file: python_basics/functions

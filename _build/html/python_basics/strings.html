@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_basics/strings';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Sequential Data Types" href="sequence-data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -158,9 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting-familiar.html">Getting Familiar with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Strings</a></li>
 </ul>
 
     </div>
@@ -354,16 +356,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-strings">Declaring Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">Manipulating Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numbers-as-strings">Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -379,16 +385,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="strings">
 <h1>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
 <p>Learning Outcomes:
-By the end of this lesson, you should be able to:</p>
+By the end of this notebook, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Declare strings and access string chracters by their indices</p></li>
 <li><p>Maniputate strings with built-in string methods</p></li>
 <li><p>Format numbers as strings with specified round-off and/or padding</p></li>
 </ol>
-<section id="part-1-declaring-strings">
-<h2>Part 1: Declaring Strings<a class="headerlink" href="#part-1-declaring-strings" title="Permalink to this headline">#</a></h2>
-<p>Strings are declared in Python using either double quotes or single quotes – and it doesn’t matter which! All that matters is that they are opened and closed with the same quote type.</p>
+<section id="declaring-strings">
+<h2>Declaring Strings<a class="headerlink" href="#declaring-strings" title="Permalink to this headline">#</a></h2>
+<p>Strings are declared in Python using either double quotes or single quotes - and it doesn’t matter which! All that matters is that they are opened and closed with the same quote type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a string enclosed in single quotes</span>
@@ -410,13 +417,13 @@ By the end of this lesson, you should be able to:</p>
 <p>Strings can be concatenated using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># concatenat the two srings above</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span> <span class="o">+</span> <span class="n">last_name</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># concatenate the two strings above along with a space in between</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_name</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">last_name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MikeWood
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mike Wood
 </pre></div>
 </div>
 </div>
@@ -427,6 +434,19 @@ By the end of this lesson, you should be able to:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try to concatenate an integer to one of the strings defined above</span>
 <span class="c1"># print(first_name + 1)</span>
 <span class="c1"># what happens? how can you alleviate this error?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can convert other objects to strings simply by wrapping them in <code class="docutils literal notranslate"><span class="pre">str</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first_name</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mike1
 </pre></div>
 </div>
 </div>
@@ -460,8 +480,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 </section>
-<section id="part-2-manipulating-strings">
-<h2>Part 2: Manipulating Strings<a class="headerlink" href="#part-2-manipulating-strings" title="Permalink to this headline">#</a></h2>
+<section id="manipulating-strings">
+<h2>Manipulating Strings<a class="headerlink" href="#manipulating-strings" title="Permalink to this headline">#</a></h2>
 <p>Beyond concatenation and accessing elements in a string, Python has many built-in methods for manipulating strings. The following table lists some of the common methods:</p>
 <table class="colwidths-auto table">
 <thead>
@@ -474,7 +494,7 @@ By the end of this lesson, you should be able to:</p>
 <td><p>Divides a string into a list of substrings with a given string</p></td>
 </tr>
 <tr class="row-odd"><td><p>join()</p></td>
-<td><p>Concatenats a list of strings into a single string</p></td>
+<td><p>Concatenates a list of strings into a single string using a specified character</p></td>
 </tr>
 <tr class="row-even"><td><p>strip()</p></td>
 <td><p>Removes the whitespace on the left and right of a string</p></td>
@@ -494,14 +514,11 @@ By the end of this lesson, you should be able to:</p>
 <tr class="row-odd"><td><p>lower()</p></td>
 <td><p>Converts uppercase characters to lowercase characters</p></td>
 </tr>
-<tr class="row-even"><td><p>reverse()</p></td>
-<td><p>Reverses the order of the string</p></td>
-</tr>
 </tbody>
 </table>
 <section id="splitting-and-joining">
 <h3>Splitting and joining<a class="headerlink" href="#splitting-and-joining" title="Permalink to this headline">#</a></h3>
-<p>Often, it is helpful to split a string into a list, make some edits and then rejoin the string. The <code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">join</span></code> methods have different approachs to syntax. The split method operates on the string and takes a substring as an argument as:</p>
+<p>Often, it is helpful to split a string into a list, make some edits and then rejoin the string. The <code class="docutils literal notranslate"><span class="pre">split</span></code> and <code class="docutils literal notranslate"><span class="pre">join</span></code> methods have different approaches to syntax. The split method operates on the string and takes a substring as an argument as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="o">&lt;</span><span class="n">substring</span><span class="o">&gt;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -562,10 +579,25 @@ This string is split across three different lines.
 </div>
 </div>
 </div>
-</section>
 <section id="mini-exercise">
-<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
-<p>Goal: Convert the tab-delimited line to a comma-delimited line that could be opened in Excel. To accomplish this, split the line at the tabs, “wrap” each item in double quotes, and then join back to a single string. The double quotes will ensure proper formatting in Excel. Your output should look as follows:</p>
+<h4>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h4>
+<p>Goal: Convert the tab-delimited line to a comma-delimited line that could be opened in Excel. For example, consider the following tab-delimited string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tab_line</span> <span class="o">=</span> <span class="s1">&#39;City, State</span><span class="se">\t</span><span class="s1">Population</span><span class="se">\n</span><span class="s1">Manhatten, NY</span><span class="se">\t</span><span class="s1">1,000,000</span><span class="se">\n</span><span class="s1">San Jose, CA</span><span class="se">\t</span><span class="s1">1,000,000&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tab_line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>City, State	Population
+Manhatten, NY	1,000,000
+San Jose, CA	1,000,000
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see above, the <code class="docutils literal notranslate"><span class="pre">\t</span></code> characters are tabs that organized the data in columns. In a csv file, columns are separated by columns - and this creates an issue with the values in the columns also have commas. To distinguish each column, we can split the line at the tabs, “wrap” each item in double quotes, and then join back to a single string. The double quotes will ensure proper formatting in Excel. Edit the tab line above so your output looks as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;City, State&quot;</span><span class="p">,</span><span class="s2">&quot;Population&quot;</span>
 <span class="s2">&quot;Manhatten, NY&quot;</span><span class="p">,</span><span class="s2">&quot;1,000,000&quot;</span>
 <span class="s2">&quot;San Jose, CA&quot;</span><span class="p">,</span><span class="s2">&quot;1,000,000&quot;</span>
@@ -624,11 +656,12 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </section>
 </section>
-<section id="part-3-formatting-numbers-as-strings">
-<h2>Part 3: Formatting Numbers as Strings<a class="headerlink" href="#part-3-formatting-numbers-as-strings" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="formatting-numbers-as-strings">
+<h2>Formatting Numbers as Strings<a class="headerlink" href="#formatting-numbers-as-strings" title="Permalink to this headline">#</a></h2>
 <section id="floats-with-decimal-places">
 <h3>Floats with decimal places<a class="headerlink" href="#floats-with-decimal-places" title="Permalink to this headline">#</a></h3>
-<p>Often, it is desireable to format numbers with strings. For example, Python, like all programming languages, is suceptible to round off errors:</p>
+<p>Often, it is desireable to format numbers with strings. For example, Python, like all programming languages, is susceptible to round off errors:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squared_square_root</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
@@ -686,7 +719,7 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </div>
 </div>
-<p>It is easier to compare the magnitude of each values when they are padded with spaces:</p>
+<p>It is easier to compare the magnitude of each values when they are padded with spaces. Here, let’s pad each number with 7 spaces:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pad the integers above with 7 decimal places</span>
@@ -708,10 +741,9 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 </div>
 </div>
 </div>
-</section>
 <section id="id1">
-<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
-<p>Goal: Use the format method to write the following list of numbers padded with room for 8 digits before the decimal place and 5 digits after the decimal place.</p>
+<h4>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
+<p>Goal: Use the format method to write the following list of numbers padded with room for 20 total digits and 5 digits after the decimal place.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">5.2</span>
 <span class="mf">1754.567</span>
 <span class="mf">20.43</span>
@@ -719,27 +751,29 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
 <span class="mf">90724.6</span>
 </pre></div>
 </div>
+<p>To format float values, we use the syntax <code class="docutils literal notranslate"><span class="pre">'{:N.Mf}'.format(float_value)</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the total number of digits and <code class="docutils literal notranslate"><span class="pre">M</span></code> is the total number of decimal places. You output should show the numbers above aligned at their decimal places.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter code here</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:7.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5.2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:7.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1754.567</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:7.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">20.43</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:7.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5467890.121</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:7.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">90724.6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5.2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">1754.567</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">20.43</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">5467890.121</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:20.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mf">90724.6</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 5.2000
-1754.5670
-20.4300
-5467890.1210
-90724.6000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              5.2000
+           1754.5670
+             20.4300
+        5467890.1210
+          90724.6000
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 </section>
@@ -753,16 +787,16 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cs122"
+            mode: "python"
         },
         kernelOptions: {
-            name: "cs122",
+            name: "python3",
             path: "./python_basics"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cs122'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -775,6 +809,15 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="sequence-data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sequential Data Types</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -793,16 +836,20 @@ San Jose, CA&quot;,&quot;1,000,000&quot;
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-declaring-strings">Part 1: Declaring Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-manipulating-strings">Part 2: Manipulating Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-strings">Declaring Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulating-strings">Manipulating Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-and-joining">Splitting and joining</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-formatting-numbers-as-strings">Part 3: Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-numbers-as-strings">Formatting Numbers as Strings</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#floats-with-decimal-places">Floats with decimal places</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#padding-integers">Padding Integers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
