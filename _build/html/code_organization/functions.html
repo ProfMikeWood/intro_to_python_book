@@ -62,9 +62,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'python_basics/functions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code_organization/functions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Loops" href="../python_basics/loops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -161,12 +162,16 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="getting-familiar.html">Getting Familiar with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dictionaries.html">Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="if-statements.html">If Statements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Functions</a></li>
 </ul>
 
     </div>
@@ -238,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_basics/functions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcode_organization/functions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/python_basics/functions.ipynb" target="_blank"
+      <li><a href="../_sources/code_organization/functions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,18 +365,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-vs-global-variables">Local vs Global Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-umentation-strings">Doc(umentation) Strings</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
 </ul>
@@ -389,21 +397,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
 <h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h1>
-<p>Learning Objectives:
-By the end of this lesson, you should be able to:</p>
+<p>Author: Mike Wood</p>
+<p>Learning objectives: By the end of this notebook, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Define a Python function with one or more arguments that returns one or more objects.</p></li>
-<li><p>Differentiate between local and global variables, and when they can be modified</p></li>
-<li><p>Implement the lambda keyword to create short in-line functions</p></li>
+<li><p>Differentiate between local and global variables and when they can be modified</p></li>
+<li><p>Implement the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> keyword to create short in-line functions</p></li>
 </ol>
-<section id="part-1-defining-functions">
-<h2>Part 1: Defining Functions<a class="headerlink" href="#part-1-defining-functions" title="Permalink to this headline">#</a></h2>
+<section id="defining-functions">
+<h2>Defining Functions<a class="headerlink" href="#defining-functions" title="Permalink to this headline">#</a></h2>
 <p>Functions in Python start with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> and follow a similar syntax to other code blocks we have seen in Python so far - they use the typical colon and indentation formatting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a simple function to describe the weather</span>
 <span class="k">def</span> <span class="nf">weather_report</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Its hot!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It</span><span class="se">\&#39;</span><span class="s1">s hot!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -422,7 +430,7 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Its hot!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s hot!
 </pre></div>
 </div>
 </div>
@@ -433,9 +441,9 @@ By the end of this lesson, you should be able to:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># update the weather report function to include an input argument for temperature</span>
 <span class="k">def</span> <span class="nf">weather_report</span><span class="p">(</span><span class="n">temperature</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="mi">75</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - its hot!&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - it</span><span class="se">\&#39;</span><span class="s1">s hot!&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - its not hot.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; F - it</span><span class="se">\&#39;</span><span class="s1">s not hot.&#39;</span><span class="p">)</span>
 
 <span class="c1"># call the function to view its output</span>
 <span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
@@ -446,8 +454,8 @@ By the end of this lesson, you should be able to:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
-The temperature is 70 F - its not hot.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - it&#39;s hot!
+The temperature is 70 F - it&#39;s not hot.
 </pre></div>
 </div>
 </div>
@@ -468,9 +476,11 @@ The temperature is 70 F - its not hot.
         <span class="n">hot_temperature</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">hot_temperature</span><span class="o">-</span><span class="mi">32</span><span class="p">)</span>
     
     <span class="k">if</span> <span class="n">temperature</span><span class="o">&gt;</span><span class="n">hot_temperature</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its hot!&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span>
+              <span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - it</span><span class="se">\&#39;</span><span class="s1">s hot!&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - its not hot.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The temperature is &#39;&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span><span class="o">+</span>
+              <span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">units</span><span class="o">+</span><span class="s1">&#39; - it</span><span class="se">\&#39;</span><span class="s1">s not hot.&#39;</span><span class="p">)</span>
 
 <span class="c1"># call the function to view its output</span>
 <span class="n">weather_report</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span>
@@ -481,8 +491,8 @@ The temperature is 70 F - its not hot.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
-The temperature is 27.222222222222225 C - its hot!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81.00 F - it&#39;s hot!
+The temperature is 27.22 C - it&#39;s hot!
 </pre></div>
 </div>
 </div>
@@ -499,7 +509,7 @@ The temperature is 27.222222222222225 C - its hot!
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81 F - its hot!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The temperature is 81.00 F - it&#39;s hot!
 None
 </pre></div>
 </div>
@@ -550,6 +560,8 @@ None
 <section id="mini-exercise">
 <h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
 <p>Goal: Define a function called <code class="docutils literal notranslate"><span class="pre">convert_miles</span></code> to convert miles to kilometers. Provide an optional keyword that allows the user to convert to meters instead of kilometers. There are 6.2 miles in 10 kilometers and 1000 meters in 1 kilometer.</p>
+<section id="solution">
+<h4>💡 Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the convert_miles function</span>
@@ -577,9 +589,10 @@ None
 </div>
 </div>
 </section>
+</section>
 <section id="functions-with-an-indefinite-number-of-arguments">
 <h3>Functions with an indefinite number of arguments<a class="headerlink" href="#functions-with-an-indefinite-number-of-arguments" title="Permalink to this headline">#</a></h3>
-<p>It is often handy to define functions that have an open ended number of arguments. There are two primary ways that this type of feature can be implemented.</p>
+<p>It is often handy to define functions that have an open-ended number of arguments. There are two primary ways that this type of feature can be implemented.</p>
 <p>First, a function can allow for an open number of arguments to be read in as a tuple. To store the arguments as a tuple, use the single astericks syntax:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,13 +625,17 @@ None
 <p>Alternatively, a function can be used to take in a set of arguments and store them in a dictionary. The syntax is similar except that two astericks symbols are used:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that will calulate the molecular mass of one mole of a given molecule</span>
-<span class="c1"># the function should take in a dictionary of the number of each atom in the molecule</span>
-<span class="c1"># for example, for molecule propane (C3H8), the function would be called as</span>
-<span class="c1"># molecule_mass(C=3, H=8) which would be read into the dictionary {&#39;C&#39;:3, &#39;H&#39;:8}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function that will calculate the molecular</span>
+<span class="c1"># mass of one mole of a given molecule the function</span>
+<span class="c1"># should take in a dictionary of the number of each </span>
+<span class="c1"># atom in the molecule</span>
+<span class="c1"># for example, for molecule propane (C3H8), the</span>
+<span class="c1"># function would be called as molecule_mass(C=3, H=8)</span>
+<span class="c1"># which would be read into the dictionary {&#39;C&#39;:3, &#39;H&#39;:8}</span>
 <span class="k">def</span> <span class="nf">molecule_mass</span><span class="p">(</span><span class="o">**</span><span class="n">atoms</span><span class="p">):</span>
 
     <span class="c1"># define some atomic masses in a dictionary</span>
+    <span class="c1"># only showing a few examples for now</span>
     <span class="n">masses</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mf">1.008</span><span class="p">,</span>
                <span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mf">12.01</span><span class="p">,</span>
                <span class="s1">&#39;O&#39;</span><span class="p">:</span><span class="mf">15.99</span><span class="p">}</span>
@@ -650,8 +667,8 @@ None
 </div>
 </section>
 </section>
-<section id="part-2-local-vs-global-variables">
-<h2>Part 2: Local vs Global Variables<a class="headerlink" href="#part-2-local-vs-global-variables" title="Permalink to this headline">#</a></h2>
+<section id="local-vs-global-variables">
+<h2>Local vs Global Variables<a class="headerlink" href="#local-vs-global-variables" title="Permalink to this headline">#</a></h2>
 <p>Local variables are those which are defined inside of a function while global variables are those stored outside of a function. But when does the global variable space know about the local variables, and vice versa? Even more importantly, when can a function modify a global variable?</p>
 <section id="local-variables">
 <h3>Local Variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">#</a></h3>
@@ -740,9 +757,8 @@ CS [&#39;122&#39;, &#39;123&#39;, &#39;101&#39;]
 </div>
 <p>❗ Caution! Be careful about the naming of variables inside and outside your functions. If you do not intend for your function to change your global variables, be sure to make copies or otherwise ensure you are not operating on the global object.</p>
 </section>
-</section>
-<section id="part-3-doc-strings">
-<h2>Part 3: Doc Strings<a class="headerlink" href="#part-3-doc-strings" title="Permalink to this headline">#</a></h2>
+<section id="doc-umentation-strings">
+<h3>Doc(umentation) Strings<a class="headerlink" href="#doc-umentation-strings" title="Permalink to this headline">#</a></h3>
 <p>It is good practice to document your functions with “doc strings”. Doc strings are encapsulated with triple quotes at the top of the function body. When formatted correctly the <code class="docutils literal notranslate"><span class="pre">help</span></code> method can print the description. In addition, the doc strings can be used to automatically format a ReadTheDocs page when code is published online.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -751,6 +767,9 @@ CS [&#39;122&#39;, &#39;123&#39;, &#39;101&#39;]
 <span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Function to calculate the area of a circle given its radius</span>
+
+<span class="sd">    :param radius: this radius of the circle</span>
+<span class="sd">    :returns: the area of the circle</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">area</span> <span class="o">=</span> <span class="n">pi</span><span class="o">*</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span><span class="p">(</span><span class="n">area</span><span class="p">)</span>
@@ -769,14 +788,18 @@ CS [&#39;122&#39;, &#39;123&#39;, &#39;101&#39;]
 
 circle_area(radius)
     Function to calculate the area of a circle given its radius
+    
+    :param radius: this radius of the circle
+    :returns: the area of the circle
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="part-4-lambda-functions">
-<h2>Part 4: Lambda Functions<a class="headerlink" href="#part-4-lambda-functions" title="Permalink to this headline">#</a></h2>
-<p>The main way to define a function in Python uses the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword as shown above. However, if the function is a 1-line function designed to be used on the fly, it can be declared as a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function.</p>
+</section>
+<section id="lambda-functions">
+<h2>Lambda Functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h2>
+<p>The main way to define a function in Python uses the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword as shown above.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function called sqrt that returns the square root of x</span>
@@ -794,6 +817,7 @@ circle_area(radius)
 </div>
 </div>
 </div>
+<p>However, if the function is a 1-line function designed to be used on the fly, it can be declared as a <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function. We can see the syntax in the following piece of code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function called sqrt_lambda that defines the square root function</span>
@@ -844,7 +868,8 @@ circle_area(radius)
 <p>A function can also be used to provide the indices of a sorted list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function to return the </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function called list_val to return</span>
+<span class="c1"># the value of my_list at a given index</span>
 <span class="k">def</span> <span class="nf">list_val</span><span class="p">(</span><span class="n">index</span><span class="p">):</span>
     <span class="k">return</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
 
@@ -910,14 +935,14 @@ The list:
 </div>
 </div>
 </div>
-<p>In the following code block, calculate the <code class="docutils literal notranslate"><span class="pre">sin</span></code> of the numbers -π/2, 0, and π/2. The sine of a number can be estimated with the first four terms of its Taylor expansion as:</p>
+<p>In the following code block, calculate the <code class="docutils literal notranslate"><span class="pre">sin</span></code> of the numbers -<span class="math notranslate nohighlight">\(\pi\)</span>/2, 0, and <span class="math notranslate nohighlight">\(\pi\)</span>/2. The sine of a number can be estimated with the first four terms of its Taylor expansion as:</p>
 <div class="math notranslate nohighlight">
 \[ sin(x) \approx x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} \]</div>
-<p>You can estimate π as 3.1415.</p>
+<p>You can estimate <span class="math notranslate nohighlight">\(\pi\)</span> as 3.1415.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create the list of values</span>
-<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">3.1415</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="c1"># calculate the sin of the values as described above</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">/</span><span class="mi">6</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">5</span><span class="o">/</span><span class="mi">120</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">7</span><span class="o">/</span><span class="mi">5040</span><span class="p">,</span> <span class="n">values</span><span class="p">)))</span>
@@ -943,16 +968,16 @@ The list:
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "cs122"
+            mode: "teaching"
         },
         kernelOptions: {
-            name: "cs122",
-            path: "./python_basics"
+            name: "teaching",
+            path: "./code_organization"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'cs122'</script>
+    <script>kernelName = 'teaching'</script>
 
                 </article>
               
@@ -965,6 +990,15 @@ The list:
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../python_basics/loops.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Loops</p>
+      </div>
+    </a>
 </div></div>
   
 </div>
@@ -983,18 +1017,21 @@ The list:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-defining-functions">Part 1: Defining Functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-functions">Defining Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-an-indefinite-number-of-arguments">Functions with an indefinite number of arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-local-vs-global-variables">Part 2: Local vs Global Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-vs-global-variables">Local vs Global Variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-variables">Local Variables</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-variables">Global Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#doc-umentation-strings">Doc(umentation) Strings</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-doc-strings">Part 3: Doc Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-lambda-functions">Part 4: Lambda Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-example-indices-of-a-sorted-list"><code class="docutils literal notranslate"><span class="pre">lambda</span></code> Example: Indices of a sorted list</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
 </ul>

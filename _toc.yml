@@ -16,10 +16,10 @@ parts:
      - file: python_basics/dictionaries
      - file: python_basics/if-statements
      - file: python_basics/loops
-#    - file: python_basics/functions
     # - file: python_basics/exceptions
-  # - caption: Code Organization
-  #   chapters:
+  - caption: Code Organization
+    chapters:
+     - file: code_organization/functions
   #   - file: code_organization/modules
   #   - file: code_organization/packages
   #   - file: code_organization/libraries

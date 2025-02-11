@@ -4,5 +4,5 @@ This repository is constructed to maintain notes and lessons for learning Python
 
 This repository is under construction and requires lots of updates.
 
-To access the HTML version of the Jupyter Book, click [HERE](https://profmikewood.github.io/intro_to_python/intro.html).
+To access the HTML version of the Jupyter Book, click [HERE](https://profmikewood.github.io/intro_to_python_book/intro.html).
 
