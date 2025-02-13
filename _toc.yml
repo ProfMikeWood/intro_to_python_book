@@ -20,7 +20,7 @@ parts:
   - caption: Code Organization
     chapters:
      - file: code_organization/functions
-  #   - file: code_organization/modules
+     - file: code_organization/modules
   #   - file: code_organization/packages
   #   - file: code_organization/libraries
   # - caption: File IO
