@@ -1,0 +1,971 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Using the file system &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files/using_the_filesystem';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Modules" href="../code_organization/modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">File IO</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using the file system</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ffiles/using_the_filesystem.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/files/using_the_filesystem.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using the file system</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-os-module-and-paths">The <code class="docutils literal notranslate"><span class="pre">os</span></code> module and paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-current-working-directory">The Current Working Directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contents-of-the-current-working-directory">Contents of the Current Working Directory</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-on-your-machine">Paths on your machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-new-directories">Making new directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-to-new-directories">Moving files to new directories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shutil-module">The <code class="docutils literal notranslate"><span class="pre">shutil</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-python-commands-vs-unix-shell-commands">Overview: Python Commands vs Unix Shell Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-glob-module">The <code class="docutils literal notranslate"><span class="pre">glob</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-subprocess-module">The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="using-the-file-system">
+<h1>Using the file system<a class="headerlink" href="#using-the-file-system" title="Permalink to this headline">#</a></h1>
+<p>Learning Objectives:
+By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">os</span></code> module to write platform-independent scripts to access information about the file system</p></li>
+<li><p>Copy files using the <code class="docutils literal notranslate"><span class="pre">shutil</span></code> module</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">glob</span></code> module to write Unix-type file search commands</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module to run shell-script code from python</p></li>
+</ol>
+<p><strong>Import Modules for this Notebook</strong></p>
+<p>In the notebook introducing <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/code_organization/modules.html">modules</a>, we imported modules as we needed them. However, it is good style to import all of the modules you need in your notebook (or other scripts) in one import block near the top of the file. For this notebook, we will use 4 modules:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the os, shutil, glob, and subprocess modules</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-os-module-and-paths">
+<h2>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module and paths<a class="headerlink" href="#the-os-module-and-paths" title="Permalink to this headline">#</a></h2>
+<p>Python’s built-in <code class="docutils literal notranslate"><span class="pre">os</span></code> module is a useful too to acccess information about the file system. Many of the <code class="docutils literal notranslate"><span class="pre">os</span></code> functions mimic common shell scripting commands but return python objects that can be used in Python code. Let’s take a look at few examples:</p>
+<section id="the-current-working-directory">
+<h3>The Current Working Directory<a class="headerlink" href="#the-current-working-directory" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check your current working directory</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/Documents/Teaching/Github/intro_to_python_book/files
+</pre></div>
+</div>
+</div>
+</div>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>What kind of path is this (absolute or relative)?</p></li>
+<li><p>What is the equivalent command in your terminal?</p></li>
+</ol>
+<section id="contents-of-the-current-working-directory">
+<h4>Contents of the Current Working Directory<a class="headerlink" href="#contents-of-the-current-working-directory" title="Permalink to this headline">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the contents of your current working directory</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;.DS_Store&#39;, &#39;using_the_filesystem.ipynb&#39;, &#39;.ipynb_checkpoints&#39;, &#39;data&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>What files are visible in your file system?</p></li>
+<li><p>What is the equivalent command in your terminal?</p></li>
+</ol>
+</section>
+</section>
+<section id="paths-on-your-machine">
+<h3>Paths on your machine<a class="headerlink" href="#paths-on-your-machine" title="Permalink to this headline">#</a></h3>
+<p>Paths on your machine provide the address where certain data is stored. For example, the above list, we find that there is a directory called <code class="docutils literal notranslate"><span class="pre">data</span></code> in our present working directory. If we would like to provide a path in this folder, we just need to append <code class="docutils literal notranslate"><span class="pre">data</span></code> to our current path. However, different operating systems use different formats for the string representation of paths. The <code class="docutils literal notranslate"><span class="pre">os</span></code> module gives us a convenient way to write platform-independent paths.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create an absolute path to the data folder</span>
+<span class="n">data_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+
+<span class="c1"># print out the data folder path</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_folder</span><span class="p">)</span>
+
+<span class="c1"># print the number of files in the data folder</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_folder</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mike/Documents/Teaching/Github/intro_to_python_book/files/data
+3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mini-exercise">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
+<p>Goal: Get a list of all Jupyter Notebooks we’ve written in CS 122 so far using the <code class="docutils literal notranslate"><span class="pre">os</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set an absolute path to your CS 122 directory</span>
+<span class="n">full_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mike/Documents/SJSU/CS_122&#39;</span>
+
+<span class="c1"># loop through the contents of your Lecture directory to get a list</span>
+<span class="c1"># of directories corresponding to each of the lectures we&#39;ve had so far</span>
+<span class="n">lectures</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lecture</span> <span class="ow">in</span>  <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span><span class="s1">&#39;Lecture&#39;</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="s1">&#39;Lecture&#39;</span> <span class="ow">in</span> <span class="n">lecture</span><span class="p">:</span>
+        <span class="n">lectures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lecture</span><span class="p">)</span>
+
+<span class="c1"># for each lecture directory, loop through the contents and see </span>
+<span class="c1"># if any of the files have the extension &#39;ipynb&#39;. Note also that</span>
+<span class="c1"># there may be hidden file for ipynb checkpoints, so be careful</span>
+<span class="c1"># about how your file comparison is checked</span>
+<span class="n">notebooks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">lecture</span> <span class="ow">in</span> <span class="n">lectures</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">full_path</span><span class="p">,</span><span class="s1">&#39;Lecture&#39;</span><span class="p">,</span><span class="n">lecture</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">file_name</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span><span class="o">==</span><span class="s1">&#39;.ipynb&#39;</span><span class="p">:</span>
+            <span class="n">notebooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># print out the list of notebooks, one per line</span>
+<span class="k">for</span> <span class="n">notebook</span> <span class="ow">in</span> <span class="n">notebooks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CS 122 Lecture 2-1.ipynb
+CS 122 Lecture 1 Notebook.ipynb
+CS 122 Lecture 4-2.ipynb
+CS 122 Lecture 3-1b.ipynb
+CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 2-2b.ipynb
+CS 122 Lecture 2-2a.ipynb
+CS 122 Lecture 4-1.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="making-new-directories">
+<h3>Making new directories<a class="headerlink" href="#making-new-directories" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module gives us the functionality to modify our file system. For example, we can make a new directory given an absolute (or relative) path.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a path for a new organized_data directory</span>
+<span class="n">organized_data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;organized_data&#39;</span><span class="p">)</span>
+
+<span class="c1"># make a new directory called organized_data in the present working directory</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">organized_data</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">organized_data</span><span class="p">)</span>
+
+<span class="c1"># revise the above line to provide a check to determine whether the data exists - only make it if it does not exist</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Question: What is the equivalent command in the terminal?</p>
+</section>
+<section id="moving-files-to-new-directories">
+<h3>Moving files to new directories<a class="headerlink" href="#moving-files-to-new-directories" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">os</span></code> module also provides a means to move files from one location on your machine to another: the <code class="docutils literal notranslate"><span class="pre">rename</span></code> method.</p>
+<p>In the following code block, we will practice creating directories and moving files using the 2022 data in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder. Begin by looping through the <code class="docutils literal notranslate"><span class="pre">data</span></code> directory and generating a folder in the <code class="docutils literal notranslate"><span class="pre">organized_data</span></code> directory for each month (e.g. 2022_01, 2022_02, etc). Then, move each 2022 file from the <code class="docutils literal notranslate"><span class="pre">data</span></code> directory into its corresponding month file in the <code class="docutils literal notranslate"><span class="pre">organized_data</span></code> directory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a new folder in the organized_data folder for each month in 2022</span>
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_folder</span><span class="p">):</span>
+
+    <span class="c1"># check that the file is from 2022</span>
+    <span class="k">if</span> <span class="n">file_name</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;2022&#39;</span><span class="p">:</span>
+
+        <span class="c1"># define the name of a new folder in the format YYYY_MM</span>
+        <span class="n">year_month</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
+
+        <span class="c1"># if this year_month is not yet in the organized_data directory, then make it</span>
+        <span class="k">if</span> <span class="n">year_month</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">organized_data</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">organized_data</span><span class="p">,</span> <span class="n">year_month</span><span class="p">))</span>
+
+        <span class="c1"># move the file into the year_month folder</span>
+        <span class="c1"># define the src_path and the dest_path</span>
+        <span class="c1"># then, move the file</span>
+        <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">organized_data</span><span class="p">,</span> <span class="n">year_month</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span> <span class="n">dest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-shutil-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">shutil</span></code> module<a class="headerlink" href="#the-shutil-module" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">shutil</span></code> mode provides the utility to make copies of files on your file system. There are three main functions used for copying files, as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>copyfile</p></th>
+<th class="head"><p>copy</p></th>
+<th class="head"><p>copy2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Destination can be a directory</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+</tr>
+<tr class="row-odd"><td><p>Copies metadata</p></td>
+<td><p>N</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+</tr>
+<tr class="row-even"><td><p>Copies permissions</p></td>
+<td><p>N</p></td>
+<td><p>Y</p></td>
+<td><p>Y</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a path to the source data file 2023_0101.txt in data</span>
+<span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="s1">&#39;2023_0101.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a destination path to the current directory with the file name</span>
+<span class="n">dst_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;2023_0101.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># try the copyfile method with the dst path</span>
+<span class="c1"># what happens if you just provide the current directory?</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span><span class="n">dst_path</span><span class="p">)</span>
+
+<span class="c1"># try the copy method with the dst path</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span><span class="n">dst_path</span><span class="p">)</span>
+
+<span class="c1"># try the copy2 method with the dst path</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span><span class="n">dst_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/mike/Documents/Teaching/Github/intro_to_python_book/files/2023_0101.txt&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Modify the code above to make copies of the 2023 data in monthly directories in the <code class="docutils literal notranslate"><span class="pre">organized_data</span></code> directory</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a new folder in the organized_data folder for each month in 2022</span>
+<span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_folder</span><span class="p">):</span>
+
+    <span class="c1"># check that the file is from 2023</span>
+    <span class="k">if</span> <span class="n">file_name</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;2023&#39;</span><span class="p">:</span>
+
+        <span class="c1"># define the name of a new folder in the format YYYY_MM</span>
+        <span class="n">year_month</span> <span class="o">=</span> <span class="n">file_name</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>
+
+        <span class="c1"># if this year_month is not yet in the organized_data directory, then make it</span>
+        <span class="k">if</span> <span class="n">year_month</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">organized_data</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">organized_data</span><span class="p">,</span> <span class="n">year_month</span><span class="p">))</span>
+
+        <span class="c1"># make a copy of the file in the year_month folder</span>
+        <span class="c1"># define the src_path and the dest_path</span>
+        <span class="c1"># then, copy the file using one of the shutil functions</span>
+        <span class="n">src_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">dest_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">organized_data</span><span class="p">,</span> <span class="n">year_month</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">src_path</span><span class="p">,</span> <span class="n">dest_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="overview-python-commands-vs-unix-shell-commands">
+<h2>Overview: Python Commands vs Unix Shell Commands<a class="headerlink" href="#overview-python-commands-vs-unix-shell-commands" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
+<th class="head"><p>Unix</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>os.getcwd()</p></td>
+<td><p>pwd</p></td>
+<td><p>Determine the current/present working directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>os.chdir()</p></td>
+<td><p>cd</p></td>
+<td><p>Change directory</p></td>
+</tr>
+<tr class="row-even"><td><p>os.mkdir()</p></td>
+<td><p>mkdir</p></td>
+<td><p>Make a directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>os.rename()</p></td>
+<td><p>mv</p></td>
+<td><p>Rename a file or move to a new location</p></td>
+</tr>
+<tr class="row-even"><td><p>os.listdir()</p></td>
+<td><p>ls</p></td>
+<td><p>List the files and folders in a directory</p></td>
+</tr>
+<tr class="row-odd"><td><p>shutil.copy()</p></td>
+<td><p>cp</p></td>
+<td><p>Copy a file to a new location</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-glob-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">glob</span></code> module<a class="headerlink" href="#the-glob-module" title="Permalink to this headline">#</a></h2>
+<p>When using Unix-type shell commands, wildcard symbols are extremely useful for finding and accessing subsets of files. There are 2 main wildcard symbols:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>symbol</p></th>
+<th class="head"><p>use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">?</span></code></p></td>
+<td><p>Wildcard for a single symbol</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td><p>Wildcard symbol for any number of symbols</p></td>
+</tr>
+</tbody>
+</table>
+<p>Try these in the <code class="docutils literal notranslate"><span class="pre">data</span></code> directory in your shelf:</p>
+<ol class="arabic simple">
+<li><p>How would you determine the names of files that correspond to the first day of each month in 2023?</p></li>
+<li><p>How would you determine the name of all files that correspond to December of 2023?</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">glob</span></code> module provides functionality to provide Unix-style searches of your file system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find all files names that correspond to the first day of each month in 2023</span>
+<span class="n">search_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span><span class="s1">&#39;2023_??01.txt&#39;</span><span class="p">)</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">search_path</span><span class="p">)</span>
+
+<span class="c1"># find all files in December 2023</span>
+<span class="n">search_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span><span class="s1">&#39;2023_1*.txt&#39;</span><span class="p">)</span>
+<span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">search_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p>Goal: Get a list of all Jupyter Notebooks we’ve written in CS 122 so far using the <code class="docutils literal notranslate"><span class="pre">glob</span></code> module.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a search path</span>
+<span class="n">test_path</span> <span class="o">=</span> <span class="s1">&#39;/Users/mike/Documents/SJSU/CS_122/Lecture/Lecture*/*.ipynb&#39;</span>
+
+<span class="c1"># use the glob module to get the list of paths for the notebooks</span>
+<span class="n">matching_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">test_path</span><span class="p">)</span>
+
+<span class="c1"># make a loop to just get the file name (not the whole path)</span>
+<span class="n">notebooks</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">file_path</span> <span class="ow">in</span> <span class="n">matching_paths</span><span class="p">:</span>
+    <span class="n">notebooks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
+
+<span class="c1"># print the notebook files, line by line</span>
+<span class="k">for</span> <span class="n">notebook</span> <span class="ow">in</span> <span class="n">notebooks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">notebook</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CS 122 Lecture 2-1.ipynb
+CS 122 Lecture 1 Notebook.ipynb
+CS 122 Lecture 4-2.ipynb
+CS 122 Lecture 3-1b.ipynb
+CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 2-2b.ipynb
+CS 122 Lecture 2-2a.ipynb
+CS 122 Lecture 4-1.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-subprocess-module">
+<h2>The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module<a class="headerlink" href="#the-subprocess-module" title="Permalink to this headline">#</a></h2>
+<p>The final module we will investigate in this notebook is the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module. It’s not necessarily related to using the file system, but its related to accessing the terminal and running shell scripts from Python, so it fits within the theme of this notebook.</p>
+<p>The most useful method of the <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module if Popen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write a function to list the files in the current directory</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span><span class="s1">&#39;-l&#39;</span><span class="p">])</span>
+<span class="c1"># p.communicate()</span>
+
+<span class="c1"># the first and second arguments from Popen are the standard output and standard error</span>
+<span class="c1"># if a string is desired, then &quot;pipe&quot; the stdout</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;ls&#39;</span><span class="p">,</span><span class="s1">&#39;-l&#39;</span><span class="p">],</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="n">output</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+
+<span class="c1"># print the type of output</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+
+<span class="c1"># convert the type of the output to a string</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">output</span><span class="p">))</span>
+
+<span class="c1"># split the output and print line by line</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 48
+-rw-r--r--  1 mike  staff     23 Sep 18  2023 2023_0101.txt
+drwxr-xr-x  5 mike  staff    160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
+drwxr-xr-x  3 mike  staff     96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
+-rw-r--r--@ 1 mike  staff  19095 Feb 18 14:37 using_the_filesystem.ipynb
+&lt;class &#39;bytes&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+total 48
+-rw-r--r--  1 mike  staff     23 Sep 18  2023 2023_0101.txt
+drwxr-xr-x  5 mike  staff    160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
+drwxr-xr-x  3 mike  staff     96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
+-rw-r--r--@ 1 mike  staff  19095 Feb 18 14:37 using_the_filesystem.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./files"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../code_organization/modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modules</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-os-module-and-paths">The <code class="docutils literal notranslate"><span class="pre">os</span></code> module and paths</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-current-working-directory">The Current Working Directory</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contents-of-the-current-working-directory">Contents of the Current Working Directory</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paths-on-your-machine">Paths on your machine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-new-directories">Making new directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-files-to-new-directories">Moving files to new directories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-shutil-module">The <code class="docutils literal notranslate"><span class="pre">shutil</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-python-commands-vs-unix-shell-commands">Overview: Python Commands vs Unix Shell Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-glob-module">The <code class="docutils literal notranslate"><span class="pre">glob</span></code> module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-subprocess-module">The <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> module</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
