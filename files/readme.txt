@@ -1,0 +1,1 @@
+To write a text file, change the mode to 'w' 
