@@ -167,6 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
 <ul class="nav bd-sidenav">
@@ -532,6 +533,7 @@ CS 122 Lecture 1 Notebook.ipynb
 CS 122 Lecture 4-2.ipynb
 CS 122 Lecture 3-1b.ipynb
 CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 5-2.ipynb
 CS 122 Lecture 2-2b.ipynb
 CS 122 Lecture 2-2a.ipynb
 CS 122 Lecture 4-1.ipynb
@@ -783,6 +785,7 @@ CS 122 Lecture 1 Notebook.ipynb
 CS 122 Lecture 4-2.ipynb
 CS 122 Lecture 3-1b.ipynb
 CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 5-2.ipynb
 CS 122 Lecture 2-2b.ipynb
 CS 122 Lecture 2-2a.ipynb
 CS 122 Lecture 4-1.ipynb
@@ -823,36 +826,36 @@ CS 122 Lecture 4-1.ipynb
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 2784
 -rw-r--r--  1 mike  staff       23 Sep 18  2023 2023_0101.txt
--rw-r--r--@ 1 mike  staff      230 Feb 20 10:25 Monterey Bay Biggest Wave 2022.csv
+-rw-r--r--@ 1 mike  staff      230 Feb 25 10:56 Monterey Bay Biggest Wave 2022.csv
 -rw-r--r--@ 1 mike  staff  1341408 Sep 19  2023 Monterey Bay Buoy Data.txt
 drwxr-xr-x  5 mike  staff      160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
 -rw-r--r--@ 1 mike  staff     1904 Sep 20  2023 data_file
--rw-r--r--  1 mike  staff      311 Feb 20 10:25 date_data.pickle
--rw-r--r--  1 mike  staff      112 Feb 20 10:25 date_dict.pickle
+-rw-r--r--  1 mike  staff      311 Feb 25 10:56 date_data.pickle
+-rw-r--r--  1 mike  staff      112 Feb 25 10:56 date_dict.pickle
 -rw-r--r--@ 1 mike  staff    22414 Feb 20 10:25 file-io.ipynb
--rw-r--r--  1 mike  staff       32 Feb 20 10:25 float.bin
--rw-r--r--@ 1 mike  staff        6 Feb 20 10:25 number_list.bin
+-rw-r--r--  1 mike  staff       32 Feb 25 10:56 float.bin
+-rw-r--r--@ 1 mike  staff        6 Feb 25 10:56 number_list.bin
 drwxr-xr-x  3 mike  staff       96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
--rw-r--r--  1 mike  staff       45 Feb 20 10:25 readme.txt
+-rw-r--r--  1 mike  staff       45 Feb 25 10:56 readme.txt
 -rw-r--r--@ 1 mike  staff    19095 Feb 18 14:37 using_the_filesystem.ipynb
--rw-r--r--  1 mike  staff       33 Feb 20 10:25 year_data.csv
+-rw-r--r--  1 mike  staff       33 Feb 25 10:56 year_data.csv
 &lt;class &#39;bytes&#39;&gt;
 &lt;class &#39;str&#39;&gt;
 total 2784
 -rw-r--r--  1 mike  staff       23 Sep 18  2023 2023_0101.txt
--rw-r--r--@ 1 mike  staff      230 Feb 20 10:25 Monterey Bay Biggest Wave 2022.csv
+-rw-r--r--@ 1 mike  staff      230 Feb 25 10:56 Monterey Bay Biggest Wave 2022.csv
 -rw-r--r--@ 1 mike  staff  1341408 Sep 19  2023 Monterey Bay Buoy Data.txt
 drwxr-xr-x  5 mike  staff      160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
 -rw-r--r--@ 1 mike  staff     1904 Sep 20  2023 data_file
--rw-r--r--  1 mike  staff      311 Feb 20 10:25 date_data.pickle
--rw-r--r--  1 mike  staff      112 Feb 20 10:25 date_dict.pickle
+-rw-r--r--  1 mike  staff      311 Feb 25 10:56 date_data.pickle
+-rw-r--r--  1 mike  staff      112 Feb 25 10:56 date_dict.pickle
 -rw-r--r--@ 1 mike  staff    22414 Feb 20 10:25 file-io.ipynb
--rw-r--r--  1 mike  staff       32 Feb 20 10:25 float.bin
--rw-r--r--@ 1 mike  staff        6 Feb 20 10:25 number_list.bin
+-rw-r--r--  1 mike  staff       32 Feb 25 10:56 float.bin
+-rw-r--r--@ 1 mike  staff        6 Feb 25 10:56 number_list.bin
 drwxr-xr-x  3 mike  staff       96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
--rw-r--r--  1 mike  staff       45 Feb 20 10:25 readme.txt
+-rw-r--r--  1 mike  staff       45 Feb 25 10:56 readme.txt
 -rw-r--r--@ 1 mike  staff    19095 Feb 18 14:37 using_the_filesystem.ipynb
--rw-r--r--  1 mike  staff       33 Feb 20 10:25 year_data.csv
+-rw-r--r--  1 mike  staff       33 Feb 25 10:56 year_data.csv
 </pre></div>
 </div>
 </div>
