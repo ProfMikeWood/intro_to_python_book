@@ -27,10 +27,10 @@ parts:
     chapters:
     - file: files/using_the_filesystem
     - file: files/file-io
-  # - caption: Object-Oriented Programming
-  #   chapters:
-  #   - file: object_oriented_programming/classes-in-python
-  #   - file: object_oriented_programming/object_types
+  - caption: Object-Oriented Programming
+    chapters:
+    - file: oop/classes
+  #  - file: oop/object_types
   # - caption: Beyond the Basics
   #   chapters:
   #   - file: beyond_the_basics/scraping-the-web
