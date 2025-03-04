@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'oop/classes';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pillars of Object-Oriented Programming" href="oop_pillars.html" />
     <link rel="prev" title="File Inputs and Outputs (I/O)" href="../files/file-io.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -181,6 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
 </ul>
 
     </div>
@@ -388,12 +390,17 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-method-attributes">Special Method Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subclasses-and-inheritance">Subclasses and Inheritance</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-scoping-with-subclasses">Name Scoping with Subclasses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">💡 Solution</a></li>
 </ul>
 </li>
 </ul>
@@ -416,6 +423,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Define classes and implement instance variables</p></li>
 <li><p>Declare methods within a class</p></li>
+<li><p>Implement special method attributes in custom classes</p></li>
 <li><p>Implement subclasses that inherit variables and methods from their superclasses</p></li>
 </ol>
 <section id="python-classes-in-this-book-so-far">
@@ -474,7 +482,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.University object at 0x111fe0050&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.University object at 0x1102d0450&gt;
 &lt;class &#39;__main__.University&#39;&gt;
 </pre></div>
 </div>
@@ -742,6 +750,83 @@ UC Santa Cruz
 </div>
 </section>
 </section>
+<section id="special-method-attributes">
+<h3>Special Method Attributes<a class="headerlink" href="#special-method-attributes" title="Permalink to this headline">#</a></h3>
+<p>In Python, we can override the functions that underly the typical Python operators in our classes. For example, in Python, we don’t have a “toString()” method. However, we can override the str() method to implement this functionality.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a class called University</span>
+<span class="c1"># fill in the __init__ body with the simple name assignment, as above</span>
+<span class="c1"># add a new __str__ method to return the name of the string</span>
+<span class="k">class</span> <span class="nc">University</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;California&#39;</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a new University for San Jose State University</span>
+<span class="n">sjsu</span> <span class="o">=</span> <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose&#39;</span><span class="p">,</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)</span>
+
+<span class="c1"># convert the object to a str and make a print statement:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My university is &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">sjsu</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My university is San Jose State University
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try the above example without the <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method - what happens?</p>
+</section>
+<section id="id3">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Goal: Edit the Univerity class to override the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> method. The new method should return the name of the name instance variable to include the string ‘ and ‘ as well as the name of the new university.</p>
+<section id="id4">
+<h4>💡 Solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># edit the University class here</span>
+<span class="k">class</span> <span class="nc">University</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_school</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; and &#39;</span> <span class="o">+</span> <span class="n">new_school</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># define two Univeristy objects for sjsu and ucsc</span>
+<span class="n">sjsu</span> <span class="o">=</span> <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose&#39;</span><span class="p">,</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)</span>
+<span class="n">ucsc</span> <span class="o">=</span> <span class="n">University</span><span class="p">(</span><span class="s1">&#39;Santa Cruz&#39;</span><span class="p">,</span><span class="s1">&#39;UC Santa Cruz&#39;</span><span class="p">)</span>
+
+<span class="c1"># print the output of sjsu+ucsc</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sjsu</span><span class="o">+</span><span class="n">ucsc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>San Jose State University and UC Santa Cruz
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
 </section>
 <section id="subclasses-and-inheritance">
 <h2>Subclasses and Inheritance<a class="headerlink" href="#subclasses-and-inheritance" title="Permalink to this headline">#</a></h2>
@@ -855,11 +940,11 @@ Michael Kaufman
 </div>
 <p>What location is printed? Why?</p>
 </section>
-<section id="id3">
-<h3>🤔 Mini-Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<section id="id5">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>Goal: Create a subclass of your <code class="docutils literal notranslate"><span class="pre">Computer</span></code> class for the type of computer you are working on. For example, your class may be called <code class="docutils literal notranslate"><span class="pre">MacBook</span></code> or <code class="docutils literal notranslate"><span class="pre">SurfacePro</span></code>. Your subclass should take in three arguments: the two arguments for the Computer class as well as one additional argument for your operating system (e.g. MacOS, Linux, etc). The operating system should be stored in a given instance variable. Be sure to test all 3 instance variables of your class to ensure they were assigned correctly.</p>
-<section id="id4">
-<h4>💡 Solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<section id="id6">
+<h4>💡 Solution<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -933,6 +1018,15 @@ MacOS
         <p class="prev-next-title">File Inputs and Outputs (I/O)</p>
       </div>
     </a>
+    <a class="right-next"
+       href="oop_pillars.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pillars of Object-Oriented Programming</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
@@ -965,12 +1059,17 @@ MacOS
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#special-method-attributes">Special Method Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subclasses-and-inheritance">Subclasses and Inheritance</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-scoping-with-subclasses">Name Scoping with Subclasses</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">💡 Solution</a></li>
 </ul>
 </li>
 </ul>

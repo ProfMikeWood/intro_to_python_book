@@ -30,7 +30,7 @@ parts:
   - caption: Object-Oriented Programming
     chapters:
     - file: oop/classes
-  #  - file: oop/object_types
+    - file: oop/oop_pillars
   # - caption: Beyond the Basics
   #   chapters:
   #   - file: beyond_the_basics/scraping-the-web
