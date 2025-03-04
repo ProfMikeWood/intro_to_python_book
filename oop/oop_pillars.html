@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pillars of Object-Oriented Programming &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'oop/oop_pillars';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Classes" href="classes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="classes.html">Classes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pillars of Object-Oriented Programming</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Foop/oop_pillars.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/oop/oop_pillars.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pillars of Object-Oriented Programming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-an-example-class">Defining an Example Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">Object-Oriented Programming in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pillars-of-object-oriented-programming">
+<h1>Pillars of Object-Oriented Programming<a class="headerlink" href="#pillars-of-object-oriented-programming" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>Learning objectives: By the end of this notebook, you should be able to list the four pillars of object-oriented programming and demonstrate them in Python.</p>
+<section id="defining-an-example-class">
+<h2>Defining an Example Class<a class="headerlink" href="#defining-an-example-class" title="Permalink to this headline">#</a></h2>
+<p>In this notebook, we will look at a number of features of object oriented programming. To get us started, lat’s define an example class called <code class="docutils literal notranslate"><span class="pre">School</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a class called School that has:</span>
+<span class="c1">#    - one attribute for name that is provided</span>
+<span class="c1">#      as an argument and assigned at initialization</span>
+<span class="c1">#    - one method called print_name that prints</span>
+<span class="c1">#      the School object&#39;s name</span>
+<span class="k">class</span> <span class="nc">School</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="object-oriented-programming-in-python">
+<h2>Object-Oriented Programming in Python<a class="headerlink" href="#object-oriented-programming-in-python" title="Permalink to this headline">#</a></h2>
+<p>Object-oriented programming (OOP) is the idea that code should be centered around <strong>objects</strong>. <strong>Classes</strong> are used to generate objects that hold data. Further, objects contain <strong>methods</strong> that are used to access and modify the data that they hold.</p>
+<p>OOP is a coding framework that is taught often in Computer Science courses. The extent to which OOP is implemented in coding frameworks depends on your development team. Some teams are more strict with OOP protocols than others. Versitile developers will be well-versed in OOP, so it’s a good idea to build a foundation for implementing code with OOP approach in Python.</p>
+<p>There are 4 “pillars” of Object-Oriented Programming:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Pillar</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>inheritance</p></td>
+<td><p>new classes are created from existing classes, providing a mechanism to reuse code and facilitate efficient development</p></td>
+</tr>
+<tr class="row-odd"><td><p>polymorphism</p></td>
+<td><p>methods can be used equivalently across similar classes, allowing for versitile and easily-maintained code</p></td>
+</tr>
+<tr class="row-even"><td><p>abstraction</p></td>
+<td><p>classes are derived from simplified frameworks so that development is focused on underlying details rather than implementation</p></td>
+</tr>
+<tr class="row-odd"><td><p>encapsulation</p></td>
+<td><p>classes contain methods to access and manipulate data contained in object, helping to protect data from unintended manipulation</p></td>
+</tr>
+</tbody>
+</table>
+<section id="inheritance">
+<h3>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">#</a></h3>
+<p>As we observed in the <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/oop/classes.html#subclasses-and-inheritance">notebook on classes</a>, subclasses can <em>inherit</em> attributes and methods from a given class. Begin by defining three subclasses of the <code class="docutils literal notranslate"><span class="pre">School</span></code> class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a new class called Kindergarten which extends the School class</span>
+<span class="c1"># fill in the body of the class with the keyword pass</span>
+<span class="k">class</span> <span class="nc">Kindergarten</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># define a new class called Montessori which extends the School class</span>
+<span class="c1"># fill in the body of the class with the keyword pass</span>
+<span class="k">class</span> <span class="nc">Montessori</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="c1"># define a new class called University which extends the School class</span>
+<span class="c1"># fill in the body of the class with the keyword pass</span>
+<span class="k">class</span> <span class="nc">University</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since each class is a subclass of the superclass <code class="docutils literal notranslate"><span class="pre">School</span></code>, each subclass has the <code class="docutils literal notranslate"><span class="pre">print_name</span></code> method from inherited from the superclass:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a list of school objects using each</span>
+<span class="c1"># of the subclasses above</span>
+<span class="n">schools</span> <span class="o">=</span> <span class="p">[</span><span class="n">Kindergarten</span><span class="p">(</span><span class="s1">&#39;Lowell Elementary School&#39;</span><span class="p">),</span>
+           <span class="n">Montessori</span><span class="p">(</span><span class="s1">&#39;San Jose Montessori School&#39;</span><span class="p">),</span>
+           <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)]</span>
+
+<span class="c1"># loop through each of the School objects</span>
+<span class="c1"># and call the print_name method</span>
+<span class="k">for</span> <span class="n">school</span> <span class="ow">in</span> <span class="n">schools</span><span class="p">:</span>
+    <span class="n">school</span><span class="o">.</span><span class="n">print_name</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Lowell Elementary School
+San Jose Montessori School
+San Jose State University
+</pre></div>
+</div>
+</div>
+</div>
+<p>The inheritance property of classes allows the developer to focus on the development of subclasses without having to rework the details of the methods and attributes defined within the superclass. Further, if the superclass method needs to be updated, then it only needs to be done once rather than in all of the subclasses.</p>
+</section>
+<section id="polymorphism">
+<h3>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">#</a></h3>
+<p>In the previous example, we saw that we could use the same <code class="docutils literal notranslate"><span class="pre">print_method</span></code> on objects created in each subclass because it was inherited from the superclass. We can go a step further and define functions in each of our subclasses that could be used in a similar way - this is the idea of polymorphism. Modify the subclasses above to include a new method called <code class="docutils literal notranslate"><span class="pre">print_age_group</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a new class called Kindergarten</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with</span>
+<span class="c1"># a method to print the following string:</span>
+<span class="c1"># &#39;In Kindergarten, the age group is 3-5 years old.&#39;</span>
+<span class="k">class</span> <span class="nc">Kindergarten</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_age_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In Kindergarten, the age group is 3-5 years old.&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a new class called Montessori</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with</span>
+<span class="c1"># a method to print the following string:</span>
+<span class="c1"># &#39;In Montessori schools, the age group is 5-18 years old.&#39;</span>
+<span class="k">class</span> <span class="nc">Montessori</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_age_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;In Montessori schools, the age group is 5-18 years old.&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a new class called University</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with</span>
+<span class="c1"># a method to print the following string:</span>
+<span class="c1"># &#39;The age group of university students is typically 17 or older.&#39;</span>
+<span class="k">class</span> <span class="nc">University</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_age_group</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The age group of university students is typically 17 or older.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can create three objects from each class and use the function the same way, even though the function is uniquely defined in each subclass:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recreate the list of school objects using each of the subclasses above</span>
+<span class="n">schools</span> <span class="o">=</span> <span class="p">[</span><span class="n">Kindergarten</span><span class="p">(</span><span class="s1">&#39;Lowell Elementary School&#39;</span><span class="p">),</span>
+           <span class="n">Montessori</span><span class="p">(</span><span class="s1">&#39;San Jose Montessori School&#39;</span><span class="p">),</span>
+           <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)]</span>
+
+<span class="c1"># loop through each of the School objects and call the print_age_group method</span>
+<span class="k">for</span> <span class="n">school</span> <span class="ow">in</span> <span class="n">schools</span><span class="p">:</span>
+    <span class="n">school</span><span class="o">.</span><span class="n">print_age_group</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In Kindergarten, the age group is 3-5 years old.
+In Montessori schools, the age group is 5-18 years old.
+The age group of university students is typically 17 or older.
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s important to note that we are accessing a <em>different</em> method from each of our subclasses, but using it in the same way. This is similar to, but subtly different than, using the <em>same</em> method inherited in each subclass from the superclass.</p>
+</section>
+<section id="abstraction">
+<h3>Abstraction<a class="headerlink" href="#abstraction" title="Permalink to this headline">#</a></h3>
+<p>As a developer, you may want to ensure that subclasses generated from your class contain certain methods. This will ensure that, when the subclass is implemented alongside other existing subclasses, each will have the same function. The idea of an abstract class is that it provides a framework by which other classes that are defined from it are defined.</p>
+<p>Python has a specific module for this purpose called <code class="docutils literal notranslate"><span class="pre">abc</span></code> a.k.a. the abstract base class. There are two key components of the <code class="docutils literal notranslate"><span class="pre">abc</span></code> module: a superclass called <code class="docutils literal notranslate"><span class="pre">ABC</span></code> and a decorator called <code class="docutils literal notranslate"><span class="pre">abstract</span> <span class="pre">method</span></code>. Both can be imported from <code class="docutils literal notranslate"><span class="pre">abc</span></code> as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import ABC and abstractmethod from the abc module</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">abc</span></code>, a class can then be described by a framework:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="c1"># Edit the School class above to extend the ABC class</span>
+<span class="c1"># write an abstract method called typical_class_size </span>
+<span class="c1"># which must be implemnted in the subclasses of School</span>
+<span class="c1"># provide the keyword pass for the body</span>
+<span class="c1"># of the typical_class_size method</span>
+<span class="k">class</span> <span class="nc">School</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">print_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        
+    <span class="nd">@abstractmethod</span>  <span class="c1"># Decorator to define an abstract method</span>
+    <span class="k">def</span> <span class="nf">typical_class_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="c1"># define a new class called Kindergarten</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with</span>
+<span class="c1"># a typical_class_size method to print the following string:</span>
+<span class="c1"># &#39;The typical class size in Kindergarten is 20 students.&#39;</span>
+<span class="k">class</span> <span class="nc">Kindergarten</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">typical_class_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The typical class size in Kindergarten is 20 students.&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a new class called Montessori</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with</span>
+<span class="c1"># a typical_class_size method to print the following string:</span>
+<span class="c1"># &#39;The typical class size in Montessori schools is 50 students.&#39;</span>
+<span class="k">class</span> <span class="nc">Montessori</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">typical_class_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The typical class size in Montessori schools is 50 students.&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a new class called University</span>
+<span class="c1"># which extends the School class</span>
+<span class="c1"># fill in the body of the class with a</span>
+<span class="c1"># typical_class_size method to print the following string:</span>
+<span class="c1"># &#39;The typical class size of university classes is 20-400 students.&#39;</span>
+<span class="k">class</span> <span class="nc">University</span><span class="p">(</span><span class="n">School</span><span class="p">):</span>
+    <span class="k">pass</span>
+    <span class="c1"># def typical_class_size(self):</span>
+    <span class="c1">#     print(&#39;The typical class size of university classes is 20-400 students.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># recreate the list of school objects using each of the subclasses above</span>
+<span class="n">schools</span> <span class="o">=</span> <span class="p">[</span><span class="n">Kindergarten</span><span class="p">(</span><span class="s1">&#39;Lowell Elementary School&#39;</span><span class="p">),</span>
+           <span class="n">Montessori</span><span class="p">(</span><span class="s1">&#39;San Jose Montessori School&#39;</span><span class="p">),</span>
+           <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)]</span>
+
+<span class="c1"># loop through each of the School objects and call the print_age_group method</span>
+<span class="k">for</span> <span class="n">school</span> <span class="ow">in</span> <span class="n">schools</span><span class="p">:</span>
+    <span class="n">school</span><span class="o">.</span><span class="n">typical_class_size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># recreate the list of school objects using each of the subclasses above</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">schools</span> <span class="o">=</span> <span class="p">[</span><span class="n">Kindergarten</span><span class="p">(</span><span class="s1">&#39;Lowell Elementary School&#39;</span><span class="p">),</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>            <span class="n">Montessori</span><span class="p">(</span><span class="s1">&#39;San Jose Montessori School&#39;</span><span class="p">),</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>            <span class="n">University</span><span class="p">(</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)]</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># loop through each of the School objects and call the print_age_group method</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">for</span> <span class="n">school</span> <span class="ow">in</span> <span class="n">schools</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: Can&#39;t instantiate abstract class University with abstract method typical_class_size
+</pre></div>
+</div>
+</div>
+</div>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>What happens if you remove the abstractmethod decorator (without any other changes)?</p></li>
+<li><p>What happens if you also remove the <code class="docutils literal notranslate"><span class="pre">typical_class_size</span></code> method from one of the subclasses (without any other changes)?</p></li>
+</ol>
+<p>Key point: By extending the <code class="docutils literal notranslate"><span class="pre">ABC</span></code> class and using the <code class="docutils literal notranslate"><span class="pre">abstractmethod</span></code> decorator, the School class is designed to raise an exception if a subclass is not organized with the necessary components.</p>
+</section>
+<section id="encapsulation">
+<h3>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">#</a></h3>
+<p>Finally, the idea of encapsulation is that an object should contain all of the data and methods required for its operation. For example, we can use getters and setters if we like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># revisit the School class</span>
+<span class="k">class</span> <span class="nc">School</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="c1"># call the set_enrollment method below to set</span>
+        <span class="c1"># the enrollment instance variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_enrollment</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># define a method set_enrollment which takes in students</span>
+    <span class="c1"># as an argument and assigns them to an enrollment instance variable</span>
+    <span class="k">def</span> <span class="nf">set_enrollment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">students</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__enrollment</span> <span class="o">=</span> <span class="n">students</span>
+        
+    <span class="c1"># define a method get_enrollment which returns the</span>
+    <span class="c1"># enrollment instance variable    </span>
+    <span class="k">def</span> <span class="nf">get_enrollment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__enrollment</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Try the getter and setter below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a School object for sjsu</span>
+<span class="n">sjsu</span> <span class="o">=</span> <span class="n">School</span><span class="p">(</span><span class="s1">&#39;San Jose State University&#39;</span><span class="p">)</span>
+
+<span class="c1"># try the getter method and print the number of students enrolled</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">sjsu</span><span class="o">.</span><span class="n">get_enrollment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+
+<span class="c1"># try the setter method</span>
+<span class="n">sjsu</span><span class="o">.</span><span class="n">set_enrollment</span><span class="p">(</span><span class="mi">26000</span><span class="p">)</span>
+
+<span class="c1"># try the getter method again and print the number of students enrolled</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">sjsu</span><span class="o">.</span><span class="n">get_enrollment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+
+<span class="c1"># try setting the enrollment variable manually</span>
+<span class="n">sjsu</span><span class="o">.</span><span class="n">__enrollment</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1"># try accessing the enrollment variable manually</span>
+<span class="c1"># and printint out its value</span>
+<span class="n">students</span> <span class="o">=</span> <span class="n">sjsu</span><span class="o">.</span><span class="n">get_enrollment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+26000
+26000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>What happens if we repeat the same thing but use one underscore in front of the variable name?</p></li>
+<li><p>What happens if we repeat the same thing but use two underscores in front of the variable name?</p></li>
+</ol>
+<p>A note about Python: hidden variables are not that common. Encapsulation usually means that you can use a method without worrying much about the internal machinery that makes it work. Typically, you just use the single underscore variables to signal to co-developers that the variables are designed to be used for internal use, rather than accessed by the use of the object (although they could if they wanted to).</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "teaching"
+        },
+        kernelOptions: {
+            name: "teaching",
+            path: "./oop"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'teaching'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="classes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Classes</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-an-example-class">Defining an Example Class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-oriented-programming-in-python">Object-Oriented Programming in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inheritance">Inheritance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#polymorphism">Polymorphism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abstraction">Abstraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encapsulation">Encapsulation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
