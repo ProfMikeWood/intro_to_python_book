@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'code_organization/modules';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using the file system" href="../files/using_the_filesystem.html" />
+    <link rel="next" title="Packages and Libraries" href="packages.html" />
     <link rel="prev" title="Functions" href="functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -175,6 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Packages and Libraries</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
 <ul class="nav bd-sidenav">
@@ -446,7 +447,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 0.0015490055084228516 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Elapsed time: 0.0013098716735839844 seconds
 </pre></div>
 </div>
 </div>
@@ -477,7 +478,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>556 days, 0:00:00
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>557 days, 0:00:00
 </pre></div>
 </div>
 </div>
@@ -566,9 +567,9 @@ ln(3) = 1.0986122886681098
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random integer between 1 and 10: 5
-Random float between 1 and 10: 7.748641191256509
-Random sample from a Gaussian distribution: -0.17872043090276582
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Random integer between 1 and 10: 1
+Random float between 1 and 10: 7.464593981663481
+Random sample from a Gaussian distribution: 0.29423593739538184
 </pre></div>
 </div>
 </div>
@@ -620,7 +621,7 @@ Random sample from a Gaussian distribution: -0.17872043090276582
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of approximation: 0.0004212769543829139
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE of approximation: 0.00033022335312718243
 </pre></div>
 </div>
 </div>
@@ -672,7 +673,7 @@ Wood
 <p>How can you edit the <code class="docutils literal notranslate"><span class="pre">test_module</span></code> to create a new function for <code class="docutils literal notranslate"><span class="pre">middle_name()</span></code>?</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When you change a module outside of a Jupyter Notebook, you need to <strong>restart your kernel</strong> for the changes to be reflected in the notebook.</p>
+<p>When you change a module outside of a Jupyter Notebook, you need to do one of two things to implement the changes: 1) restart your kernel or 2) use the importlib package by importing the package (<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">importlib</span></code>) and reloading your package (<code class="docutils literal notranslate"><span class="pre">tm</span> <span class="pre">=</span> <span class="pre">importlib.reload(tm)</span></code>).</p>
 </div>
 </section>
 <section id="try-it-for-yourself">
@@ -766,11 +767,11 @@ Wood
       </div>
     </a>
     <a class="right-next"
-       href="../files/using_the_filesystem.html"
+       href="packages.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Using the file system</p>
+        <p class="prev-next-title">Packages and Libraries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

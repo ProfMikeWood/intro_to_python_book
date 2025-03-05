@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="File Inputs and Outputs (I/O)" href="file-io.html" />
-    <link rel="prev" title="Modules" href="../code_organization/modules.html" />
+    <link rel="prev" title="Packages and Libraries" href="../code_organization/packages.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -173,6 +173,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
 <ul class="current nav bd-sidenav">
@@ -539,6 +540,7 @@ CS 122 Lecture 4-2.ipynb
 CS 122 Lecture 6-1.ipynb
 CS 122 Lecture 3-1b.ipynb
 CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 7-1.ipynb
 CS 122 Lecture 5-2.ipynb
 CS 122 Lecture 2-2b.ipynb
 CS 122 Lecture 2-2a.ipynb
@@ -793,6 +795,7 @@ CS 122 Lecture 4-2.ipynb
 CS 122 Lecture 6-1.ipynb
 CS 122 Lecture 3-1b.ipynb
 CS 122 Lecture 3-1a.ipynb
+CS 122 Lecture 7-1.ipynb
 CS 122 Lecture 5-2.ipynb
 CS 122 Lecture 2-2b.ipynb
 CS 122 Lecture 2-2a.ipynb
@@ -835,36 +838,36 @@ CS 122 Lecture 6-2.ipynb
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total 2784
 -rw-r--r--  1 mike  staff       23 Sep 18  2023 2023_0101.txt
--rw-r--r--@ 1 mike  staff      230 Mar  4 14:31 Monterey Bay Biggest Wave 2022.csv
+-rw-r--r--@ 1 mike  staff      230 Mar  5 09:58 Monterey Bay Biggest Wave 2022.csv
 -rw-r--r--@ 1 mike  staff  1341408 Sep 19  2023 Monterey Bay Buoy Data.txt
 drwxr-xr-x  5 mike  staff      160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
 -rw-r--r--@ 1 mike  staff     1904 Sep 20  2023 data_file
--rw-r--r--  1 mike  staff      311 Mar  4 14:31 date_data.pickle
--rw-r--r--  1 mike  staff      112 Mar  4 14:31 date_dict.pickle
+-rw-r--r--  1 mike  staff      311 Mar  5 09:58 date_data.pickle
+-rw-r--r--  1 mike  staff      112 Mar  5 09:58 date_dict.pickle
 -rw-r--r--@ 1 mike  staff    22414 Feb 20 10:25 file-io.ipynb
--rw-r--r--  1 mike  staff       32 Mar  4 14:31 float.bin
--rw-r--r--@ 1 mike  staff        6 Mar  4 14:31 number_list.bin
+-rw-r--r--  1 mike  staff       32 Mar  5 09:58 float.bin
+-rw-r--r--@ 1 mike  staff        6 Mar  5 09:58 number_list.bin
 drwxr-xr-x  3 mike  staff       96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
--rw-r--r--  1 mike  staff       45 Mar  4 14:31 readme.txt
+-rw-r--r--  1 mike  staff       45 Mar  5 09:58 readme.txt
 -rw-r--r--@ 1 mike  staff    19095 Feb 18 14:37 using_the_filesystem.ipynb
--rw-r--r--  1 mike  staff       33 Mar  4 14:31 year_data.csv
+-rw-r--r--  1 mike  staff       33 Mar  5 09:58 year_data.csv
 &lt;class &#39;bytes&#39;&gt;
 &lt;class &#39;str&#39;&gt;
 total 2784
 -rw-r--r--  1 mike  staff       23 Sep 18  2023 2023_0101.txt
--rw-r--r--@ 1 mike  staff      230 Mar  4 14:31 Monterey Bay Biggest Wave 2022.csv
+-rw-r--r--@ 1 mike  staff      230 Mar  5 09:58 Monterey Bay Biggest Wave 2022.csv
 -rw-r--r--@ 1 mike  staff  1341408 Sep 19  2023 Monterey Bay Buoy Data.txt
 drwxr-xr-x  5 mike  staff      160 Feb 18 14:35 <span class=" -Color -Color-Bold -Color-Bold-Blue">data</span>
 -rw-r--r--@ 1 mike  staff     1904 Sep 20  2023 data_file
--rw-r--r--  1 mike  staff      311 Mar  4 14:31 date_data.pickle
--rw-r--r--  1 mike  staff      112 Mar  4 14:31 date_dict.pickle
+-rw-r--r--  1 mike  staff      311 Mar  5 09:58 date_data.pickle
+-rw-r--r--  1 mike  staff      112 Mar  5 09:58 date_dict.pickle
 -rw-r--r--@ 1 mike  staff    22414 Feb 20 10:25 file-io.ipynb
--rw-r--r--  1 mike  staff       32 Mar  4 14:31 float.bin
--rw-r--r--@ 1 mike  staff        6 Mar  4 14:31 number_list.bin
+-rw-r--r--  1 mike  staff       32 Mar  5 09:58 float.bin
+-rw-r--r--@ 1 mike  staff        6 Mar  5 09:58 number_list.bin
 drwxr-xr-x  3 mike  staff       96 Feb 18 14:37 <span class=" -Color -Color-Bold -Color-Bold-Blue">organized_data</span>
--rw-r--r--  1 mike  staff       45 Mar  4 14:31 readme.txt
+-rw-r--r--  1 mike  staff       45 Mar  5 09:58 readme.txt
 -rw-r--r--@ 1 mike  staff    19095 Feb 18 14:37 using_the_filesystem.ipynb
--rw-r--r--  1 mike  staff       33 Mar  4 14:31 year_data.csv
+-rw-r--r--  1 mike  staff       33 Mar  5 09:58 year_data.csv
 </pre></div>
 </div>
 </div>
@@ -904,12 +907,12 @@ drwxr-xr-x  3 mike  staff       96 Feb 18 14:37 <span class=" -Color -Color-Bold
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../code_organization/modules.html"
+       href="../code_organization/packages.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Modules</p>
+        <p class="prev-next-title">Packages and Libraries</p>
       </div>
     </a>
     <a class="right-next"
