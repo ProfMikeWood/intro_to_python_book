@@ -1,0 +1,1006 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Packages and Libraries &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code_organization/packages';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the file system" href="../files/using_the_filesystem.html" />
+    <link rel="prev" title="Modules" href="modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fcode_organization/packages.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/code_organization/packages.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Packages and Libraries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-conda-packages">Installing Conda Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-package">Creating a Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-package-from-a-different-directory">Using your package from a different directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-your-package-in-your-conda-environment">Installing Your Package in Your Conda Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-an-installed-package">Modifying an installed package</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="packages-and-libraries">
+<h1>Packages and Libraries<a class="headerlink" href="#packages-and-libraries" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>Learning Objectives: By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Install a new conda library on your machine</p></li>
+<li><p>Generate a list of all modules available in your conda environment</p></li>
+<li><p>Develop your own Python library</p></li>
+<li><p>Implement a custom Python library in your conda environment</p></li>
+</ol>
+<section id="installing-conda-packages">
+<h2>Installing Conda Packages<a class="headerlink" href="#installing-conda-packages" title="Permalink to this headline">#</a></h2>
+<p>In this course, we are using <strong>miniconda</strong> to manage our installation of Python as well as the packages we installed for this course. You may remember from our first lecture that we installed a package so that we can use this Jupyter notebook with the following command in our terminal:
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">jupyter</span></code></p>
+<p>To remind ourselves of this process we will install two more packages which will be used later on in this class: <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">scipy</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library will provide a convenient way to work with numeric data. The <code class="docutils literal notranslate"><span class="pre">scipy</span></code> library will give us a wide range of computational tools.</p>
+<p>If you’d like to get a list of all the modules available in your conda installation, you can use the <code class="docutils literal notranslate"><span class="pre">help('modules')</span></code> feature. Note that may have received some <code class="docutils literal notranslate"><span class="pre">UserWarnings</span></code> in the when using this function - this results from Python checking the import of each individual module. Developers will place a <code class="docutils literal notranslate"><span class="pre">UserWarning</span></code> in a module when they suspect it will be depricated later. If you’d like to disable these statements, fear not! There is a module for that:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the warnings module </span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="c1"># use the warnings module to filer out the UserWarnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the help method to generate a list of all modules</span>
+<span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please wait a moment while I gather a list of all available modules...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AppKit              babel               ipykernel           random
+Cocoa               backcall            ipykernel_launcher  ratelim
+CoreFoundation      backports           ipython_genutils    re
+Foundation          base64              ipywidgets          readline
+IPython             bdb                 isoduration         referencing
+OpenSSL             binascii            itertools           reprlib
+PIL                 binhex              itsdangerous        requests
+__future__          bisect              jedi                requests_oauthlib
+_abc                bleach              jinja2              resource
+_aix_support        blinker             joblib              retrying
+_argon2_cffi_bindings branca              json                rfc3339_validator
+_ast                brotli              json5               rfc3986_validator
+_asyncio            bs4                 jsonpointer         rlcompleter
+_bisect             builtins            jsonschema          rpds
+_blake2             bz2                 jsonschema_specifications rsa
+_bootsubprocess     cProfile            jupyter             runpy
+_brotli             cached_property     jupyter_client      sched
+_bz2                cachetools          jupyter_console     scipy
+_cffi_backend       calendar            jupyter_core        secrets
+_codecs             certifi             jupyter_events      select
+_codecs_cn          cffi                jupyter_lsp         selectors
+_codecs_hk          cgi                 jupyter_server      send2trash
+_codecs_iso2022     cgitb               jupyter_server_terminals setuptools
+_codecs_jp          charset_normalizer  jupyterlab          shelve
+_codecs_kr          chunk               jupyterlab_plotly   shlex
+_codecs_tw          click               jupyterlab_pygments shutil
+_collections        cmath               jupyterlab_server   signal
+_collections_abc    cmd                 jupyterlab_widgets  site
+_compat_pickle      code                jwt                 six
+_compression        codecs              keyword             sklearn
+_contextvars        codeop              kiwisolver          smtpd
+_crypt              collections         lib2to3             smtplib
+_csv                colorama            libfuturize         sndhdr
+_ctypes             colorsys            libpasteurize       sniffio
+_ctypes_test        colour              linecache           socket
+_curses             comm                locale              socketserver
+_curses_panel       compileall          logging             socks
+_datetime           concurrent          lxml                sockshandler
+_dbm                conda_notes         lzma                soupsieve
+_decimal            configparser        mailbox             sqlite3
+_distutils_hack     contextlib          mailcap             sqlparse
+_elementtree        contextvars         markupsafe          sre_compile
+_functools          contourpy           marshal             sre_constants
+_hashlib            copy                math                sre_parse
+_heapq              copyreg             matplotlib          ssl
+_imp                crypt               matplotlib_inline   stack_data
+_io                 cryptography        mimetypes           stat
+_json               cs122notes          mistune             statistics
+_locale             csv                 mmap                string
+_lsprof             ctypes              modulefinder        stringprep
+_lzma               curses              moviepy             struct
+_markupbase         cycler              multidict           subprocess
+_md5                dash                multiprocessing     sunau
+_multibytecodec     dash_core_components multitasking        symtable
+_multiprocessing    dash_html_components munkres             sys
+_opcode             dash_table          nbclient            sysconfig
+_operator           dataclasses         nbconvert           syslog
+_osx_support        datetime            nbformat            tabnanny
+_pickle             dateutil            nest_asyncio        tarfile
+_plotly_future_     dbm                 netrc               telnetlib
+_plotly_utils       debugpy             nis                 tempfile
+_posixshmem         decimal             nntplib             tenacity
+_posixsubprocess    decorator           notebook            terminado
+_py_abc             defusedxml          notebook_shim       termios
+_pydecimal          difflib             ntpath              test
+_pyio               dis                 nturl2path          test_module
+_queue              distutils           numbers             textwrap
+_random             django              numpy               this
+_scproxy            doctest             oauthlib            threading
+_sha1               email               objc                threadpoolctl
+_sha256             encodings           opcode              time
+_sha3               ensurepip           openpyxl            timeit
+_sha512             entrypoints         operator            timezonefinder
+_signal             enum                optparse            tinycss2
+_sitebuiltins       errno               os                  tkinter
+_socket             et_xmlfile          overrides           tkmacosx
+_sqlite3            exceptiongroup      packaging           token
+_sre                executing           pandas              tokenize
+_ssl                fastjsonschema      pandocfilters       tomli
+_stat               faulthandler        parso               tornado
+_statistics         fcntl               past                tqdm
+_string             filecmp             pathlib             trace
+_strptime           fileinput           pdb                 traceback
+_struct             flask               peewee              tracemalloc
+_symtable           flask_cors          pexpect             traitlets
+_sysconfigdata__darwin_darwin fnmatch             pickle              tty
+_sysconfigdata_x86_64_apple_darwin13_4_0 folium              pickleshare         turtle
+_testbuffer         fontTools           pickletools         turtledemo
+_testcapi           fqdn                pip                 types
+_testclinic         fractions           pipes               typing
+_testimportmultiple frozendict          pkg_resources       typing_extensions
+_testinternalcapi   frozenlist          pkgutil             typing_utils
+_testmultiphase     ftplib              pkgutil_resolve_name tzdata
+_thread             functools           platform            unicodedata
+_threading_local    future              platformdirs        unicodedata2
+_tkinter            gc                  playhouse           unittest
+_tracemalloc        general_notes       plistlib            uri_template
+_uuid               genericpath         plotly              uritemplate
+_warnings           geocoder            poplib              urllib
+_weakref            geographiclib       posix               urllib3
+_weakrefset         geopy               posixpath           uu
+_xxsubinterpreters  getopt              pprint              uuid
+_xxtestfuzz         getpass             profile             venv
+_yaml               gettext             proglog             warnings
+_zoneinfo           glob                prometheus_client   wave
+abc                 google_auth_httplib2 prompt_toolkit      wcwidth
+aifc                google_auth_oauthlib pstats              weakref
+aiohttp             googleapiclient     psutil              webbrowser
+aiosignal           graphlib            pty                 webcolors
+ansi2html           grp                 ptyprocess          webencodings
+antigravity         gzip                pure_eval           websocket
+anyio               h3                  pwd                 werkzeug
+apiclient           hashlib             pwiz                wheel
+appdirs             heapq               py_compile          widgetsnbextension
+appnope             hmac                pyasn1              wsgiref
+argon2              html                pyasn1_modules      xdrlib
+argparse            html5lib            pyclbr              xml
+array               http                pycparser           xmlrpc
+arrow               httplib2            pydoc               xxlimited
+asgiref             idlelib             pydoc_data          xxlimited_35
+ast                 idna                pyexpat             xxsubtype
+astrology           imageio             pygments            xyzservices
+asttokens           imageio_ffmpeg      pylab               yaml
+async_lru           imaplib             pyparsing           yarl
+async_timeout       imghdr              python_notes        yfinance
+asynchat            imp                 pythonjsonlogger    zipapp
+asyncio             importlib           pytz                zipfile
+asyncore            importlib_metadata  pyu2f               zipimport
+atexit              importlib_resources qtconsole           zipp
+attr                inspect             qtpy                zlib
+attrs               io                  queue               zmq
+audioop             ipaddress           quopri              zoneinfo
+
+Enter any module name to get more help.  Or, type &quot;modules spam&quot; to search
+for modules whose name or summary contain the string &quot;spam&quot;.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We can see in the above block that we have modules from the standard installation (e.g. <code class="docutils literal notranslate"><span class="pre">abc</span></code>) and we also have modules which we installed previously (e.g. <code class="docutils literal notranslate"><span class="pre">jupyter</span></code>).</p>
+</section>
+<section id="creating-a-package">
+<h2>Creating a Package<a class="headerlink" href="#creating-a-package" title="Permalink to this headline">#</a></h2>
+<p>So far, we have created modules that contain functions that used within Jupyter notebooks. Today, we’ll create several modules and group them together into a <em>package</em>.</p>
+<p>Let’s begin by creating a module called <code class="docutils literal notranslate"><span class="pre">general_notes</span></code> that contains a simple function <code class="docutils literal notranslate"><span class="pre">module_import_note</span></code> with a print statement that reminds us about importing modules. When complete, run the following code block to ensure your package works as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the general_notes module</span>
+<span class="kn">import</span> <span class="nn">general_notes</span> <span class="k">as</span> <span class="nn">gn</span>
+
+<span class="c1"># test the module_import_note function</span>
+<span class="n">gn</span><span class="o">.</span><span class="n">module_import_note</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module can be imported in a Jupyter notebook
+if it is in the same directory as the notebook
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, let’s create a separate module called <code class="docutils literal notranslate"><span class="pre">conda_notes</span></code> that specifically stores notes about <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Build a function with a simple function called</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the conda_notes module</span>
+<span class="kn">import</span> <span class="nn">conda_notes</span> <span class="k">as</span> <span class="nn">cn</span>
+
+<span class="c1"># test the conda_environment_setup function</span>
+<span class="n">cn</span><span class="o">.</span><span class="n">conda_environment_setup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The command to make a new conda environment is conda create --name my_env
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, consider if we could bundle these scripts into a <em>package</em> that we could import together.</p>
+<p>To create a package, first create a directory structure for your package and move everything into the directories. For this example, we will create a directory called <code class="docutils literal notranslate"><span class="pre">python_notes</span></code> with a subdirectory called <code class="docutils literal notranslate"><span class="pre">conda</span></code>. Put the <code class="docutils literal notranslate"><span class="pre">general_notes</span></code> module into the top level directory and the <code class="docutils literal notranslate"><span class="pre">conda_notes</span></code> modules into the subdirectory.</p>
+<p>To give your directories a package structure, we need to add an <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module to each subdirectory. The <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> module doesn’t need to contain any code - but you can add code if you like. This is typically where developers will add <code class="docutils literal notranslate"><span class="pre">UserWarnings</span></code> as we saw above. Add the <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> modules and try import your modules from the package and running the functions we defined above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the python_notes package</span>
+<span class="kn">import</span> <span class="nn">python_notes.general_notes</span> <span class="k">as</span> <span class="nn">gn</span>
+
+<span class="c1"># run the module_import_note function from the general_notes modules</span>
+<span class="n">gn</span><span class="o">.</span><span class="n">module_import_note</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module can be imported in a Jupyter notebook
+if it is in the same directory as the notebook
+</pre></div>
+</div>
+</div>
+</div>
+<section id="using-your-package-from-a-different-directory">
+<h3>Using your package from a different directory<a class="headerlink" href="#using-your-package-from-a-different-directory" title="Permalink to this headline">#</a></h3>
+<p>If you want to use your package from a different directory, then one option you have is to tell Python where you want it to look. One way to do this is to use the <code class="docutils literal notranslate"><span class="pre">sys</span></code> module to modify your system path:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the sys module</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># insert the path to the directory of the module in another directory</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;/Users/mike/Documents/Python/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the module can be accessed, imported, and utilized:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the python_notes package</span>
+<span class="kn">import</span> <span class="nn">python_notes.conda.conda_notes</span> <span class="k">as</span> <span class="nn">cn</span>
+
+<span class="c1"># test the conda_environment_setup function</span>
+<span class="n">cn</span><span class="o">.</span><span class="n">conda_environment_setup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The command to make a new conda environment is conda create --name my_env
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="installing-your-package-in-your-conda-environment">
+<h2>Installing Your Package in Your Conda Environment<a class="headerlink" href="#installing-your-package-in-your-conda-environment" title="Permalink to this headline">#</a></h2>
+<p>After you’ve created a package, you may be interested in having your package available in other contexts. We can see above how to explicitly provide a path to a package. How can we <em>install</em> our package into our conda environment? The first thing we will need is a new file called <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and fill it with the following contents:</p>
+<p>Now, using your terminal, run the command from the directory where your <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file is located (be sure your conda environment is activated):</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code></p>
+<p>If the installation is successful, your should receive a nice note about it was successfully installed. Let’s check that we now see it in our list:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use the help method to generate a list of all modules</span>
+<span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please wait a moment while I gather a list of all available modules...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AppKit              babel               ipykernel           random
+Cocoa               backcall            ipykernel_launcher  ratelim
+CoreFoundation      backports           ipython_genutils    re
+Foundation          base64              ipywidgets          readline
+IPython             bdb                 isoduration         referencing
+OpenSSL             binascii            itertools           reprlib
+PIL                 binhex              itsdangerous        requests
+__future__          bisect              jedi                requests_oauthlib
+_abc                bleach              jinja2              resource
+_aix_support        blinker             joblib              retrying
+_argon2_cffi_bindings branca              json                rfc3339_validator
+_ast                brotli              json5               rfc3986_validator
+_asyncio            bs4                 jsonpointer         rlcompleter
+_bisect             builtins            jsonschema          rpds
+_blake2             bz2                 jsonschema_specifications rsa
+_bootsubprocess     cProfile            jupyter             runpy
+_brotli             cached_property     jupyter_client      sched
+_bz2                cachetools          jupyter_console     scipy
+_cffi_backend       calendar            jupyter_core        secrets
+_codecs             certifi             jupyter_events      select
+_codecs_cn          cffi                jupyter_lsp         selectors
+_codecs_hk          cgi                 jupyter_server      send2trash
+_codecs_iso2022     cgitb               jupyter_server_terminals setuptools
+_codecs_jp          charset_normalizer  jupyterlab          shelve
+_codecs_kr          chunk               jupyterlab_plotly   shlex
+_codecs_tw          click               jupyterlab_pygments shutil
+_collections        cmath               jupyterlab_server   signal
+_collections_abc    cmd                 jupyterlab_widgets  site
+_compat_pickle      code                jwt                 six
+_compression        codecs              keyword             sklearn
+_contextvars        codeop              kiwisolver          smtpd
+_crypt              collections         lib2to3             smtplib
+_csv                colorama            libfuturize         sndhdr
+_ctypes             colorsys            libpasteurize       sniffio
+_ctypes_test        colour              linecache           socket
+_curses             comm                locale              socketserver
+_curses_panel       compileall          logging             socks
+_datetime           concurrent          lxml                sockshandler
+_dbm                conda_notes         lzma                soupsieve
+_decimal            configparser        mailbox             sqlite3
+_distutils_hack     contextlib          mailcap             sqlparse
+_elementtree        contextvars         markupsafe          sre_compile
+_functools          contourpy           marshal             sre_constants
+_hashlib            copy                math                sre_parse
+_heapq              copyreg             matplotlib          ssl
+_imp                crypt               matplotlib_inline   stack_data
+_io                 cryptography        mimetypes           stat
+_json               cs122notes          mistune             statistics
+_locale             csv                 mmap                string
+_lsprof             ctypes              modulefinder        stringprep
+_lzma               curses              moviepy             struct
+_markupbase         cycler              multidict           subprocess
+_md5                dash                multiprocessing     sunau
+_multibytecodec     dash_core_components multitasking        symtable
+_multiprocessing    dash_html_components munkres             sys
+_opcode             dash_table          nbclient            sysconfig
+_operator           dataclasses         nbconvert           syslog
+_osx_support        datetime            nbformat            tabnanny
+_pickle             dateutil            nest_asyncio        tarfile
+_plotly_future_     dbm                 netrc               telnetlib
+_plotly_utils       debugpy             nis                 tempfile
+_posixshmem         decimal             nntplib             tenacity
+_posixsubprocess    decorator           notebook            terminado
+_py_abc             defusedxml          notebook_shim       termios
+_pydecimal          difflib             ntpath              test
+_pyio               dis                 nturl2path          test_module
+_queue              distutils           numbers             textwrap
+_random             django              numpy               this
+_scproxy            doctest             oauthlib            threading
+_sha1               email               objc                threadpoolctl
+_sha256             encodings           opcode              time
+_sha3               ensurepip           openpyxl            timeit
+_sha512             entrypoints         operator            timezonefinder
+_signal             enum                optparse            tinycss2
+_sitebuiltins       errno               os                  tkinter
+_socket             et_xmlfile          overrides           tkmacosx
+_sqlite3            exceptiongroup      packaging           token
+_sre                executing           pandas              tokenize
+_ssl                fastjsonschema      pandocfilters       tomli
+_stat               faulthandler        parso               tornado
+_statistics         fcntl               past                tqdm
+_string             filecmp             pathlib             trace
+_strptime           fileinput           pdb                 traceback
+_struct             flask               peewee              tracemalloc
+_symtable           flask_cors          pexpect             traitlets
+_sysconfigdata__darwin_darwin fnmatch             pickle              tty
+_sysconfigdata_x86_64_apple_darwin13_4_0 folium              pickleshare         turtle
+_testbuffer         fontTools           pickletools         turtledemo
+_testcapi           fqdn                pip                 types
+_testclinic         fractions           pipes               typing
+_testimportmultiple frozendict          pkg_resources       typing_extensions
+_testinternalcapi   frozenlist          pkgutil             typing_utils
+_testmultiphase     ftplib              pkgutil_resolve_name tzdata
+_thread             functools           platform            unicodedata
+_threading_local    future              platformdirs        unicodedata2
+_tkinter            gc                  playhouse           unittest
+_tracemalloc        general_notes       plistlib            uri_template
+_uuid               genericpath         plotly              uritemplate
+_warnings           geocoder            poplib              urllib
+_weakref            geographiclib       posix               urllib3
+_weakrefset         geopy               posixpath           uu
+_xxsubinterpreters  getopt              pprint              uuid
+_xxtestfuzz         getpass             profile             venv
+_yaml               gettext             proglog             warnings
+_zoneinfo           glob                prometheus_client   wave
+abc                 google_auth_httplib2 prompt_toolkit      wcwidth
+aifc                google_auth_oauthlib pstats              weakref
+aiohttp             googleapiclient     psutil              webbrowser
+aiosignal           graphlib            pty                 webcolors
+ansi2html           grp                 ptyprocess          webencodings
+antigravity         gzip                pure_eval           websocket
+anyio               h3                  pwd                 werkzeug
+apiclient           hashlib             pwiz                wheel
+appdirs             heapq               py_compile          widgetsnbextension
+appnope             hmac                pyasn1              wsgiref
+argon2              html                pyasn1_modules      xdrlib
+argparse            html5lib            pyclbr              xml
+array               http                pycparser           xmlrpc
+arrow               httplib2            pydoc               xxlimited
+asgiref             idlelib             pydoc_data          xxlimited_35
+ast                 idna                pyexpat             xxsubtype
+astrology           imageio             pygments            xyzservices
+asttokens           imageio_ffmpeg      pylab               yaml
+async_lru           imaplib             pyparsing           yarl
+async_timeout       imghdr              python_notes        yfinance
+asynchat            imp                 pythonjsonlogger    zipapp
+asyncio             importlib           pytz                zipfile
+asyncore            importlib_metadata  pyu2f               zipimport
+atexit              importlib_resources qtconsole           zipp
+attr                inspect             qtpy                zlib
+attrs               io                  queue               zmq
+audioop             ipaddress           quopri              zoneinfo
+
+Enter any module name to get more help.  Or, type &quot;modules spam&quot; to search
+for modules whose name or summary contain the string &quot;spam&quot;.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Now that our module is installed in our environment, we can check that the module can be imported, even if we move it out of directory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the python_notes package</span>
+<span class="kn">import</span> <span class="nn">python_notes.conda.conda_notes</span> <span class="k">as</span> <span class="nn">cn</span>
+
+<span class="c1"># test the conda_environment_setup function</span>
+<span class="n">cn</span><span class="o">.</span><span class="n">conda_environment_setup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The command to make a new conda environment is conda create --name my_env
+</pre></div>
+</div>
+</div>
+</div>
+<section id="modifying-an-installed-package">
+<h3>Modifying an installed package<a class="headerlink" href="#modifying-an-installed-package" title="Permalink to this headline">#</a></h3>
+<p>After creating an installing your package, its likely that you would like to add more contends to your module.</p>
+<p>Add a new function to your <code class="docutils literal notranslate"><span class="pre">python_notes</span></code> modules. Try running your new function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the module_import_note function from the general_notes modules</span>
+<span class="n">gn</span><span class="o">.</span><span class="n">package_installation</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To install a package using pip and a setup file, use the pip install . command
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cs122"
+        },
+        kernelOptions: {
+            name: "cs122",
+            path: "./code_organization"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cs122'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modules</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../files/using_the_filesystem.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Using the file system</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-conda-packages">Installing Conda Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-package">Creating a Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-your-package-from-a-different-directory">Using your package from a different directory</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-your-package-in-your-conda-environment">Installing Your Package in Your Conda Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-an-installed-package">Modifying an installed package</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

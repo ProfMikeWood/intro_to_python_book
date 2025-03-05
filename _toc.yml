@@ -21,8 +21,7 @@ parts:
     chapters:
      - file: code_organization/functions
      - file: code_organization/modules
-  #   - file: code_organization/packages
-  #   - file: code_organization/libraries
+     - file: code_organization/packages
   - caption: Files
     chapters:
     - file: files/using_the_filesystem
