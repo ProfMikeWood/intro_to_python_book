@@ -30,6 +30,9 @@ parts:
     chapters:
     - file: oop/classes
     - file: oop/oop_pillars
+  - caption: Working with the Internet
+    chapters:
+    - file: web/http_requests
   # - caption: Beyond the Basics
   #   chapters:
   #   - file: beyond_the_basics/scraping-the-web
