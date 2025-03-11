@@ -185,6 +185,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web/http_requests.html">HTTP Requests</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -441,141 +445,82 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please wait a moment while I gather a list of all available modules...
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AppKit              babel               ipykernel           random
-Cocoa               backcall            ipykernel_launcher  ratelim
-CoreFoundation      backports           ipython_genutils    re
-Foundation          base64              ipywidgets          readline
-IPython             bdb                 isoduration         referencing
-OpenSSL             binascii            itertools           reprlib
-PIL                 binhex              itsdangerous        requests
-__future__          bisect              jedi                requests_oauthlib
-_abc                bleach              jinja2              resource
-_aix_support        blinker             joblib              retrying
-_argon2_cffi_bindings branca              json                rfc3339_validator
-_ast                brotli              json5               rfc3986_validator
-_asyncio            bs4                 jsonpointer         rlcompleter
-_bisect             builtins            jsonschema          rpds
-_blake2             bz2                 jsonschema_specifications rsa
-_bootsubprocess     cProfile            jupyter             runpy
-_brotli             cached_property     jupyter_client      sched
-_bz2                cachetools          jupyter_console     scipy
-_cffi_backend       calendar            jupyter_core        secrets
-_codecs             certifi             jupyter_events      select
-_codecs_cn          cffi                jupyter_lsp         selectors
-_codecs_hk          cgi                 jupyter_server      send2trash
-_codecs_iso2022     cgitb               jupyter_server_terminals setuptools
-_codecs_jp          charset_normalizer  jupyterlab          shelve
-_codecs_kr          chunk               jupyterlab_plotly   shlex
-_codecs_tw          click               jupyterlab_pygments shutil
-_collections        cmath               jupyterlab_server   signal
-_collections_abc    cmd                 jupyterlab_widgets  site
-_compat_pickle      code                jwt                 six
-_compression        codecs              keyword             sklearn
-_contextvars        codeop              kiwisolver          smtpd
-_crypt              collections         lib2to3             smtplib
-_csv                colorama            libfuturize         sndhdr
-_ctypes             colorsys            libpasteurize       sniffio
-_ctypes_test        colour              linecache           socket
-_curses             comm                locale              socketserver
-_curses_panel       compileall          logging             socks
-_datetime           concurrent          lxml                sockshandler
-_dbm                conda_notes         lzma                soupsieve
-_decimal            configparser        mailbox             sqlite3
-_distutils_hack     contextlib          mailcap             sqlparse
-_elementtree        contextvars         markupsafe          sre_compile
-_functools          contourpy           marshal             sre_constants
-_hashlib            copy                math                sre_parse
-_heapq              copyreg             matplotlib          ssl
-_imp                crypt               matplotlib_inline   stack_data
-_io                 cryptography        mimetypes           stat
-_json               cs122notes          mistune             statistics
-_locale             csv                 mmap                string
-_lsprof             ctypes              modulefinder        stringprep
-_lzma               curses              moviepy             struct
-_markupbase         cycler              multidict           subprocess
-_md5                dash                multiprocessing     sunau
-_multibytecodec     dash_core_components multitasking        symtable
-_multiprocessing    dash_html_components munkres             sys
-_opcode             dash_table          nbclient            sysconfig
-_operator           dataclasses         nbconvert           syslog
-_osx_support        datetime            nbformat            tabnanny
-_pickle             dateutil            nest_asyncio        tarfile
-_plotly_future_     dbm                 netrc               telnetlib
-_plotly_utils       debugpy             nis                 tempfile
-_posixshmem         decimal             nntplib             tenacity
-_posixsubprocess    decorator           notebook            terminado
-_py_abc             defusedxml          notebook_shim       termios
-_pydecimal          difflib             ntpath              test
-_pyio               dis                 nturl2path          test_module
-_queue              distutils           numbers             textwrap
-_random             django              numpy               this
-_scproxy            doctest             oauthlib            threading
-_sha1               email               objc                threadpoolctl
-_sha256             encodings           opcode              time
-_sha3               ensurepip           openpyxl            timeit
-_sha512             entrypoints         operator            timezonefinder
-_signal             enum                optparse            tinycss2
-_sitebuiltins       errno               os                  tkinter
-_socket             et_xmlfile          overrides           tkmacosx
-_sqlite3            exceptiongroup      packaging           token
-_sre                executing           pandas              tokenize
-_ssl                fastjsonschema      pandocfilters       tomli
-_stat               faulthandler        parso               tornado
-_statistics         fcntl               past                tqdm
-_string             filecmp             pathlib             trace
-_strptime           fileinput           pdb                 traceback
-_struct             flask               peewee              tracemalloc
-_symtable           flask_cors          pexpect             traitlets
-_sysconfigdata__darwin_darwin fnmatch             pickle              tty
-_sysconfigdata_x86_64_apple_darwin13_4_0 folium              pickleshare         turtle
-_testbuffer         fontTools           pickletools         turtledemo
-_testcapi           fqdn                pip                 types
-_testclinic         fractions           pipes               typing
-_testimportmultiple frozendict          pkg_resources       typing_extensions
-_testinternalcapi   frozenlist          pkgutil             typing_utils
-_testmultiphase     ftplib              pkgutil_resolve_name tzdata
-_thread             functools           platform            unicodedata
-_threading_local    future              platformdirs        unicodedata2
-_tkinter            gc                  playhouse           unittest
-_tracemalloc        general_notes       plistlib            uri_template
-_uuid               genericpath         plotly              uritemplate
-_warnings           geocoder            poplib              urllib
-_weakref            geographiclib       posix               urllib3
-_weakrefset         geopy               posixpath           uu
-_xxsubinterpreters  getopt              pprint              uuid
-_xxtestfuzz         getpass             profile             venv
-_yaml               gettext             proglog             warnings
-_zoneinfo           glob                prometheus_client   wave
-abc                 google_auth_httplib2 prompt_toolkit      wcwidth
-aifc                google_auth_oauthlib pstats              weakref
-aiohttp             googleapiclient     psutil              webbrowser
-aiosignal           graphlib            pty                 webcolors
-ansi2html           grp                 ptyprocess          webencodings
-antigravity         gzip                pure_eval           websocket
-anyio               h3                  pwd                 werkzeug
-apiclient           hashlib             pwiz                wheel
-appdirs             heapq               py_compile          widgetsnbextension
-appnope             hmac                pyasn1              wsgiref
-argon2              html                pyasn1_modules      xdrlib
-argparse            html5lib            pyclbr              xml
-array               http                pycparser           xmlrpc
-arrow               httplib2            pydoc               xxlimited
-asgiref             idlelib             pydoc_data          xxlimited_35
-ast                 idna                pyexpat             xxsubtype
-astrology           imageio             pygments            xyzservices
-asttokens           imageio_ffmpeg      pylab               yaml
-async_lru           imaplib             pyparsing           yarl
-async_timeout       imghdr              python_notes        yfinance
-asynchat            imp                 pythonjsonlogger    zipapp
-asyncio             importlib           pytz                zipfile
-asyncore            importlib_metadata  pyu2f               zipimport
-atexit              importlib_resources qtconsole           zipp
-attr                inspect             qtpy                zlib
-attrs               io                  queue               zmq
-audioop             ipaddress           quopri              zoneinfo
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># use the help method to generate a list of all modules</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">help</span><span class="p">(</span><span class="s1">&#39;modules&#39;</span><span class="p">)</span>
 
-Enter any module name to get more help.  Or, type &quot;modules spam&quot; to search
-for modules whose name or summary contain the string &quot;spam&quot;.
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/_sitebuiltins.py:103,</span> in <span class="ni">_Helper.__call__</span><span class="nt">(self, *args, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="kn">import</span> <span class="nn">pydoc</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>     <span class="k">return</span> <span class="n">pydoc</span><span class="o">.</span><span class="n">help</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pydoc.py:2006,</span> in <span class="ni">Helper.__call__</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2004</span> <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">_GoInteractive</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2005</span>     <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_GoInteractive</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2006</span>         <span class="bp">self</span><span class="o">.</span><span class="n">help</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2008</span>         <span class="bp">self</span><span class="o">.</span><span class="n">intro</span><span class="p">()</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pydoc.py:2053,</span> in <span class="ni">Helper.help</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2051</span> <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;symbols&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">listsymbols</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2052</span> <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;topics&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">listtopics</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">2053</span> <span class="k">elif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">&#39;modules&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">listmodules</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2054</span> <span class="k">elif</span> <span class="n">request</span><span class="p">[:</span><span class="mi">8</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;modules &#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2055</span>     <span class="bp">self</span><span class="o">.</span><span class="n">listmodules</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pydoc.py:2205,</span> in <span class="ni">Helper.listmodules</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2203</span>             <span class="k">def</span> <span class="nf">onerror</span><span class="p">(</span><span class="n">modname</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2204</span>                 <span class="n">callback</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">modname</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2205</span>             <span class="n">ModuleScanner</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">onerror</span><span class="o">=</span><span class="n">onerror</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2206</span>             <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">modules</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="g g-Whitespace">   </span><span class="mi">2207</span>             <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2208</span><span class="s1"> Enter any module name to get more help.  Or, type &quot;modules spam&quot; to search</span>
+<span class="g g-Whitespace">   </span><span class="mi">2209</span><span class="s1"> for modules whose name or summary contain the string &quot;spam&quot;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2210</span><span class="s1"> &#39;&#39;&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pydoc.py:2234,</span> in <span class="ni">ModuleScanner.run</span><span class="nt">(self, callback, key, completer, onerror)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2231</span>             <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2232</span>                 <span class="n">callback</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">modname</span><span class="p">,</span> <span class="n">desc</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2234</span> <span class="k">for</span> <span class="n">importer</span><span class="p">,</span> <span class="n">modname</span><span class="p">,</span> <span class="n">ispkg</span> <span class="ow">in</span> <span class="n">pkgutil</span><span class="o">.</span><span class="n">walk_packages</span><span class="p">(</span><span class="n">onerror</span><span class="o">=</span><span class="n">onerror</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2235</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quit</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2236</span>         <span class="k">break</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pkgutil.py:92,</span> in <span class="ni">walk_packages</span><span class="nt">(path, prefix, onerror)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">ispkg</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">92</span>         <span class="nb">__import__</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="k">if</span> <span class="n">onerror</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">geocoder</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">36</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="n">__copyright__</span> <span class="o">=</span> <span class="s1">&#39;Copyright (c) 2013-2016 Denis Carriere&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="c1"># CORE</span>
+<span class="ne">---&gt; </span><span class="mi">36</span> <span class="kn">from</span> <span class="nn">geocoder.api</span> <span class="kn">import</span> <span class="n">get</span><span class="p">,</span> <span class="n">yahoo</span><span class="p">,</span> <span class="n">bing</span><span class="p">,</span> <span class="n">geonames</span><span class="p">,</span> <span class="n">mapquest</span><span class="p">,</span> <span class="n">google</span><span class="p">,</span> <span class="n">mapbox</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">geocoder.api</span> <span class="kn">import</span> <span class="n">nokia</span><span class="p">,</span> <span class="n">osm</span><span class="p">,</span> <span class="n">tomtom</span><span class="p">,</span> <span class="n">geolytica</span><span class="p">,</span> <span class="n">arcgis</span><span class="p">,</span> <span class="n">opencage</span><span class="p">,</span> <span class="n">locationiq</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="kn">from</span> <span class="nn">geocoder.api</span> <span class="kn">import</span> <span class="n">maxmind</span><span class="p">,</span> <span class="n">ipinfo</span><span class="p">,</span> <span class="n">freegeoip</span><span class="p">,</span> <span class="n">ottawa</span><span class="p">,</span> <span class="n">here</span><span class="p">,</span> <span class="n">baidu</span><span class="p">,</span> <span class="n">gaode</span><span class="p">,</span> <span class="n">w3w</span>  <span class="c1"># noqa</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">geocoder</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">31</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="kn">from</span> <span class="nn">geocoder.tamu</span> <span class="kn">import</span> <span class="n">TamuQuery</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="kn">from</span> <span class="nn">geocoder.tomtom</span> <span class="kn">import</span> <span class="n">TomtomQuery</span>
+<span class="ne">---&gt; </span><span class="mi">31</span> <span class="kn">from</span> <span class="nn">geocoder.tgos</span> <span class="kn">import</span> <span class="n">TgosQuery</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="kn">from</span> <span class="nn">geocoder.uscensus</span> <span class="kn">import</span> <span class="n">USCensusQuery</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="kn">from</span> <span class="nn">geocoder.yahoo</span> <span class="kn">import</span> <span class="n">YahooQuery</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1006,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:688,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:879,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:975,</span> in <span class="ni">get_code</span><span class="nt">(self, fullname)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:1074,</span> in <span class="ni">get_data</span><span class="nt">(self, path)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -694,9 +639,8 @@ if it is in the same directory as the notebook
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please wait a moment while I gather a list of all available modules...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AppKit              babel               ipykernel           random
+
+AppKit              babel               ipykernel           random
 Cocoa               backcall            ipykernel_launcher  ratelim
 CoreFoundation      backports           ipython_genutils    re
 Foundation          base64              ipywidgets          readline

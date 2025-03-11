@@ -1,0 +1,863 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>HTTP Requests &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'web/http_requests';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Pillars of Object-Oriented Programming" href="../oop/oop_pillars.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">HTTP Requests</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweb/http_requests.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/web/http_requests.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>HTTP Requests</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-simple-text-data">Reading simple text data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-data-from-html-formatted-pages">Parsing data from HTML-formatted pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-images-from-web-pages">Obtaining images from web pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data-from-links">Downloading data from links</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="http-requests">
+<h1>HTTP Requests<a class="headerlink" href="#http-requests" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>In this lesson, we will explore how to obtain data from webpages on the internet using Python. By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Read data from a simple text web page</p></li>
+<li><p>Parse data from a web page with html formatting</p></li>
+<li><p>Download images from a web page using the image url</p></li>
+<li><p>Download data from a website using the download link’s url</p></li>
+</ol>
+<p><strong>Import the modules required for this notebook</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the requests, BeautifulSoup, and shutil modules</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Reading data from Websites</strong></p>
+<p>The foundation for data communication on the internet is Hypertext Transfer Protocol, or HTTP for short. Information on any webpage or on any publicly link can be “requested” using the HTTP protocol. In this notebook, we’ll explore various ways to make these requests using Python. Many websites provide a additional means to access data from their databases in the form of an Application Programmng Interface (API). Many online services such as Google, OpenAI, etc. provide APIs and we will explore these tools in the next notebook.</p>
+<p><strong>A Note on Web Scraping</strong></p>
+<p>Gathering data from public websites using HTTP requests is also known as “web scraping”. The term is most commonly used when data is gathered from a large quantity of different pages. In the U.S., it is perfectly legal to write programs to gather data from web pages as long as you don’t use information to harm the company and/or its website. There are a few guidelines to follow regarding web scraping:</p>
+<ol class="arabic simple">
+<li><p>Don’t overwhelm sites by making excessive requests</p></li>
+<li><p>Give attribution to the sites where you retrieve your data</p></li>
+<li><p>Only gather data from sites that are publicly available.</p></li>
+</ol>
+<p>In general, if you following the above guidelines and are gathering data from public websites for educational purposes (rather than writing code to support a business interest), then you are in the clear.</p>
+<p><strong>Example for this notebook: National Data Buoy Center data</strong></p>
+<p>To get familiar with web scraping, we are going to download data from various components of NOAA’s <a class="reference external" href="https://www.ndbc.noaa.gov/">National Data Buoy Center website</a>. This website hosts oceanographic and meteorological data collected by NOAA (and paid for by U.S. tax payers) is freely available for the public to access and use.</p>
+<section id="reading-simple-text-data">
+<h2>Reading simple text data<a class="headerlink" href="#reading-simple-text-data" title="Permalink to this headline">#</a></h2>
+<p>To explore handling data from the web, first we will start with simple text data. One easy set of data to visualize is the data from the National Buoy Data Center. Take a look at an example web page by following the link: <a class="reference external" href="https://www.ndbc.noaa.gov/data/realtime2/46092.txt">https://www.ndbc.noaa.gov/data/realtime2/46092.txt</a></p>
+<p>We can access this data using Python using the requests module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a url to the web page</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.ndbc.noaa.gov/data/realtime2/46092.txt&#39;</span>
+
+<span class="c1"># use the requests package to read the page to a response</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># print the response status code</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Status Code:&#39;</span><span class="p">,</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+
+<span class="c1"># print the response status description (reason)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Status Code Description:&#39;</span><span class="p">,</span><span class="n">response</span><span class="o">.</span><span class="n">reason</span><span class="p">)</span>
+
+<span class="c1"># save the page text into a string</span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+<span class="c1"># split the text by next lines and print the first 3 lines</span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">page_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">page_text</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Status Code: 200
+Status Code Description: OK
+[&#39;#YY  MM DD hh mm WDIR WSPD GST  WVHT   DPD   APD MWD   PRES  ATMP  WTMP  DEWP  VIS PTDY  TIDE&#39;, &#39;#yr  mo dy hr mn degT m/s  m/s     m   sec   sec degT   hPa  degC  degC  degC  nmi  hPa    ft&#39;, &#39;2025 03 11 03 59  70  2.0   MM    MM    MM    MM  MM 1010.3  11.3  11.0    MM   MM -0.4    MM&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mini-exercise">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
+<p>Goal: The National Weather Service produces regional text-based forecasts for weather that can be transmitted to boats operating in US Coastal Waters. Read in data from the most recent forecast to find out about current weather alerts. The alerts for San Francisoc Bay area can be accessed at <a class="reference external" href="https://tgftp.nws.noaa.gov/data/raw/fz/fzus56.kmtr.cwf.mtr.txt">https://tgftp.nws.noaa.gov/data/raw/fz/fzus56.kmtr.cwf.mtr.txt</a>.</p>
+<section id="solution">
+<h4>💡 Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter your code here</span>
+<span class="c1"># define a url to the web page</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tgftp.nws.noaa.gov/data/raw/fz/fzus56.kmtr.cwf.mtr.txt&#39;</span>
+
+<span class="c1"># use the requests package to read the page</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># save the page text into a string</span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+
+<span class="c1"># split the page_text at new line characters</span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">page_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># join lines 17-24 with a space to generate the message</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">page_text</span><span class="p">[</span><span class="mi">17</span><span class="p">:</span><span class="mi">24</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Winds and seas stay light through late Tuesday night. Hazardous  conditions are expected Wednesday through Friday as gusty winds  and rough seas build into the waters. Widespread rainfall is  expected Wednesday and Friday with a slight chance for thunderstorms in between systems Wednesday and Thursday. Active weather looks  to last into the next work week.
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="parsing-data-from-html-formatted-pages">
+<h2>Parsing data from HTML-formatted pages<a class="headerlink" href="#parsing-data-from-html-formatted-pages" title="Permalink to this headline">#</a></h2>
+<p>Typically, web pages are not just text - they are formatted with HyperText Markup Language (HTML) formatting. Just like regular pages, we can read in HTML-formatted pages a typical ascii-style text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the url to the station</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.ndbc.noaa.gov/station_page.php?station=46092&#39;</span>
+
+<span class="c1"># use the response module to get the data from the url</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># read in the page text </span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+<span class="c1"># print(page_text)</span>
+
+<span class="c1"># split the text by lines</span>
+<span class="n">page_text</span> <span class="o">=</span> <span class="n">page_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># search the lines for the one that has the &quot;Water depth&quot; information</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">page_text</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;Water depth&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>		&lt;b&gt;Water depth:&lt;/b&gt; 1000 m&lt;br&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see above, it can be a little cumbersome to search through all of the html code to find what you might be looking for on a website. To obtain data from these sites in a usable format, it is helpful to leverage tools that can help to parse html code. Since HTML is a common language for web pages, there are several packages to organize and search HTML-scripted pages. One commonly-used function is Beautiful Soup:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use BeautifulSoup to parse the html data</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+<span class="c1"># search for the division with the id &quot;stn_metadata&quot;</span>
+<span class="c1"># store it as a variable called stn_metadata</span>
+<span class="n">stn_metadata</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;stn_metadata&quot;</span><span class="p">})</span>
+
+<span class="c1"># convert the stn_metadata to a string</span>
+<span class="n">stn_metadata</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">stn_metadata</span><span class="p">)</span>
+
+<span class="c1"># split the stn_metadata</span>
+<span class="n">stn_metadata</span> <span class="o">=</span> <span class="n">stn_metadata</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># search for the &quot;Water depth&quot; in the stn_metadata</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">stn_metadata</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;Water depth&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;b&gt;Water depth:&lt;/b&gt; 1000 m&lt;br/&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Goal: Find the link to the NDBC’s Facebook site.</p>
+<p>The <a class="reference external" href="https://www.ndbc.noaa.gov/">front page</a> of the NDBC site contains three links to the Facebook, LinkedIn, and Twitter (X) pages for the NDBC social media. These are contained in an html division with the class “socialMediaContainer”. Use the requests library to open the page and the BeautifulSoup module to parse the html text. Then, find the division with the social media information to find where the link to the Facebook page leads. In particular, print the line with the “NDBC on Facebook” string.</p>
+<section id="id2">
+<h4>💡 Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the url to the station</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.ndbc.noaa.gov&#39;</span>
+
+<span class="c1"># use the response module to get the data from the url</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># use BeautifulSoup to parse the html data</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+
+<span class="c1"># search for the division with the id &quot;footer_column&quot;</span>
+<span class="c1"># store it as a variable called footer_column</span>
+<span class="n">footer_column</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;socialMediaContainer&quot;</span><span class="p">})</span>
+
+<span class="c1"># convert the footer_column to a string and split it</span>
+<span class="n">footer_column</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">footer_column</span><span class="p">)</span>
+<span class="n">footer_column</span> <span class="o">=</span> <span class="n">footer_column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># search for the &quot;NDBC on Facebook&quot; in the stn_metadata</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">footer_column</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;NDBC on Facebook&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a class=&quot;socialMediaLink&quot; href=&quot;/ndbcexit.php?url=https://www.facebook.com/NWSNDBC&amp;amp;blurb=NDBC%20on%20Facebook&quot;&gt;&lt;img alt=&quot;Facebook Logo&quot; class=&quot;socialMediaLogo&quot; height=&quot;21&quot; src=&quot;/images/facebook_logo.png&quot; title=&quot;NDBC on Facebook&quot; width=&quot;21&quot;/&gt; NDBC on Facebook&lt;/a&gt;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="obtaining-images-from-web-pages">
+<h2>Obtaining images from web pages<a class="headerlink" href="#obtaining-images-from-web-pages" title="Permalink to this headline">#</a></h2>
+<p>Anything that exists on a web page can be obtained and stored on your local system. For example, images that are hosted on web pages can be stored on your system. Consider again the Monterey Buoy 46092 as described here: <a class="reference external" href="https://www.ndbc.noaa.gov/station_page.php?station=46092">https://www.ndbc.noaa.gov/station_page.php?station=46092</a></p>
+<p>This page contains an image file for the buoy. Let’s find the link to the buoy and download it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># provide a path to the buoy image</span>
+<span class="n">image_file</span> <span class="o">=</span> <span class="s1">&#39;https://www.ndbc.noaa.gov/images/stations/46092.jpg&#39;</span>
+
+<span class="c1"># use the requests module to get the image</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+
+<span class="c1"># define an output name for the image</span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;buoy_image.jpg&#39;</span>
+
+<span class="c1"># open the file as a writable binary</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="c1"># iterate through the chunks and write to the file</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id3">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Goal: Find and store an image from your favorite web site.</p>
+<p>Any publically-available image on the web can be downloaded with the requests module. Download your favorite image in the block below and store it to your system. If you don’t have a favorite site or image, you can download this comic: <a class="reference external" href="https://imgs.xkcd.com/comics/git_2x.png">https://imgs.xkcd.com/comics/git_2x.png</a></p>
+<section id="id4">
+<h4>💡 Solution<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the output_file is </span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;git_image.jpg&#39;</span>
+
+<span class="c1"># download an image into the file path above</span>
+<span class="c1"># enter your code here</span>
+<span class="n">image_file</span> <span class="o">=</span> <span class="s1">&#39;https://imgs.xkcd.com/comics/git_2x.png&#39;</span>
+
+<span class="c1"># use the requests module to get the image</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_file</span><span class="p">)</span>
+
+<span class="c1"># write the image to the file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+<span class="c1"># show the image using the code from Homework 4:</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">output_file</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6abad9c05d6bdd52694f693655ac2252002e7f57afccf29a4f81d79529da3e79.png" src="../_images/6abad9c05d6bdd52694f693655ac2252002e7f57afccf29a4f81d79529da3e79.png" />
+</div>
+</details>
+</div>
+</section>
+</section>
+</section>
+<section id="downloading-data-from-links">
+<h2>Downloading data from links<a class="headerlink" href="#downloading-data-from-links" title="Permalink to this headline">#</a></h2>
+<p>A lot of data is provided online with through accessible links to data from remote data servers. For example, the historical buoy data on the NDBC site is stored in compressed format. We can have a look at the available historical data for the Monterey Buoy here: <a class="reference external" href="https://www.ndbc.noaa.gov/station_history.php?station=46092">https://www.ndbc.noaa.gov/station_history.php?station=46092</a></p>
+<p>Below, let’s download the compressed 2022 data stored in the <code class="docutils literal notranslate"><span class="pre">46092h2022.txt.gz</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># enter the url here</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.ndbc.noaa.gov/data/historical/stdmet/46092h2022.txt.gz&#39;</span>
+
+<span class="c1"># use the requests module to get the data</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="c1"># define an output file </span>
+<span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;46092h2022.txt.gz&#39;</span>
+
+<span class="c1"># read the file in as chunks</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">r</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cs122"
+        },
+        kernelOptions: {
+            name: "cs122",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cs122'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../oop/oop_pillars.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pillars of Object-Oriented Programming</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-simple-text-data">Reading simple text data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parsing-data-from-html-formatted-pages">Parsing data from HTML-formatted pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-images-from-web-pages">Obtaining images from web pages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">💡 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-data-from-links">Downloading data from links</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
