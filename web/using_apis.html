@@ -1,0 +1,995 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Obtaining Data with APIs &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'web/using_apis';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="HTTP Requests" href="http_requests.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="http_requests.html">HTTP Requests</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Obtaining Data with APIs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweb/using_apis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/web/using_apis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Obtaining Data with APIs</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-apis">Google APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-youtube-api">The YouTube API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-a-single-video">Accessing data about a single video</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-a-channel">Accessing data about a Channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cost-of-api-inquiries">The Cost of API inquiries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-info-from-gmail">Obtaining info from Gmail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-oauth-2-0-client-ids">Setting up OAuth 2.0 Client IDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-gmail-labels-from-your-account">Reading Gmail labels from your account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-messages-from-your-inbox">Reading messages from your inbox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-messages-in-your-inbox">Modifying messages in your inbox</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-a-message-to-unread">Changing a Message to Unread</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-a-message-to-read">Changing a Message to Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-gmail-api-pipedream">A Gmail API Pipedream</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="obtaining-data-with-apis">
+<h1>Obtaining Data with APIs<a class="headerlink" href="#obtaining-data-with-apis" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Access the Google API</p></li>
+<li><p>Access metadata from a YouTube video</p></li>
+<li><p>Obtain information about messages in your Gmail inbox</p></li>
+</ol>
+<p>In this lesson, we will explore how to obtain data using APIs with Python. We will use the Google API as an example for getting started with APIs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The examples in this notebook require credentials specific to my Google account. As I don’t want to put this information online, I have output the results of my API requests into a pickle file provided with this notebook. I will pre-load the results of the requests from this pickle file in the following code block.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># here, I will load the pre-staged API requests</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;api_requests.pkl&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">prestaged_requests</span><span class="p">:</span>
+    <span class="n">response1</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">prestaged_requests</span><span class="p">)</span>
+    <span class="n">response2</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">prestaged_requests</span><span class="p">)</span>
+    <span class="n">response3</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">prestaged_requests</span><span class="p">)</span>
+    <span class="n">response4</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">prestaged_requests</span><span class="p">)</span>
+    <span class="n">response5</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">prestaged_requests</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>New conda packages</strong></p>
+<p>To use this notebook, we will need to install the following conda packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">google</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="n">client</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">oauthlib</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">google</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">httplib2</span>
+</pre></div>
+</div>
+<p>After these packages are installed, import them below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">google_auth_oauthlib.flow</span>
+<span class="kn">import</span> <span class="nn">googleapiclient.discovery</span>
+<span class="kn">import</span> <span class="nn">googleapiclient.errors</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="google-apis">
+<h2>Google APIs<a class="headerlink" href="#google-apis" title="Permalink to this headline">#</a></h2>
+<p>Google has a many different APIs that can be used to access data in applications hosted by Google. To begin, we will create a <strong>New Project</strong> in the <a class="reference external" href="https://console.cloud.google.com/">Google Cloud Console</a>.</p>
+<p>After creating a project, we will navigate to the <strong>Credentials</strong> tab under <strong>APIs and Services</strong>. In this tab, choose <strong>+ Credentials</strong> and create an <strong>API Key</strong>.</p>
+<p>After you have created your key, enter it below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define your API key here</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the API Key is generated and stored here, navigate to the API <strong>Library</strong> and scroll down to the <strong>Youtube Data API v3</strong>. Click on this API and choose to <strong>Enable</strong> the API. With this API enabled, we can now access data from YouTube using Google tools.</p>
+</section>
+<section id="the-youtube-api">
+<h2>The YouTube API<a class="headerlink" href="#the-youtube-api" title="Permalink to this headline">#</a></h2>
+<p>The Youtube API has a variety of functions for accessing information about YouTube including videos, channels, and users as well as functionality to post information to YouTube. For reference, all of the available API functions are documented on the following page: <a class="reference external" href="https://developers.google.com/youtube/v3/docs/?apix=true">https://developers.google.com/youtube/v3/docs/?apix=true</a></p>
+<p>We will explore a few of these functions in this notebook.</p>
+<section id="accessing-data-about-a-single-video">
+<h3>Accessing data about a single video<a class="headerlink" href="#accessing-data-about-a-single-video" title="Permalink to this headline">#</a></h3>
+<p>Files on YouTube are public which means we can access them via the API without providing any credentials. For example, we might want to know what the statistics are for the Khan Academy video that serves as an introduction to Python: <a class="reference external" href="https://www.youtube.com/watch?v=husPzLE6sZc&amp;amp;list=PLJR1V_NHIKrCkswPMULzQFHpYa57ZFGbs">https://www.youtube.com/watch?v=husPzLE6sZc&amp;list=PLJR1V_NHIKrCkswPMULzQFHpYa57ZFGbs</a></p>
+<p>First, we define the API service and version for the Youtube API:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the api service and version</span>
+<span class="n">api_service_name</span> <span class="o">=</span> <span class="s2">&quot;youtube&quot;</span>
+<span class="n">api_version</span> <span class="o">=</span> <span class="s2">&quot;v3&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we make a request to the API for information about the video:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># access the youtube api client</span>
+<span class="n">youtube</span> <span class="o">=</span> <span class="n">googleapiclient</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">build</span><span class="p">(</span>
+    <span class="n">api_service_name</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">developerKey</span> <span class="o">=</span> <span class="n">API_KEY</span><span class="p">)</span>
+
+<span class="c1"># make a request to the api for information about the video above</span>
+<span class="c1"># note: the id of the video is the part after v= ....</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">youtube</span><span class="o">.</span><span class="n">videos</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="s2">&quot;snippet,statistics&quot;</span><span class="p">,</span>
+                                <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;husPzLE6sZc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># execute the query in the request</span>
+<span class="n">response1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The reponse from the query will return a series of nested dictionaries with several entries for the metadata of the video:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the keys of the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keys:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response1</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># the items list provides the most pertinent metadata components</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">response[&#39;items&#39;]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response1</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">])</span>
+
+<span class="c1"># for example,</span>
+<span class="c1"># the title of the video is in the &#39;snippet&#39; dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">title:&quot;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="n">response1</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+<span class="c1"># the number of views is in the &#39;statistics&#39; dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">viewCount:&quot;</span><span class="p">)</span>
+<span class="n">viewCount</span> <span class="o">=</span> <span class="n">response1</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;statistics&#39;</span><span class="p">][</span><span class="s1">&#39;viewCount&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">viewCount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>keys:
+dict_keys([&#39;kind&#39;, &#39;etag&#39;, &#39;items&#39;, &#39;pageInfo&#39;])
+
+response[&#39;items&#39;]
+[{&#39;kind&#39;: &#39;youtube#video&#39;, &#39;etag&#39;: &#39;-m6myrYh-VSpVqRf0PAx_UgDin8&#39;, &#39;id&#39;: &#39;husPzLE6sZc&#39;, &#39;snippet&#39;: {&#39;publishedAt&#39;: &#39;2011-06-30T15:50:46Z&#39;, &#39;channelId&#39;: &#39;UC4a-Gbdw7vOaccHmFo40b9g&#39;, &#39;title&#39;: &#39;Introduction to Programs Data Types and Variables&#39;, &#39;description&#39;: &#39;Writing a basic program.  Basics of data types, variables and conditional statements&#39;, &#39;thumbnails&#39;: {&#39;default&#39;: {&#39;url&#39;: &#39;https://i.ytimg.com/vi/husPzLE6sZc/default.jpg&#39;, &#39;width&#39;: 120, &#39;height&#39;: 90}, &#39;medium&#39;: {&#39;url&#39;: &#39;https://i.ytimg.com/vi/husPzLE6sZc/mqdefault.jpg&#39;, &#39;width&#39;: 320, &#39;height&#39;: 180}, &#39;high&#39;: {&#39;url&#39;: &#39;https://i.ytimg.com/vi/husPzLE6sZc/hqdefault.jpg&#39;, &#39;width&#39;: 480, &#39;height&#39;: 360}, &#39;standard&#39;: {&#39;url&#39;: &#39;https://i.ytimg.com/vi/husPzLE6sZc/sddefault.jpg&#39;, &#39;width&#39;: 640, &#39;height&#39;: 480}, &#39;maxres&#39;: {&#39;url&#39;: &#39;https://i.ytimg.com/vi/husPzLE6sZc/maxresdefault.jpg&#39;, &#39;width&#39;: 1280, &#39;height&#39;: 720}}, &#39;channelTitle&#39;: &#39;Khan Academy&#39;, &#39;categoryId&#39;: &#39;27&#39;, &#39;liveBroadcastContent&#39;: &#39;none&#39;, &#39;defaultLanguage&#39;: &#39;en&#39;, &#39;localized&#39;: {&#39;title&#39;: &#39;Introduction to Programs Data Types and Variables&#39;, &#39;description&#39;: &#39;Writing a basic program.  Basics of data types, variables and conditional statements&#39;}, &#39;defaultAudioLanguage&#39;: &#39;en&#39;}, &#39;statistics&#39;: {&#39;viewCount&#39;: &#39;1047491&#39;, &#39;likeCount&#39;: &#39;3697&#39;, &#39;favoriteCount&#39;: &#39;0&#39;, &#39;commentCount&#39;: &#39;283&#39;}}]
+
+title:
+Introduction to Programs Data Types and Variables
+
+viewCount:
+1047491
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mini-exercise">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
+<p>Goal: Find the number of likes the video linked above.</p>
+<section id="solution">
+<h4>💡 Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the number of likes is in the &#39;statistics&#39; dictionary</span>
+<span class="n">likeCount</span> <span class="o">=</span> <span class="n">response1</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;statistics&#39;</span><span class="p">][</span><span class="s1">&#39;likeCount&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Likes:&#39;</span><span class="p">,</span><span class="n">likeCount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Likes: 3697
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="accessing-data-about-a-channel">
+<h3>Accessing data about a Channel<a class="headerlink" href="#accessing-data-about-a-channel" title="Permalink to this headline">#</a></h3>
+<p>As you are likely familiar, a channel typically has a library of different videos. We can also access information about the channel using the API. To search a channel, we need the <code class="docutils literal notranslate"><span class="pre">channelId</span></code>. We can obtain this using a request on an individual video. Equivalently, we can search the html page source on the page itself (search for <code class="docutils literal notranslate"><span class="pre">channelID</span></code> in the page source).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the channelID</span>
+<span class="n">channelId</span> <span class="o">=</span> <span class="s1">&#39;UC4a-Gbdw7vOaccHmFo40b9g&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a request to the api for information about the channel above</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">youtube</span><span class="o">.</span><span class="n">channels</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">part</span><span class="o">=</span><span class="s2">&quot;snippet,statistics&quot;</span><span class="p">,</span>
+                                  <span class="nb">id</span><span class="o">=</span><span class="n">channelId</span><span class="p">)</span>
+
+<span class="c1"># execute the query in the request</span>
+<span class="n">response2</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Similar to above, the response yields a nested set of dictionaries with metadata about the channel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the keys of the dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;keys:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response2</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># for example,</span>
+<span class="c1"># the description of the channel is in the &#39;snippet&#39; dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">description:&#39;</span><span class="p">)</span>
+<span class="n">title</span> <span class="o">=</span> <span class="n">response2</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;snippet&#39;</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+<span class="c1"># the number of views is in the &#39;statistics&#39; dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">viewCount:&#39;</span><span class="p">)</span>
+<span class="n">viewCount</span> <span class="o">=</span> <span class="n">response2</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;statistics&#39;</span><span class="p">][</span><span class="s1">&#39;viewCount&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">viewCount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>keys:
+dict_keys([&#39;kind&#39;, &#39;etag&#39;, &#39;pageInfo&#39;, &#39;items&#39;])
+
+description:
+Khan Academy is a nonprofit providing a free, world-class education for anyone, anywhere. Our interactive practice problems, articles, and videos help students succeed in math, biology, chemistry, physics, history, economics, finance, grammar, and many other topics.
+
+Khan Academy provides teachers with data on how their students are doing so they can identify gaps in learning and provide tailored instruction. We  also offer free personalized SAT and LSAT practice in partnership with the College Board and the Law School Admission Council. 
+
+Our resources have been translated into dozens of languages, and 15 million people around the globe learn on Khan Academy each month.
+
+Want to extend your learning beyond YouTube? Practice what you&#39;ve just discovered for free: www.khanacademy.org
+
+
+viewCount:
+2155567083
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Goal: Get the number of subscribers for the Khan Academy Youtube Channel.</p>
+<section id="id2">
+<h4>💡 Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the number of subscribers is in the &#39;statistics&#39; dictionary</span>
+<span class="n">subscriberCount</span> <span class="o">=</span> <span class="n">response2</span><span class="p">[</span><span class="s1">&#39;items&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;statistics&#39;</span><span class="p">][</span><span class="s1">&#39;subscriberCount&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;subscriberCount:&#39;</span><span class="p">,</span><span class="n">subscriberCount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>subscriberCount: 8830000
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="the-cost-of-api-inquiries">
+<h3>The Cost of API inquiries<a class="headerlink" href="#the-cost-of-api-inquiries" title="Permalink to this headline">#</a></h3>
+<p>Each time your make a request to the Google API, it comes with a “cost”. The list methods for videos and channels methods both come with a “cost” of 1 unit. By contrast, if you’d like to do a generic search of all of YouTube, it comes with a cost of 100 units. Each day, the Youtube API allows you 10000 units for free. If you’d like to do more searches than that, you can pay money to Google for more possibilities. This pay-for-access programmatic model is the underlying business model for almost all APIs on popular sites.</p>
+</section>
+</section>
+<section id="obtaining-info-from-gmail">
+<h2>Obtaining info from Gmail<a class="headerlink" href="#obtaining-info-from-gmail" title="Permalink to this headline">#</a></h2>
+<p>Our Gmail accounts, by constrast with public Youtube videos, require our credentials to access. To obtain information from Gmail, we first need to obtain our OAuth 2.0 Client IDs.</p>
+<section id="setting-up-oauth-2-0-client-ids">
+<h3>Setting up OAuth 2.0 Client IDs<a class="headerlink" href="#setting-up-oauth-2-0-client-ids" title="Permalink to this headline">#</a></h3>
+<p>Navigate to the <strong>APIs and Services</strong> dropdown and select the <strong>Libraries</strong> tab (again). Now, select <strong>Gmail</strong> API and choose to Enable it. The top bar will indicate that you may need to authenticate your credentials. Click on <strong>Create Credentials</strong> and use the following options:</p>
+<ul class="simple">
+<li><p>select the option for <strong>User Data</strong> in Credential Type and click Next</p></li>
+<li><p>name your App something like <code class="docutils literal notranslate"><span class="pre">cs122</span></code> and choose your email address in the OAuth Screen</p></li>
+<li><p>don’t add any scopes in the Scopes screen</p></li>
+<li><p>choose Desktop App in the OAuth client ID screen</p></li>
+</ul>
+<p>When you have completed the steps above, you will be able to download a secret key for your credentials. Download the JSON file for your credentials and store it in your current directory (where this notebook is located). You may choose to rename your key as just <code class="docutils literal notranslate"><span class="pre">client_secret.json</span></code>. Now, we are almost ready to access Gmail with our credentials - we just need to make sure our account is recognized as a test user for our App.</p>
+<p>Under the <strong>APIs and Services</strong> tab, navigate to the <strong>Oauth consent screen</strong> and to the <strong>Audience</strong> tab. Now, add your email under the <strong>Test Users</strong> section. Now, we’re ready to go!</p>
+<p>Begin by defining the api information, similar to what was done for YouTube above, along with information about the client file and the scopes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the api service and version</span>
+<span class="n">api_service_name</span> <span class="o">=</span> <span class="s2">&quot;gmail&quot;</span>
+<span class="n">api_version</span> <span class="o">=</span> <span class="s2">&quot;v1&quot;</span>
+
+<span class="c1"># define the client file and scopes</span>
+<span class="n">client_file</span> <span class="o">=</span> <span class="s1">&#39;client_secret.json&#39;</span>
+<span class="n">scopes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;https://mail.google.com/&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code block below will set up a service - the first time you run it, it will ask you to trust the application.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># authenticate the credentials</span>
+<span class="n">flow</span> <span class="o">=</span> <span class="n">google_auth_oauthlib</span><span class="o">.</span><span class="n">flow</span><span class="o">.</span><span class="n">InstalledAppFlow</span><span class="o">.</span><span class="n">from_client_secrets_file</span><span class="p">(</span><span class="n">client_file</span><span class="p">,</span> <span class="n">scopes</span><span class="p">)</span>
+<span class="n">credentials</span> <span class="o">=</span> <span class="n">flow</span><span class="o">.</span><span class="n">run_local_server</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the API service</span>
+<span class="n">service</span> <span class="o">=</span> <span class="n">googleapiclient</span><span class="o">.</span><span class="n">discovery</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">api_service_name</span><span class="p">,</span> <span class="n">api_version</span><span class="p">,</span> <span class="n">credentials</span><span class="o">=</span><span class="n">credentials</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-gmail-labels-from-your-account">
+<h3>Reading Gmail labels from your account<a class="headerlink" href="#reading-gmail-labels-from-your-account" title="Permalink to this headline">#</a></h3>
+<p>Now that the service is constructed with your credentials, you can now access the information in your inbox. Similar to the YouTube API, the Gmail API has lots of good documentation on the underlying methods here: <a class="reference external" href="https://developers.google.com/gmail/api/reference/rest">https://developers.google.com/gmail/api/reference/rest</a></p>
+<p>For example, what if we would like to get the “labels” on the messages our inbox? We can get these using the Gmail API methods:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># access the labels using the users() and labels() methods</span>
+<span class="n">response3</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">users</span><span class="p">()</span><span class="o">.</span><span class="n">labels</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">userId</span><span class="o">=</span><span class="s1">&#39;me&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store the labels in a list</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">response3</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;labels&#39;</span><span class="p">,</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have obtained our labels, we can access them here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the labels of your inbox</span>
+<span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CHAT
+SENT
+INBOX
+IMPORTANT
+TRASH
+DRAFT
+SPAM
+CATEGORY_FORUMS
+CATEGORY_UPDATES
+CATEGORY_PERSONAL
+CATEGORY_PROMOTIONS
+CATEGORY_SOCIAL
+STARRED
+UNREAD
+300534061046890
+300534060831190
+300534064500960
+300534062573580
+300534061884700
+300534060836350
+300534060832230
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a simple example, but you now have full control over your email with the Gmail API. For example, what if you wanted to access messages from a particular user?</p>
+</section>
+<section id="reading-messages-from-your-inbox">
+<h3>Reading messages from your inbox<a class="headerlink" href="#reading-messages-from-your-inbox" title="Permalink to this headline">#</a></h3>
+<p>From our inbox, we could search for messages that come from a common source. For this example, I am using a sample Gmail account used for a data stream that receives many messages from the email <code class="docutils literal notranslate"><span class="pre">sbdservice&#64;sbd.iridium.com</span></code>. Let’s grab the first “page” of these messages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># search for a list of messages from sbdservice@sbd.iridium.com</span>
+<span class="n">response4</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">users</span><span class="p">()</span><span class="o">.</span><span class="n">messages</span><span class="p">()</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
+    <span class="n">userId</span><span class="o">=</span><span class="s1">&#39;me&#39;</span><span class="p">,</span>
+    <span class="n">q</span><span class="o">=</span><span class="s1">&#39;sbdservice@sbd.iridium.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+
+<span class="c1"># store the response into a messages response object</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="n">response4</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store the response into a messages response object</span>
+<span class="n">messages</span> <span class="o">=</span> <span class="n">response4</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;messages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we have a subset of our messages. Next, we can read in the information about the most recent message:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the first message in the list</span>
+<span class="n">first_message</span> <span class="o">=</span> <span class="n">messages</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the details of the message</span>
+<span class="n">response5</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">users</span><span class="p">()</span><span class="o">.</span><span class="n">messages</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">userId</span><span class="o">=</span><span class="s1">&#39;me&#39;</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="n">first_message</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print the body (or &quot;snippet&quot;) of the message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response5</span><span class="p">[</span><span class="s1">&#39;snippet&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MOMSN: 6602 MTMSN: 0 Time of Session (UTC): Thu Mar 13 03:16:11 2025 Session Status: 00 - Transfer OK Message Size (bytes): 49 Unit Location: Lat = 69.40212 Long = -55.43375 CEPradius = 134
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p>Goal: Test this on your own - what is one email address that sends you consistent emails. Does the message you print out match the one you can find in your inbox?</p>
+</section>
+<section id="modifying-messages-in-your-inbox">
+<h3>Modifying messages in your inbox<a class="headerlink" href="#modifying-messages-in-your-inbox" title="Permalink to this headline">#</a></h3>
+<p>As mentioned above, you now have full control of your email (from Python!). You could read, draft, and send messages. For now, I will demonstrate how to change a message from “Unread” to “Read” and vice versa.</p>
+<section id="changing-a-message-to-unread">
+<h4>Changing a Message to Unread<a class="headerlink" href="#changing-a-message-to-unread" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># add an unread label to the message</span>
+<span class="n">service</span><span class="o">.</span><span class="n">users</span><span class="p">()</span><span class="o">.</span><span class="n">messages</span><span class="p">()</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">userId</span><span class="o">=</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">first_message</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;addLabelIds&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;UNREAD&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-a-message-to-read">
+<h4>Changing a Message to Read<a class="headerlink" href="#changing-a-message-to-read" title="Permalink to this headline">#</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># change the message back to read</span>
+<span class="n">service</span><span class="o">.</span><span class="n">users</span><span class="p">()</span><span class="o">.</span><span class="n">messages</span><span class="p">()</span><span class="o">.</span><span class="n">modify</span><span class="p">(</span><span class="n">userId</span><span class="o">=</span><span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">first_message</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+                                    <span class="n">body</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;removeLabelIds&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;UNREAD&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">execute</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="a-gmail-api-pipedream">
+<h2>A Gmail API Pipedream<a class="headerlink" href="#a-gmail-api-pipedream" title="Permalink to this headline">#</a></h2>
+<p>Feeling inspired? Consider this pipedream project I have to save myself time answering emails:</p>
+<p>Create a Python program to do the following:</p>
+<ol class="arabic simple">
+<li><p>Use the Google API to check for new emails.</p></li>
+<li><p>Download the contents of the emails to my local computer</p></li>
+<li><p>Use ChatGPT via the ChatGPT API to automatically draft a response to the emails in my inbox.</p></li>
+<li><p>Use the Google API to stage my ChatGPT-drafted emails in my Drafts folder</p></li>
+<li><p>When I have time for emails, I review the drafts before hitting send</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cs122"
+        },
+        kernelOptions: {
+            name: "cs122",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cs122'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="http_requests.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HTTP Requests</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#google-apis">Google APIs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-youtube-api">The YouTube API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-a-single-video">Accessing data about a single video</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-data-about-a-channel">Accessing data about a Channel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">💡 Solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cost-of-api-inquiries">The Cost of API inquiries</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obtaining-info-from-gmail">Obtaining info from Gmail</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-oauth-2-0-client-ids">Setting up OAuth 2.0 Client IDs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-gmail-labels-from-your-account">Reading Gmail labels from your account</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-messages-from-your-inbox">Reading messages from your inbox</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">🤔 Mini-Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-messages-in-your-inbox">Modifying messages in your inbox</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-a-message-to-unread">Changing a Message to Unread</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-a-message-to-read">Changing a Message to Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-gmail-api-pipedream">A Gmail API Pipedream</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
