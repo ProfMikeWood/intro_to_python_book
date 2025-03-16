@@ -7,7 +7,6 @@ parts:
   - caption: Getting Started
     chapters:
     - file: getting_started/installation
-  #   - file: getting_started/conda-environments
   - caption: Python Basics
     chapters:
      - file: python_basics/getting-familiar
@@ -34,6 +33,7 @@ parts:
     chapters:
     - file: web/http_requests
     - file: web/using_apis
+    - file: web/github
   # - caption: Beyond the Basics
   #   chapters:
   #   - file: beyond_the_basics/scraping-the-web

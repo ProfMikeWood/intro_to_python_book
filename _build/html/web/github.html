@@ -1,0 +1,855 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Working with Github &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'web/github';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Obtaining Data with APIs" href="using_apis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="http_requests.html">HTTP Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using_apis.html">Obtaining Data with APIs</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Working with Github</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweb/github.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/web/github.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Github</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-github-repository">Setting up a Github repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-name">Repository Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-vs-private">Public vs Private</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-readme">Adding a README</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-gitignore">Adding a .gitignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-license">Choosing a License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finalize-the-repository">Finalize the Repository</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git-locally">Setting up git locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-ssh-keys">Setting up SSH Keys</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-ssh-key-on-your-machine">Create an SSH key on your machine</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-your-ssh-key-to-github">Add your SSH key to Github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-repositories">Cloning Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-remote-changes">Pulling Remote Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-and-pushing-local-changes">Committing and Pushing Local Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files-in-a-push">Ignoring Files in a Push</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconciling-changes-made-locally-and-remotely">Reconciling Changes Made Locally and Remotely</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-github">
+<h1>Working with Github<a class="headerlink" href="#working-with-github" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>Learning Objectives: By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Set up a Github repository</p></li>
+<li><p>Pull remote changes to a local repository</p></li>
+<li><p>Push remote changes to a remote repository</p></li>
+<li><p>Merge changes made locally and remotely</p></li>
+</ol>
+<p>Github is a platform used to store, manage, and share code online. It has a variety of uses across many different coding languages and projects - as you’ve likely noticed, these course notes are stored on Github.</p>
+<p>To get started, create a Github account at <a class="reference external" href="https://github.com/">github.com</a>, if you haven’t already done so.</p>
+<section id="setting-up-a-github-repository">
+<h2>Setting up a Github repository<a class="headerlink" href="#setting-up-a-github-repository" title="Permalink to this headline">#</a></h2>
+<p>A repository (or “repo” for short) is used to store a certain selection of code and documentation, such as for a project or a course. To set up a Github repository, log in to your Github account click on the green New Repository button on the homepage.</p>
+<section id="repository-name">
+<h3>Repository Name<a class="headerlink" href="#repository-name" title="Permalink to this headline">#</a></h3>
+<p>Begin by selecting a name for your repository. The name should be descriptive of the contents of the repository. Note that the repository name does not need to include your name or username as your account will be associated with your repository.</p>
+</section>
+<section id="public-vs-private">
+<h3>Public vs Private<a class="headerlink" href="#public-vs-private" title="Permalink to this headline">#</a></h3>
+<p>Next, select whether you would like your repository to public or private. Some people like to keep all of their repositories public for a variety of reasons - for example, to maintain open-source code or to attract potential collaborators working on similar topics. Other prefer to keep their repositories private, sharing coding only with approved collaborators. Often, developers will work on a private repository until they are ready to release a version of their code in the wild.</p>
+</section>
+<section id="adding-a-readme">
+<h3>Adding a README<a class="headerlink" href="#adding-a-readme" title="Permalink to this headline">#</a></h3>
+<p>Up next, choose the option to add a <a class="reference external" href="http://README.md">README.md</a> file to the repository. A <a class="reference external" href="http://README.md">README.md</a> is a document formatted with markdown (md) to describe the contents of the repository.</p>
+</section>
+<section id="adding-a-gitignore">
+<h3>Adding a .gitignore<a class="headerlink" href="#adding-a-gitignore" title="Permalink to this headline">#</a></h3>
+<p>Next, add a .gitignore file. Since these note are for Python, choose the template for Python. This file will ensure that extraneous files necessary for running code on our machine will not end up on Github.</p>
+</section>
+<section id="choosing-a-license">
+<h3>Choosing a License<a class="headerlink" href="#choosing-a-license" title="Permalink to this headline">#</a></h3>
+<p>Finally, choose a license. There are lots of different licenses available, each outlining different permissions for other users who may want to use your code. One common option is the BSD-3-Clause. This license allows others users to use your code for whatever they see fit. The key stipulations are that they must attribute your work to you and that you don’t endorse whatever they may do with your code. You’re enouraged to peruse the available licenses and choose the one you find fits your work the best.</p>
+</section>
+<section id="finalize-the-repository">
+<h3>Finalize the Repository<a class="headerlink" href="#finalize-the-repository" title="Permalink to this headline">#</a></h3>
+<p>After choosing your configuration options, click Create Repository. Woohoo! We’re ready to start using our repository.</p>
+<img src="repo_setup.png" alt="Summary of options to create a Github repository" width="500"/>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are on MacOS it is highly recommended that you add the <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> file to your .gitignore file. This will avoid adding this unnecessary file to your Github repo.</p>
+</div>
+</section>
+</section>
+<section id="setting-up-git-locally">
+<h2>Setting up git locally<a class="headerlink" href="#setting-up-git-locally" title="Permalink to this headline">#</a></h2>
+<p>When working with Github, we will often two version of our code – the version stored on our local machines and the version stored on the remote machine (i.e. “on Github”). On our local machine, we can interface with our remote repositories on Github using the <code class="docutils literal notranslate"><span class="pre">git</span></code> command line tools. Activate your conda environment and make sure you have <code class="docutils literal notranslate"><span class="pre">git</span></code> installed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">git</span>
+</pre></div>
+</div>
+<p>Next, set up the configuration fields for your Github account:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>git config --global user.name “first last”
+git config --global user.email “email”
+</pre></div>
+</div>
+<p>This only needs to be done once when first working with <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+<section id="setting-up-ssh-keys">
+<h3>Setting up SSH Keys<a class="headerlink" href="#setting-up-ssh-keys" title="Permalink to this headline">#</a></h3>
+<p>There are a few ways to set up connections with Github - SSH keys are one straight-forward way to get this done.</p>
+<section id="create-an-ssh-key-on-your-machine">
+<h4>Create an SSH key on your machine<a class="headerlink" href="#create-an-ssh-key-on-your-machine" title="Permalink to this headline">#</a></h4>
+<p>First, we will create an SSH key on our local machine. Once we have this key, we will be able to put information on Github so that it recognizes commands from our local machine.</p>
+<p>Begin by opening up a terminal and moving into your home directory</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~</span>
+</pre></div>
+</div>
+<p>Next, see if you have a directory called <code class="docutils literal notranslate"><span class="pre">.ssh</span></code> by typing</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">.</span><span class="n">ssh</span>
+</pre></div>
+</div>
+<p>If you get a message saying <code class="docutils literal notranslate"><span class="pre">ls:</span> <span class="pre">.ssh:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></code>, then make a directory with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">.</span><span class="n">ssh</span>
+</pre></div>
+</div>
+<p>Once you have this directory, move into it with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">.</span><span class="n">ssh</span>
+</pre></div>
+</div>
+<p>Now, inside this directory, we will make new ssh key pair</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">ed25519</span> <span class="o">-</span><span class="n">C</span> <span class="s2">&quot;your_github_email@example.edu&quot;</span>
+</pre></div>
+</div>
+<p>This command will generate a new pair and ask you where you how you want to save your file. You can keep it simple and use the default file by pressing Enter.</p>
+<p>Then, you will be prompted to enter a passphrase - this is a password for your SSH key. Add one if you’d like.</p>
+<p>Once your key is generated, you will get a randomart image as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">key</span><span class="s1">&#39;s randomart image is:</span>
+<span class="o">+--</span><span class="p">[</span><span class="n">ED25519</span> <span class="mi">256</span><span class="p">]</span><span class="o">--+</span>
+<span class="o">|</span><span class="n">Q</span><span class="o">=</span><span class="n">C</span><span class="o">&amp;=+.</span>          <span class="o">|</span>
+<span class="o">|*</span><span class="n">BO</span><span class="o">+</span><span class="n">Y</span><span class="o">..</span>          <span class="o">|</span>
+<span class="o">|.*</span><span class="n">oA</span><span class="o">.=</span><span class="n">o</span>          <span class="o">|</span>
+<span class="o">|</span><span class="n">o</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span> <span class="o">+</span> <span class="o">.</span>       <span class="o">|</span>
+<span class="o">|</span> <span class="n">o</span> <span class="n">B</span> <span class="o">.</span>  <span class="n">W</span>        <span class="o">|</span>
+<span class="o">|</span>  <span class="n">x</span> <span class="n">o</span>  <span class="o">.</span> <span class="o">.</span>       <span class="o">|</span>
+<span class="o">|</span>   <span class="n">o</span> <span class="o">.</span>           <span class="o">|</span>
+<span class="o">|</span>    <span class="o">.</span>            <span class="o">|</span>
+<span class="o">|</span>                 <span class="o">|</span>
+<span class="o">+----</span><span class="p">[</span><span class="n">SHA256</span><span class="p">]</span><span class="o">-----+</span>
+</pre></div>
+</div>
+<p>Next, we will add our ssh key to the ssh-agent. Begin by starting the ssh-agent:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">eval</span> <span class="s2">&quot;$(ssh-agent -s)&quot;</span>
+</pre></div>
+</div>
+<p>Then, we will modify the file named <code class="docutils literal notranslate"><span class="pre">config</span></code>. Check that you have one using <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">config</span></code>. If you don’t, then use <code class="docutils literal notranslate"><span class="pre">touch</span> <span class="pre">config</span></code> to make it. To modify this file, open it with your favorite text editor and add the following to the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span> <span class="n">github</span><span class="o">.</span><span class="n">com</span>
+  <span class="n">AddKeysToAgent</span> <span class="n">yes</span>
+  <span class="n">UseKeychain</span> <span class="n">yes</span>
+  <span class="n">IdentityFile</span> <span class="o">~/.</span><span class="n">ssh</span><span class="o">/</span><span class="n">id_ed25519</span>
+</pre></div>
+</div>
+<p>Finally, add your ssh key with the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">add</span> <span class="n">id_ed25519</span>
+</pre></div>
+</div>
+<p>After being prompted for your passphrase, you should get note as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Identity</span> <span class="n">added</span><span class="p">:</span> <span class="n">id_ed25519</span> <span class="p">(</span><span class="n">mike</span><span class="o">.</span><span class="n">wood</span><span class="nd">@sjsu</span><span class="o">.</span><span class="n">edu</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="add-your-ssh-key-to-github">
+<h4>Add your SSH key to Github<a class="headerlink" href="#add-your-ssh-key-to-github" title="Permalink to this headline">#</a></h4>
+<p>First, begin by copying the contents of your public key file - this is the file with the <code class="docutils literal notranslate"><span class="pre">pub</span></code> extension you created above (mine is <code class="docutils literal notranslate"><span class="pre">id_ed25519.pub</span></code>).</p>
+<p>You can print the contents of this file to your screen with the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="n">id_ed25519</span><span class="o">.</span><span class="n">pub</span>
+</pre></div>
+</div>
+<p>The output should look something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">ed25519</span> <span class="n">BBBBBC3NzaC1lZDI1NTE5ZZZZIPbA34wLVTj0IZMNiEYQ9g</span><span class="o">+</span><span class="n">HiibBHrWGra1vECZbiW</span><span class="o">+</span><span class="n">X</span> <span class="n">mike</span><span class="o">.</span><span class="n">wood</span><span class="nd">@sjsu</span><span class="o">.</span><span class="n">edu</span>
+</pre></div>
+</div>
+<p>Next, navigate to your Github account and, from the dropdown on the right, click on <strong>Settings</strong>. From this page, choose <strong>SSH and GPG keys</strong> and then <strong>Add new SSH key</strong>. On this page, you can give your SSH key a name (e.g. for your machine) and in the key section, past the contents of your public SSH key:</p>
+<img src="new_ssh_key.png" alt="Screenshot of SSH key generation" width="400"/>
+<p>Click on <strong>Add key</strong> to save the changes. Now, we should be ready to go!</p>
+</section>
+</section>
+</section>
+<section id="cloning-repositories">
+<h2>Cloning Repositories<a class="headerlink" href="#cloning-repositories" title="Permalink to this headline">#</a></h2>
+<p>Once you’ve set up your Github repository, now we’d like to add our code and start making changes. To begin, open a terminal and navigate to a location where you would like to store your files. Then, “clone” your reponsitory to this location with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">ProfMikeWood</span><span class="o">/</span><span class="n">test_repo</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Note that this path is accessed on the landing page for your repository by clicking on the green <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span> <span class="pre">Code</span></code> button and choosing the options under SSH:</p>
+<img src="ssh_path.png" alt="A screenshot showing where the SSH path is located." width="300"/><p>Great! Now we have a local copy of your repository. But we also have to be careful here. We now have two versions of our repository - one is online and one is on our local machines. How do we make sure they are “sync’d”. First, let’s take a look at how changes made remotely can be updated in your local version.</p>
+</section>
+<section id="pulling-remote-changes">
+<h2>Pulling Remote Changes<a class="headerlink" href="#pulling-remote-changes" title="Permalink to this headline">#</a></h2>
+<p>Let’s say we wanted to make a change to one of our files on the remote version of our repository by using the online editor. For example, what if we wanted to update the README of our repository? Let’s open the editor and add a new note for ourself.</p>
+<p>Click on the <strong><a class="reference external" href="http://README.md">README.md</a></strong> file and click the pencil icon in the upper-right corner to edit the file. Then, add a new line to the file as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Github notes</span>
+<span class="n">Changes</span> <span class="n">made</span> <span class="n">on</span> <span class="n">remote</span> <span class="n">repositorys</span> <span class="n">should</span> <span class="n">be</span> <span class="s2">&quot;pulled&quot;</span> <span class="n">to</span> <span class="n">local</span> <span class="n">repositories</span> <span class="n">to</span> <span class="n">reflect</span> <span class="n">recent</span> <span class="n">changes</span>
+</pre></div>
+</div>
+<p>After making the changes, click on <strong>Commit Changes</strong></p>
+<p>Now, back in your terminal, move into your repository</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">test_repo</span>
+</pre></div>
+</div>
+<p>and “pull” the changes using the following line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>Now, we should see the following message indicating the README file has been updated:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fast</span><span class="o">-</span><span class="n">forward</span>
+ <span class="n">README</span><span class="o">.</span><span class="n">md</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">+++</span>
+ <span class="mi">1</span> <span class="n">file</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">3</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Further, if you open the <a class="reference external" href="http://README.md">README.md</a> file on your local machine, you should see the new lines reflected in the local version of your repository!</p>
+</section>
+<section id="committing-and-pushing-local-changes">
+<h2>Committing and Pushing Local Changes<a class="headerlink" href="#committing-and-pushing-local-changes" title="Permalink to this headline">#</a></h2>
+<p>Most often, we are working on code on our local machine that we want to incorporate into our repository.</p>
+<p>Say, for example, we created a python file called <code class="docutils literal notranslate"><span class="pre">test.py</span></code> in a <code class="docutils literal notranslate"><span class="pre">code</span></code> directory and a <code class="docutils literal notranslate"><span class="pre">example.ipynb</span></code> Jupyter notebook in a directory called <code class="docutils literal notranslate"><span class="pre">notebook</span></code>. Go ahead and create those on your local machine now inside your repository (i.e. in the same directory as your <code class="docutils literal notranslate"><span class="pre">README</span></code> file). After completing these steps your repository should have the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_repo</span>
+ <span class="o">|-</span> <span class="n">LICENSE</span>
+ <span class="o">|-</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+ <span class="o">|-</span> <span class="n">code</span>
+     <span class="o">|-</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+ <span class="o">|-</span><span class="n">notebooks</span>
+     <span class="o">|-</span> <span class="n">example</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<p>Now, we are ready to sync our remote repository with our local one. In your repository folder, we first need to “stage” our changes. To accomplish this, we use the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> command. We can individual files one at a time, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="n">code</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Alternatively, we can use wildcards to add many files (or all of them), i.e.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Once we’ve staged all of the files we would like reflected in our remote repository, we are ready to “commit” our changes, similar to how we updated our README file in the remote repository above. On the command line, we can accomplish this along with a short (&lt;50 character) message about what is being updated:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;message about recent changes&quot;</span>
+</pre></div>
+</div>
+<p>When this is successful, we will get a nice message about our updates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="mi">2</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">0</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">0</span> <span class="n">deletions</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
+ <span class="n">create</span> <span class="n">mode</span> <span class="mi">100644</span> <span class="n">code</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">py</span>
+ <span class="n">create</span> <span class="n">mode</span> <span class="mi">100644</span> <span class="n">notebooks</span><span class="o">/</span><span class="n">example</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+<p>Now, we’re ready to get these files online using a “push” command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Finally, if you check you repository on Github, you will see your code and your notebook online. Woo!</p>
+<section id="ignoring-files-in-a-push">
+<h3>Ignoring Files in a Push<a class="headerlink" href="#ignoring-files-in-a-push" title="Permalink to this headline">#</a></h3>
+<p>When we are working with files on our local machine, our code will often produce data for our projects. However, we don’t want to put our data on Github - after all, Github is a code repository, not a data repository.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Don’t put data on Github - only code.</p>
+</div>
+<p>While we shouldn’t put data on Github, we may want to work with our data next to our code. In this case, we can make a reference to our data in out <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file so that our data will never inadvertently end up in our repository.</p>
+<p>Let’s see an example - make a directory called data and make a couple of example data files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">data</span>
+<span class="n">cd</span> <span class="n">data</span>
+<span class="n">touch</span> <span class="n">data_file_1</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">touch</span> <span class="n">data_file_2</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Now, let’s add a line to our <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file to make sure these data files aren’t included in any push. Edit your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file with your favorite text editor with a line for <code class="docutils literal notranslate"><span class="pre">data/*</span></code>.</p>
+<p>To best showcase the behavior of this command, let’s also add a new code file we may want to push:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">../</span><span class="n">code</span>
+<span class="n">touch</span> <span class="n">test2</span><span class="o">.</span><span class="n">py</span>
+<span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>Ok, now let’s try our lines for adding files to our remote repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+<span class="n">git</span> <span class="n">add</span> <span class="o">*</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;adding a new code file&quot;</span>
+<span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+<p>Now let’s check our repo online - we do see our new code file but we don’t see our data files. These were ignored by our <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file!</p>
+</section>
+</section>
+<section id="reconciling-changes-made-locally-and-remotely">
+<h2>Reconciling Changes Made Locally and Remotely<a class="headerlink" href="#reconciling-changes-made-locally-and-remotely" title="Permalink to this headline">#</a></h2>
+<p>All of the code above - the pushing of local changes to the remote repo and the pulling of remote changes to your local repo - works just fine when you are just changing your files in one place at a time. But what happens if your local repo and your remote repo both have new but different changes? This is very common when working collaboratively with other programmers. In this case, we will need to <strong>merge</strong> our branches to reflect both changes.</p>
+<p>Let’s see how this works by deliberately make changes in two locations. In your local directory, let’s make yet another new coding file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">code</span>
+<span class="n">touch</span> <span class="n">test3</span><span class="o">.</span><span class="n">py</span>
+<span class="n">cd</span> <span class="o">..</span>
+</pre></div>
+</div>
+<p>At the same time, let’s add another new note to our README file on the remote repository as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">changes</span> <span class="n">are</span> <span class="n">made</span> <span class="n">both</span> <span class="n">locally</span> <span class="ow">and</span> <span class="n">remotely</span><span class="p">,</span> <span class="n">the</span> <span class="n">changes</span> <span class="n">must</span> <span class="n">be</span> <span class="s2">&quot;merged&quot;</span>
+</pre></div>
+</div>
+<p>Ok, with our example set up, let’s see what happens locally when we try to add and commit changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">*</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;adding yet another coding file&quot;</span>
+</pre></div>
+</div>
+<p>Shoot, we got an error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> ! [rejected]        main -&gt; main (fetch first)
+error: failed to push some refs to &#39;github.com:ProfMikeWood/test_repo.git&#39;
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., &#39;git pull ...&#39;) before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</pre></div>
+</div>
+<p>We get a note that perhaps we should try to pull first - let’s try that.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+<p>Agh, even more warnings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hint</span><span class="p">:</span> <span class="n">You</span> <span class="n">have</span> <span class="n">divergent</span> <span class="n">branches</span> <span class="ow">and</span> <span class="n">need</span> <span class="n">to</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">to</span> <span class="n">reconcile</span> <span class="n">them</span><span class="o">.</span>
+<span class="n">hint</span><span class="p">:</span> <span class="n">You</span> <span class="n">can</span> <span class="n">do</span> <span class="n">so</span> <span class="n">by</span> <span class="n">running</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">commands</span> <span class="n">sometime</span> <span class="n">before</span>
+<span class="n">hint</span><span class="p">:</span> <span class="n">your</span> <span class="nb">next</span> <span class="n">pull</span><span class="p">:</span>
+<span class="n">hint</span><span class="p">:</span>
+<span class="n">hint</span><span class="p">:</span>   <span class="n">git</span> <span class="n">config</span> <span class="n">pull</span><span class="o">.</span><span class="n">rebase</span> <span class="n">false</span>  <span class="c1"># merge</span>
+<span class="n">hint</span><span class="p">:</span>   <span class="n">git</span> <span class="n">config</span> <span class="n">pull</span><span class="o">.</span><span class="n">rebase</span> <span class="n">true</span>   <span class="c1"># rebase</span>
+<span class="n">hint</span><span class="p">:</span>   <span class="n">git</span> <span class="n">config</span> <span class="n">pull</span><span class="o">.</span><span class="n">ff</span> <span class="n">only</span>       <span class="c1"># fast-forward only</span>
+<span class="n">hint</span><span class="p">:</span>
+<span class="n">hint</span><span class="p">:</span> <span class="n">You</span> <span class="n">can</span> <span class="n">replace</span> <span class="s2">&quot;git config&quot;</span> <span class="k">with</span> <span class="s2">&quot;git config --global&quot;</span> <span class="n">to</span> <span class="nb">set</span> <span class="n">a</span> <span class="n">default</span>
+<span class="n">hint</span><span class="p">:</span> <span class="n">preference</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">repositories</span><span class="o">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">also</span> <span class="k">pass</span> <span class="o">--</span><span class="n">rebase</span><span class="p">,</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">rebase</span><span class="p">,</span>
+<span class="n">hint</span><span class="p">:</span> <span class="ow">or</span> <span class="o">--</span><span class="n">ff</span><span class="o">-</span><span class="n">only</span> <span class="n">on</span> <span class="n">the</span> <span class="n">command</span> <span class="n">line</span> <span class="n">to</span> <span class="n">override</span> <span class="n">the</span> <span class="n">configured</span> <span class="n">default</span> <span class="n">per</span>
+<span class="n">hint</span><span class="p">:</span> <span class="n">invocation</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Ok, at this point, we need to merge our changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">merge</span>
+</pre></div>
+</div>
+<p>This command will take you into <code class="docutils literal notranslate"><span class="pre">vim</span></code>-like text editor. Here, you can edit this file by pressing the <code class="docutils literal notranslate"><span class="pre">i</span></code> key. Then, after the commented lines, you can add a note about the merge, i.e.</p>
+<img src="merge_text.png" alt="A screenshot showing merge text editor." width="400"/>
+<p>Now, you can save your changes by hitting the <code class="docutils literal notranslate"><span class="pre">esc</span></code> key, and then typing <code class="docutils literal notranslate"><span class="pre">:wq</span></code> and then <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
+<p>Great, now we’re in business and ready to push:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "teaching"
+        },
+        kernelOptions: {
+            name: "teaching",
+            path: "./web"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'teaching'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="using_apis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Obtaining Data with APIs</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-github-repository">Setting up a Github repository</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-name">Repository Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#public-vs-private">Public vs Private</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-readme">Adding a README</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-gitignore">Adding a .gitignore</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-a-license">Choosing a License</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finalize-the-repository">Finalize the Repository</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-git-locally">Setting up git locally</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-ssh-keys">Setting up SSH Keys</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-ssh-key-on-your-machine">Create an SSH key on your machine</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-your-ssh-key-to-github">Add your SSH key to Github</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-repositories">Cloning Repositories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-remote-changes">Pulling Remote Changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#committing-and-pushing-local-changes">Committing and Pushing Local Changes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-files-in-a-push">Ignoring Files in a Push</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reconciling-changes-made-locally-and-remotely">Reconciling Changes Made Locally and Remotely</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
