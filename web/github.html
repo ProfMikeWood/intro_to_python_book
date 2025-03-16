@@ -549,7 +549,7 @@ git config --global user.email “email”
 </pre></div>
 </div>
 <p>Next, navigate to your Github account and, from the dropdown on the right, click on <strong>Settings</strong>. From this page, choose <strong>SSH and GPG keys</strong> and then <strong>Add new SSH key</strong>. On this page, you can give your SSH key a name (e.g. for your machine) and in the key section, past the contents of your public SSH key:</p>
-<img src="new_ssh_key.png" alt="Screenshot of SSH key generation" width="400"/>
+<img alt="Screenshot of SSH key generation" class="align-center" src="../_images/new_ssh_key.png" />
 <p>Click on <strong>Add key</strong> to save the changes. Now, we should be ready to go!</p>
 </section>
 </section>
@@ -561,7 +561,8 @@ git config --global user.email “email”
 </pre></div>
 </div>
 <p>Note that this path is accessed on the landing page for your repository by clicking on the green <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span> <span class="pre">Code</span></code> button and choosing the options under SSH:</p>
-<img src="ssh_path.png" alt="A screenshot showing where the SSH path is located." width="300"/><p>Great! Now we have a local copy of your repository. But we also have to be careful here. We now have two versions of our repository - one is online and one is on our local machines. How do we make sure they are “sync’d”. First, let’s take a look at how changes made remotely can be updated in your local version.</p>
+<img alt="A screenshot showing where the SSH path is located." class="align-center" src="../_images/ssh_path.png" />
+<p>Great! Now we have a local copy of your repository. But we also have to be careful here. We now have two versions of our repository - one is online and one is on our local machines. How do we make sure they are “sync’d”. First, let’s take a look at how changes made remotely can be updated in your local version.</p>
 </section>
 <section id="pulling-remote-changes">
 <h2>Pulling Remote Changes<a class="headerlink" href="#pulling-remote-changes" title="Permalink to this headline">#</a></h2>
@@ -708,7 +709,7 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
 </pre></div>
 </div>
 <p>This command will take you into <code class="docutils literal notranslate"><span class="pre">vim</span></code>-like text editor. Here, you can edit this file by pressing the <code class="docutils literal notranslate"><span class="pre">i</span></code> key. Then, after the commented lines, you can add a note about the merge, i.e.</p>
-<img src="merge_text.png" alt="A screenshot showing merge text editor." width="400"/>
+<img alt="A screenshot showing merge text editor." class="align-center" src="../_images/merge_text.png" />
 <p>Now, you can save your changes by hitting the <code class="docutils literal notranslate"><span class="pre">esc</span></code> key, and then typing <code class="docutils literal notranslate"><span class="pre">:wq</span></code> and then <code class="docutils literal notranslate"><span class="pre">Enter</span></code>.</p>
 <p>Great, now we’re in business and ready to push:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span>
