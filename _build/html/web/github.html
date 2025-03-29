@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'web/github';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to Tkinter" href="../guis/tkinter.html" />
     <link rel="prev" title="Obtaining Data with APIs" href="using_apis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -189,6 +190,20 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="http_requests.html">HTTP Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="using_apis.html">Obtaining Data with APIs</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Github and git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic User Interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../guis/tkinter.html">Introduction to Tkinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/binding_widgets.html">Binding Actions to Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/new_windows.html">Additional Windows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web_development/intro_to_flask.html">Introduction to Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Get and Post Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Adding Data to Pages</a></li>
 </ul>
 
     </div>
@@ -424,7 +439,7 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Set up a Github repository</p></li>
 <li><p>Pull remote changes to a local repository</p></li>
-<li><p>Push remote changes to a remote repository</p></li>
+<li><p>Push local changes to a remote repository</p></li>
 <li><p>Merge changes made locally and remotely</p></li>
 </ol>
 <p>Github is a platform used to store, manage, and share code online. It has a variety of uses across many different coding languages and projects - as you’ve likely noticed, these course notes are stored on Github.</p>
@@ -438,7 +453,7 @@ document.write(`
 </section>
 <section id="public-vs-private">
 <h3>Public vs Private<a class="headerlink" href="#public-vs-private" title="Permalink to this headline">#</a></h3>
-<p>Next, select whether you would like your repository to public or private. Some people like to keep all of their repositories public for a variety of reasons - for example, to maintain open-source code or to attract potential collaborators working on similar topics. Other prefer to keep their repositories private, sharing coding only with approved collaborators. Often, developers will work on a private repository until they are ready to release a version of their code in the wild.</p>
+<p>Next, select whether you would like your repository to public or private. Some people like to keep all of their repositories public for a variety of reasons - for example, to maintain open-source code or to attract potential collaborators working on similar topics. Others prefer to keep their repositories private, sharing coding only with approved collaborators. Often, developers will work on a private repository until they are ready to release a version of their code in the wild.</p>
 </section>
 <section id="adding-a-readme">
 <h3>Adding a README<a class="headerlink" href="#adding-a-readme" title="Permalink to this headline">#</a></h3>
@@ -447,19 +462,19 @@ document.write(`
 <section id="adding-a-gitignore">
 <h3>Adding a .gitignore<a class="headerlink" href="#adding-a-gitignore" title="Permalink to this headline">#</a></h3>
 <p>Next, add a .gitignore file. Since these note are for Python, choose the template for Python. This file will ensure that extraneous files necessary for running code on our machine will not end up on Github.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are on MacOS it is highly recommended that you add the <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> file to your .gitignore file. This will avoid adding this unnecessary file to your Github repo.</p>
+</div>
 </section>
 <section id="choosing-a-license">
 <h3>Choosing a License<a class="headerlink" href="#choosing-a-license" title="Permalink to this headline">#</a></h3>
-<p>Finally, choose a license. There are lots of different licenses available, each outlining different permissions for other users who may want to use your code. One common option is the BSD-3-Clause. This license allows others users to use your code for whatever they see fit. The key stipulations are that they must attribute your work to you and that you don’t endorse whatever they may do with your code. You’re enouraged to peruse the available licenses and choose the one you find fits your work the best.</p>
+<p>Finally, choose a license. There are lots of different licenses available, each outlining different permissions for other users who may want to use your code. One common option is the BSD-3-Clause. This license allows others users to use your code for whatever they see fit. The key stipulations are that they must attribute your work to you and that you don’t endorse whatever they may do with your code. You’re encouraged to peruse the available licenses and choose the one you find fits your work the best.</p>
 </section>
 <section id="finalize-the-repository">
 <h3>Finalize the Repository<a class="headerlink" href="#finalize-the-repository" title="Permalink to this headline">#</a></h3>
 <p>After choosing your configuration options, click Create Repository. Woohoo! We’re ready to start using our repository.</p>
 <img alt="Summary of options to create a Github repository" class="align-center" src="../_images/repo_setup.png" />
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are on MacOS it is highly recommended that you add the <code class="docutils literal notranslate"><span class="pre">.DS_Store</span></code> file to your .gitignore file. This will avoid adding this unnecessary file to your Github repo.</p>
-</div>
 </section>
 </section>
 <section id="setting-up-git-locally">
@@ -496,7 +511,7 @@ git config --global user.email “email”
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">.</span><span class="n">ssh</span>
 </pre></div>
 </div>
-<p>Now, inside this directory, we will make new ssh key pair</p>
+<p>Now, inside this directory, we will make a new ssh key pair</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">t</span> <span class="n">ed25519</span> <span class="o">-</span><span class="n">C</span> <span class="s2">&quot;your_github_email@example.edu&quot;</span>
 </pre></div>
 </div>
@@ -532,7 +547,7 @@ git config --global user.email “email”
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span><span class="o">-</span><span class="n">add</span> <span class="n">id_ed25519</span>
 </pre></div>
 </div>
-<p>After being prompted for your passphrase, you should get note as follows:</p>
+<p>After being prompted for your passphrase, you should get a note as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Identity</span> <span class="n">added</span><span class="p">:</span> <span class="n">id_ed25519</span> <span class="p">(</span><span class="n">mike</span><span class="o">.</span><span class="n">wood</span><span class="nd">@sjsu</span><span class="o">.</span><span class="n">edu</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -757,6 +772,15 @@ hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; fo
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Obtaining Data with APIs</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../guis/tkinter.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to Tkinter</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   

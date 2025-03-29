@@ -34,6 +34,18 @@ parts:
     - file: web/http_requests
     - file: web/using_apis
     - file: web/github
+  - caption: Graphic User Interfaces
+    chapters:
+    - file: guis/tkinter
+    - file: guis/widgets
+    - file: guis/binding_widgets
+    - file: guis/new_windows
+  - caption: Web Development
+    chapters:
+    - file: web_development/intro_to_flask
+    - file: web_development/requests
+    - file: web_development/rendering_html
+    - file: web_development/adding_data
   # - caption: Beyond the Basics
   #   chapters:
   #   - file: beyond_the_basics/scraping-the-web
