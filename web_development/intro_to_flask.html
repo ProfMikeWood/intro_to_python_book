@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>If Statements &#8212; Introduction to Python</title>
+    <title>Introduction to Flask &#8212; Introduction to Python</title>
   
   
   
@@ -60,11 +60,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'python_basics/if-statements';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'web_development/intro_to_flask';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Loops" href="loops.html" />
-    <link rel="prev" title="Dictionaries" href="dictionaries.html" />
+    <link rel="next" title="Get and Post Requests" href="requests.html" />
+    <link rel="prev" title="Additional Windows" href="../guis/new_windows.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -160,14 +160,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="getting-familiar.html">Getting Familiar with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sequence-data.html">Sequential Data Types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dictionaries.html">Dictionaries</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">If Statements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
 <ul class="nav bd-sidenav">
@@ -199,11 +199,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../guis/new_windows.html">Additional Windows</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../web_development/intro_to_flask.html">Introduction to Flask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Get and Post Requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Adding Data to Pages</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requests.html">Get and Post Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rendering_html.html">Rendering HTML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_data.html">Adding Data to Pages</a></li>
 </ul>
 
     </div>
@@ -275,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpython_basics/if-statements.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fweb_development/intro_to_flask.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/python_basics/if-statements.ipynb" target="_blank"
+      <li><a href="../_sources/web_development/intro_to_flask.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>If Statements</h1>
+    <h1>Introduction to Flask</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,13 +397,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else-statements">if-elif-else statements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A first example</a></li>
 </ul>
             </nav>
         </div>
@@ -415,113 +409,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="if-statements">
-<h1>If Statements<a class="headerlink" href="#if-statements" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-flask">
+<h1>Introduction to Flask<a class="headerlink" href="#introduction-to-flask" title="Permalink to this headline">#</a></h1>
 <p>Author: Mike Wood</p>
-<p>Learning objectives: By the end of this notebook, you should be able to:</p>
+<p>Learning Objectives: By the end of this notebook, you should be able to:</p>
 <ol class="arabic simple">
-<li><p>Write an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to control decisions within a code block</p></li>
-<li><p>Use an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement to provife an alternative to <code class="docutils literal notranslate"><span class="pre">if</span></code> statements</p></li>
-<li><p>Implement <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement to provide alternatives to a single <code class="docutils literal notranslate"><span class="pre">if</span></code> statement</p></li>
+<li><p>Add</p></li>
 </ol>
-<section id="if-elif-else-statements">
-<h2>if-elif-else statements<a class="headerlink" href="#if-elif-else-statements" title="Permalink to this headline">#</a></h2>
-<p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is a handy piece of code to control whether a given piece of code is going to run. The <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword is followed by a condition that can be interpreted to be True or False, followed by a colon. Below the if statement, all lines to be run when the condition is true are indented using 4 spaces. To end the code block, the indendation is decreased</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write an if statement that will print a statement when a condition is true</span>
-<span class="n">hour</span> <span class="o">=</span> <span class="mi">11</span>
-<span class="k">if</span> <span class="n">hour</span><span class="o">&lt;</span><span class="mi">12</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is morning&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is morning
-</pre></div>
-</div>
-</div>
-</div>
-<p>Often, we’d like to provide an alternative piece of code if our condition is not met – this is accomplished with an <code class="docutils literal notranslate"><span class="pre">else</span></code> statement. The <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword is followed by a colon and, similar to the <code class="docutils literal notranslate"><span class="pre">if</span></code> block, the code to be run is indented by 4 spaces.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write an if statement that will print a statement when a condition is true</span>
-<span class="c1"># provide an else statement that will run when a statement is false</span>
-<span class="n">hour</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="k">if</span> <span class="n">hour</span><span class="o">&lt;</span><span class="mi">12</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is morning&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is not morning&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is not morning
-</pre></div>
-</div>
-</div>
-</div>
-<p>Similarly, we may want to provide a cascade of options between the first <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the final <code class="docutils literal notranslate"><span class="pre">else</span></code> statement. In Python, the syntax for these intermediate statements is <code class="docutils literal notranslate"><span class="pre">elif</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write an if statement that will print a statement when a condition is true</span>
-<span class="c1"># provide an altertantive elif statment if there first statement is not true</span>
-<span class="c1"># provide an else statement that will run when none of the statements are true</span>
-<span class="n">hour</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="k">if</span> <span class="n">hour</span><span class="o">&lt;</span><span class="mi">12</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is morning&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">hour</span><span class="o">&gt;</span><span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is night&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It is afternoon&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It is morning
-</pre></div>
-</div>
-</div>
-</div>
-<section id="mini-exercise">
-<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
-<p>Goal: Write a code block that will provide the name of the day of the week when provided with a number 1-7. For example, when <code class="docutils literal notranslate"><span class="pre">week_day</span> <span class="pre">=</span> <span class="pre">1</span></code>, the block should return <code class="docutils literal notranslate"><span class="pre">Monday</span></code>, <code class="docutils literal notranslate"><span class="pre">week_day</span> <span class="pre">=</span> <span class="pre">5</span></code>, the block should return <code class="docutils literal notranslate"><span class="pre">Friday</span></code>, etc. If the number is not in the range 1-7, print a statement that indicates the number is invalid.</p>
-<section id="solution">
-<h4>💡 Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the week day number</span>
-<span class="n">week_day</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="c1"># write if, elif, and else statements to print the name of the</span>
-<span class="c1"># day of the week as described in the markdown cell above</span>
-<span class="k">if</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Monday&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">)</span> 
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Thursday&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Friday&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Saturday&#39;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">week_day</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sunday&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">week_day</span><span class="p">,</span> <span class="s1">&#39;is an invalid day number&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Monday
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
+<p>Description</p>
+<section id="a-first-example">
+<h2>A first example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">#</a></h2>
+<p>Code</p>
+<p>This page should link <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/hey_there.html">HERE</a></p>
 </section>
 </section>
 
@@ -538,7 +437,7 @@ document.write(`
         },
         kernelOptions: {
             name: "teaching",
-            path: "./python_basics"
+            path: "./web_development"
         },
         predefinedOutput: true
     }
@@ -557,20 +456,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dictionaries.html"
+       href="../guis/new_windows.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Dictionaries</p>
+        <p class="prev-next-title">Additional Windows</p>
       </div>
     </a>
     <a class="right-next"
-       href="loops.html"
+       href="requests.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Loops</p>
+        <p class="prev-next-title">Get and Post Requests</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -592,13 +491,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-elif-else-statements">if-elif-else statements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">💡 Solution</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A first example</a></li>
 </ul>
   </nav></div>
 

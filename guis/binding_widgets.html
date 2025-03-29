@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Binding Actions to Widgets &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'guis/binding_widgets';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Additional Windows" href="new_windows.html" />
+    <link rel="prev" title="Widgets" href="widgets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web/http_requests.html">HTTP Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/using_apis.html">Obtaining Data with APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/github.html">Github and git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic User Interfaces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="tkinter.html">Introduction to Tkinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="widgets.html">Widgets</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Binding Actions to Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_windows.html">Additional Windows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web_development/intro_to_flask.html">Introduction to Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Get and Post Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Adding Data to Pages</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fguis/binding_widgets.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/guis/binding_widgets.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Binding Actions to Widgets</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-functions">Binding Widgets to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-keyboard-activity">Binding Widgets to Keyboard Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-cursor-activity">Binding Widgets to Cursor Activity</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="binding-actions-to-widgets">
+<h1>Binding Actions to Widgets<a class="headerlink" href="#binding-actions-to-widgets" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>Learning Objectives: By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Add widgets to a GUI using the grid framework</p></li>
+<li><p>Bind functions to widgets so that they are interactive</p></li>
+<li><p>Make widgets “sticky” to control the resizing of windows in a GUI</p></li>
+</ol>
+<p>After adding widgets to your application, one of the next design steps is to give your widgets some functionality. For example, when you press a button, it should typically have some action associated with it. In this notebook, we’ll look at a few examples that bind user actions to widgets.</p>
+<section id="binding-widgets-to-functions">
+<h2>Binding Widgets to Functions<a class="headerlink" href="#binding-widgets-to-functions" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">feet_to_meters.py</span></code> script provides a simple GUI to convert feet to meters. The user enters a number in the Entry widget and then clicks Calculate. When the button is pressed, the unit conversion is calculated and updated in a separate Label widget.</p>
+<img alt="Screenshot of a GUI that converts feet to meters" class="align-center" src="../_images/feet_to_meters.png" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is a GUI to convert feet to meters</span>
+
+<span class="c1"># import the tkinter module</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+<span class="c1"># create a FeetToMeters class</span>
+<span class="k">class</span> <span class="nc">FeetToMeters</span><span class="p">:</span>
+
+    <span class="c1"># define the init method of the class</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+
+        <span class="c1"># add a title to the window</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Unit Conversion&quot;</span><span class="p">)</span>
+
+        <span class="c1"># add a main frame and add it to the window</span>
+        <span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># define two string variables for feet and meters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">feet</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">meters</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+
+        <span class="c1"># create an Entry widget that is bound to the feet string variable</span>
+        <span class="c1"># and add it to row 1 and column 2 of the main frame</span>
+        <span class="n">feet_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">feet</span><span class="p">)</span>
+        <span class="n">feet_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># add Labels showing showing the text as organized in </span>
+        <span class="c1"># the format shown in the class handout</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span><span class="n">text</span><span class="o">=</span><span class="s2">&quot;feet&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;is equivalent to&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">meters</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;meters&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># add a Button with the word &quot;Calculate&quot;</span>
+        <span class="c1"># bind the button to the calculate function</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Calculate&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">calculate</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># write a function called calculate</span>
+    <span class="c1"># get the feet variable and try converting to a float</span>
+    <span class="c1"># if it works, then convert the value to meters and assign</span>
+    <span class="c1"># to the meters string variable with 4 decimal places</span>
+    <span class="c1"># 1 foot = 0.3048 meters</span>
+    <span class="c1"># if it&#39;s not convertable to a float, do nothing</span>
+    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feet</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">meters</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">*</span><span class="mf">0.3048</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+<span class="c1"># create a root Tk object</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+
+<span class="c1"># create a FeetToMeters object with the Tk root object as an argument</span>
+<span class="n">FeetToMeters</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+<span class="c1"># call the mainloop method on the Tk root object</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="binding-widgets-to-keyboard-activity">
+<h2>Binding Widgets to Keyboard Activity<a class="headerlink" href="#binding-widgets-to-keyboard-activity" title="Permalink to this headline">#</a></h2>
+<p>In this next example, we’ll take a look at binding actions on the keyboard to our widgets. We are often used to using the Return key on our key board in place of an action such as clicking on a button. Here, we’ll demo this binding to the keyboard in a simple GUI that adds two numbers. Let’s take a look at the script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a GUI to add two numbers</span>
+
+<span class="c1"># import the tkinter package</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+<span class="c1"># create a class called AddReturn</span>
+<span class="k">class</span> <span class="nc">AddReturn</span><span class="p">:</span>
+
+    <span class="c1"># add an init functions for this class</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+
+        <span class="c1"># Add a title to the window</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sum of Two Numbers&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Define the geometry of the window</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;300x200&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Configure the root so that it stretches in all directions</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Add a mainframe which is sticky in all directions</span>
+        <span class="c1"># Add some padding (e.g. 5 pixels) to the frame</span>
+        <span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;5 5 5 5&quot;</span><span class="p">)</span>
+        <span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+
+        <span class="c1"># weight column to expand with the window</span>
+        <span class="n">mainframe</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Define three variables for the first number,</span>
+        <span class="c1"># the second number, and the sum of the two numbers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+
+        <span class="c1"># add a Label for the first number</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Enter your first number:&quot;</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># add an Entry for the first number</span>
+        <span class="n">entry_1</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">entry_1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">),</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># bind the Return key to the first Entry box</span>
+        <span class="n">entry_1</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Return&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_action</span><span class="p">)</span>
+
+        <span class="c1"># add a Label for the second number</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Enter your second number:&quot;</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># add an Entry for the second number</span>
+        <span class="n">entry_2</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">entry_2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># bind the Return key to the second Entry box</span>
+        <span class="n">entry_2</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Return&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_action</span><span class="p">)</span>
+
+        <span class="c1"># add a Label for the sum of the numbers</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;The sum of your numbers:&quot;</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># add an Entry for the sum of the numbers</span>
+        <span class="n">entry_3</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
+                      <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+        <span class="n">entry_3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span><span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># bind the Return key to the sum Entry box</span>
+        <span class="n">entry_3</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Return&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_action</span><span class="p">)</span>
+
+    <span class="c1"># define a return_action function that can be called </span>
+    <span class="c1"># when a given event occurs</span>
+    <span class="c1"># function should try to add the two numbers</span>
+    <span class="c1"># if they can&#39;t be added (e.g. because one is not a float)</span>
+    <span class="c1"># then return NaN</span>
+    <span class="k">def</span> <span class="nf">return_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">x_plus_y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">())</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">get</span><span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">x_plus_y</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;NaN&#39;</span><span class="p">)</span>
+
+<span class="c1"># create a root Tk object</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+
+<span class="c1"># create an AddReturn object with the Tk root object as an argument</span>
+<span class="n">AddReturn</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+<span class="c1"># call the mainloop method on the Tk root object</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The above script generates a GUI that looks as follows:</p>
+<img alt="Screenshot of a GUI that adds two numbers" class="align-center" src="../_images/add_return.png" />
+<p>Let’s summarize some of the new features in this GUI that we haven’t seen in the previous examples.</p>
+<p>First, we see that this code has a line for the geometry of the window:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;300x200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>as you can probably guess, this sets the shape of the initial window in pixels. The window can still be resized from this shape.</p>
+<p>Next, wee see that each of the <code class="docutils literal notranslate"><span class="pre">Entry</span></code> widgets has been bound to <code class="docutils literal notranslate"><span class="pre">&lt;Return&gt;</span></code>, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">entry_1</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s1">&#39;&lt;Return&gt;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_action</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This command gives the widget functionality to respond to the Return key when the user is “in” one of the <code class="docutils literal notranslate"><span class="pre">Entry</span></code> widgets. We can also see that the binding is linked to a function called <code class="docutils literal notranslate"><span class="pre">return_action</span></code>. Just like in the previous example, this function is designed to access values in the class instance variables using the <code class="docutils literal notranslate"><span class="pre">get</span></code> method, and then change the value in another instance variable using the <code class="docutils literal notranslate"><span class="pre">set</span></code> method. The functions can be seen above.</p>
+<p>This is one particular example for the Return key, but bindings can be made for any single key or combinations of keys. If you’re familiar with “hot key” commands (e.g. CTRL-C for copying) then you could imagine how this functionality could be implemented in your own GUIs.</p>
+</section>
+<section id="binding-widgets-to-cursor-activity">
+<h2>Binding Widgets to Cursor Activity<a class="headerlink" href="#binding-widgets-to-cursor-activity" title="Permalink to this headline">#</a></h2>
+<p>In this final example, we’ll take a look at how we can get the location that a user “clicks” on the screen. Let’s have a look:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># a GUI to return the coordinates of an image</span>
+<span class="c1"># based on the location of the mouse click</span>
+
+<span class="c1"># import the tkinter package</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+
+<span class="c1"># create a class called CanvasCoords</span>
+<span class="k">class</span> <span class="nc">CanvasCoords</span><span class="p">:</span>
+
+    <span class="c1"># define an init function</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+
+        <span class="c1"># add a title to the window</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Canvas Coordinates&quot;</span><span class="p">)</span>
+
+        <span class="c1"># change the style</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+        <span class="n">style</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s1">&#39;clam&#39;</span><span class="p">)</span>
+
+        <span class="c1"># make a frame and stick it to the sides</span>
+        <span class="n">mainframe</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">padding</span> <span class="o">=</span> <span class="s2">&quot;3 3 3 3&quot;</span><span class="p">)</span>
+        <span class="n">mainframe</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="n">S</span><span class="p">))</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">columnconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">rowconfigure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># make variables to store the x and y variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
+
+        <span class="c1"># create an image using a PhotoImage object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Canvas_Image.png&#39;</span><span class="p">)</span>
+
+        <span class="c1"># add a label and set the image to the photo image object</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_label</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_label</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span>
+
+        <span class="c1"># add the Label with the image to the GUI</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_label</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># bind the primary click button of the mouse click</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_label</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">&quot;&lt;Button-1&gt;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_function</span><span class="p">)</span>
+
+        <span class="c1"># make a Label for the x variable</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># make an Entry widget for the x variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span> <span class="o">=</span> <span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># make a Label for the y variable</span>
+        <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;y:&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># make an Entry widget for the y variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Entry</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">E</span><span class="p">))</span>
+
+        <span class="c1"># add some padding to each of the widgets</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">mainframe</span><span class="o">.</span><span class="n">winfo_children</span><span class="p">():</span>
+            <span class="n">child</span><span class="o">.</span><span class="n">grid_configure</span><span class="p">(</span><span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="c1"># create a mouse function </span>
+    <span class="k">def</span> <span class="nf">mouse_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+
+        <span class="c1"># store the x and y coords of the event to variables</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">x</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span>
+
+        <span class="c1"># replace the the Entry widget texts with</span>
+        <span class="c1"># the new values of x and y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># replace the variables with the x and y variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="c1"># create a root Tk object</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
+
+<span class="c1"># create a HeyThere object with the Tk root object as an argument</span>
+<span class="n">CanvasCoords</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+<span class="c1"># call the mainloop method on the Tk root object</span>
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The above script creates a widget that looks as follows:</p>
+<img alt="Screenshot of a GUI with a clickable Canvas" class="align-center" src="../_images/canvas_coordinates.png" />
+<p>Let’s summarize the new components of this scripts.</p>
+<p>The first new feature is a <code class="docutils literal notranslate"><span class="pre">PhotoImage</span></code> object which was used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">img</span> <span class="o">=</span> <span class="n">PhotoImage</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;Canvas_Image.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This creates an image object with the image in the file <code class="docutils literal notranslate"><span class="pre">Canvas_Image.png</span></code>. This is then added as a <code class="docutils literal notranslate"><span class="pre">Label</span></code> in the main <code class="docutils literal notranslate"><span class="pre">Frame</span></code> with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">image_label</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">mainframe</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">img</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">image_label</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">img</span>
+</pre></div>
+</div>
+<p>Note that the second line is key for showing the image.</p>
+<p>The second new feature is in the <code class="docutils literal notranslate"><span class="pre">mouse_click</span></code> function which has been bound to the <code class="docutils literal notranslate"><span class="pre">image_label</span></code>. In this function, we see that the event, which has been passed into the <code class="docutils literal notranslate"><span class="pre">mouse_click</span></code> function as an argument, has attributes for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span>
+</pre></div>
+</div>
+<p>Note that these coordinates are measured from the top of the screen.</p>
+<p>Finally, these coordinates are used to update the <code class="docutils literal notranslate"><span class="pre">Entry</span></code> widgets by deleting their old contents and replacing them with new contents:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">x_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">END</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">y_entry</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "teaching"
+        },
+        kernelOptions: {
+            name: "teaching",
+            path: "./guis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'teaching'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="widgets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Widgets</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="new_windows.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Additional Windows</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-functions">Binding Widgets to Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-keyboard-activity">Binding Widgets to Keyboard Activity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binding-widgets-to-cursor-activity">Binding Widgets to Cursor Activity</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
