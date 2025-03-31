@@ -397,7 +397,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A first example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-flask">What is Flask?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-flask">Installing Flask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A First Example</a></li>
 </ul>
             </nav>
         </div>
@@ -416,11 +418,59 @@ document.write(`
 <ol class="arabic simple">
 <li><p>Add</p></li>
 </ol>
+<section id="what-is-flask">
+<h2>What is Flask?<a class="headerlink" href="#what-is-flask" title="Permalink to this headline">#</a></h2>
 <p>Description</p>
+</section>
+<section id="installing-flask">
+<h2>Installing Flask<a class="headerlink" href="#installing-flask" title="Permalink to this headline">#</a></h2>
+<p>To install flask in your conda environment, you can use the standard installation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">flask</span>
+</pre></div>
+</div>
+</section>
 <section id="a-first-example">
-<h2>A first example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">#</a></h2>
-<p>Code</p>
-<p>This page should link <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/hey_there.html">HERE</a></p>
+<h2>A First Example<a class="headerlink" href="#a-first-example" title="Permalink to this headline">#</a></h2>
+<p>Let’s take a look at first example of a Flask application. The following application will generate a simple page with a little bit of text, akin to a “Hello World” application:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Flask class from the flask module</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="c1"># create a Flask object called app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># define a route to the home page</span>
+<span class="c1"># create a hey_there function</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hey_there</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;What&#39;s Up&quot;</span>
+</pre></div>
+</div>
+<p>As we can see in the code block above, we first make an app object with the <code class="docutils literal notranslate"><span class="pre">Flask</span></code> class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, we add pages to our app with a decorator for the route and a function for the functionality of the page:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hey_there</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;What&#39;s Up&quot;</span>
+</pre></div>
+</div>
+<p>In this case, the string “What’s Up” will just be added to the page.</p>
+<p>To run this application, we need to set up our application for use in a development environment. In a command line (with your conda environment activated), run the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export FLASK_APP=hey_there.py
+set FLASK_APPhey_therep.py
+export FLASK_ENV=development
+set FLASK_DEBUG=T
+```ue
+</pre></div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">hey_there.py</span></code> script is explicitly linked in the environmental variables.</p>
+<p>Once you’ve set up these lines, the app is ready to run! From the command line, run</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span> <span class="n">run</span>
+</pre></div>
+</div>
+<p>This will set up a local IP address like 127.0.0.1:5000 or something similar. You can navigate to the page in your favorite web browser to view your work. Your page will look like the example page <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/hey_there.html">HERE</a></p>
+<p>The steps above reflect the basic structure of a simple Flask app. Now that we’ve got the basic structure down, let’s add some more functionality to our app.</p>
 </section>
 </section>
 
@@ -491,7 +541,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A first example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-flask">What is Flask?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-flask">Installing Flask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-example">A First Example</a></li>
 </ul>
   </nav></div>
 
