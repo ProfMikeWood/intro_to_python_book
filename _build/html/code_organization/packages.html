@@ -201,9 +201,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../web_development/intro_to_flask.html">Introduction to Flask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Get and Post Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Adding Data to Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Implementing Data</a></li>
 </ul>
 
     </div>
@@ -462,6 +462,103 @@ document.write(`
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UnannotatedAttributeError</span><span class="g g-Whitespace">                 </span>Traceback (most recent call last)
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_next_gen.py:146,</span> in <span class="ni">define.&lt;locals&gt;.wrap</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">146</span>     <span class="k">return</span> <span class="n">do_it</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">except</span> <span class="n">UnannotatedAttributeError</span><span class="p">:</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_next_gen.py:90,</span> in <span class="ni">define.&lt;locals&gt;.do_it</span><span class="nt">(cls, auto_attribs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="k">def</span> <span class="nf">do_it</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">auto_attribs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">90</span>     <span class="k">return</span> <span class="n">attrs</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>         <span class="n">maybe_cls</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span>         <span class="n">these</span><span class="o">=</span><span class="n">these</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>         <span class="nb">repr</span><span class="o">=</span><span class="nb">repr</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="nb">hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="n">unsafe_hash</span><span class="o">=</span><span class="n">unsafe_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">slots</span><span class="o">=</span><span class="n">slots</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="n">frozen</span><span class="o">=</span><span class="n">frozen</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="n">weakref_slot</span><span class="o">=</span><span class="n">weakref_slot</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="nb">str</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">auto_attribs</span><span class="o">=</span><span class="n">auto_attribs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="n">kw_only</span><span class="o">=</span><span class="n">kw_only</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="n">cache_hash</span><span class="o">=</span><span class="n">cache_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>         <span class="n">auto_exc</span><span class="o">=</span><span class="n">auto_exc</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="n">eq</span><span class="o">=</span><span class="n">eq</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>         <span class="n">auto_detect</span><span class="o">=</span><span class="n">auto_detect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">collect_by_mro</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="n">getstate_setstate</span><span class="o">=</span><span class="n">getstate_setstate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="n">on_setattr</span><span class="o">=</span><span class="n">on_setattr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>         <span class="n">field_transformer</span><span class="o">=</span><span class="n">field_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>         <span class="n">match_args</span><span class="o">=</span><span class="n">match_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1603,</span> in <span class="ni">attrs</span><span class="nt">(maybe_cls, these, repr_ns, repr, cmp, hash, init, slots, frozen, weakref_slot, str, auto_attribs, kw_only, cache_hash, auto_exc, eq, order, auto_detect, collect_by_mro, getstate_setstate, on_setattr, field_transformer, match_args, unsafe_hash)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1602</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1603</span>     <span class="k">return</span> <span class="n">wrap</span><span class="p">(</span><span class="n">maybe_cls</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1499,</span> in <span class="ni">attrs.&lt;locals&gt;.wrap</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t freeze a class with a custom __setattr__.&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1499</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">_ClassBuilder</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="n">these</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="n">slots</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>     <span class="n">is_frozen</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>     <span class="n">weakref_slot</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="n">_determine_whether_to_implement</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1506</span>         <span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1507</span>         <span class="n">getstate_setstate</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span>         <span class="n">auto_detect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span>         <span class="p">(</span><span class="s2">&quot;__getstate__&quot;</span><span class="p">,</span> <span class="s2">&quot;__setstate__&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1510</span>         <span class="n">default</span><span class="o">=</span><span class="n">slots</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1511</span>     <span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1512</span>     <span class="n">auto_attribs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1513</span>     <span class="n">kw_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1514</span>     <span class="n">cache_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1515</span>     <span class="n">is_exc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="n">collect_by_mro</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span>     <span class="n">on_setattr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1518</span>     <span class="n">has_own_setattr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1519</span>     <span class="n">field_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1520</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1521</span> <span class="k">if</span> <span class="n">_determine_whether_to_implement</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1522</span>     <span class="bp">cls</span><span class="p">,</span> <span class="nb">repr</span><span class="p">,</span> <span class="n">auto_detect</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;__repr__&quot;</span><span class="p">,)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1523</span> <span class="p">):</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:657,</span> in <span class="ni">_ClassBuilder.__init__</span><span class="nt">(self, cls, these, slots, frozen, weakref_slot, getstate_setstate, auto_attribs, kw_only, cache_hash, is_exc, collect_by_mro, on_setattr, has_custom_setattr, field_transformer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">640</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">641</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">642</span>     <span class="bp">cls</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="n">field_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> <span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">657</span>     <span class="n">attrs</span><span class="p">,</span> <span class="n">base_attrs</span><span class="p">,</span> <span class="n">base_map</span> <span class="o">=</span> <span class="n">_transform_attrs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>         <span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>         <span class="n">these</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>         <span class="n">auto_attribs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>         <span class="n">kw_only</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>         <span class="n">collect_by_mro</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>         <span class="n">field_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cls</span> <span class="o">=</span> <span class="bp">cls</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:520,</span> in <span class="ni">_transform_attrs</span><span class="nt">(cls, these, auto_attribs, kw_only, collect_by_mro, field_transformer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unannotated</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">520</span>         <span class="k">raise</span> <span class="n">UnannotatedAttributeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span>             <span class="s2">&quot;The following `attr.ib`s lack a type annotation: &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span>             <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span>                 <span class="nb">sorted</span><span class="p">(</span><span class="n">unannotated</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">cd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span>             <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">526</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">UnannotatedAttributeError</span>: The following `attr.ib`s lack a type annotation: _ref_resolver, _resolver.
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># use the help method to generate a list of all modules</span>
@@ -503,11 +600,6 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">2235</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quit</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">2236</span>         <span class="k">break</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pkgutil.py:107,</span> in <span class="ni">walk_packages</span><span class="nt">(path, prefix, onerror)</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span> <span class="c1"># don&#39;t traverse path items we&#39;ve seen before</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">seen</span><span class="p">(</span><span class="n">p</span><span class="p">)]</span>
-<span class="ne">--&gt; </span><span class="mi">107</span> <span class="k">yield from</span> <span class="n">walk_packages</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">onerror</span><span class="p">)</span>
-
 <span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/pkgutil.py:92,</span> in <span class="ni">walk_packages</span><span class="nt">(path, prefix, onerror)</span>
 <span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">info</span><span class="o">.</span><span class="n">ispkg</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">try</span><span class="p">:</span>
@@ -515,62 +607,179 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="k">if</span> <span class="n">onerror</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">terminal</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Shims</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals</span> <span class="kn">import</span> <span class="n">api_handlers</span>  <span class="c1"># noqa</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals.handlers</span> <span class="kn">import</span> <span class="n">TermSocket</span>  <span class="c1"># noqa</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals.terminalmanager</span> <span class="kn">import</span> <span class="n">TerminalManager</span>  <span class="c1"># noqa</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jsonschema</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">16</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">jsonschema._types</span> <span class="kn">import</span> <span class="n">TypeChecker</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">jsonschema.exceptions</span> <span class="kn">import</span> <span class="n">SchemaError</span><span class="p">,</span> <span class="n">ValidationError</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">jsonschema.validators</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="n">Draft3Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">Draft4Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">Draft6Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">Draft7Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">Draft201909Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">Draft202012Validator</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="n">validate</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;__version__&quot;</span><span class="p">:</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server_terminals</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># type:ignore</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Jupyter Server Terminals requires Jupyter Server 2.0+&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.app</span> <span class="kn">import</span> <span class="n">TerminalsExtensionApp</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">def</span> <span class="nf">_jupyter_server_extension_points</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="p">{</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>             <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;jupyter_server_terminals.app&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>             <span class="s2">&quot;app&quot;</span><span class="p">:</span> <span class="n">TerminalsExtensionApp</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="p">},</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="p">]</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jsonschema</span><span class="o">/</span><span class="n">validators</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">746</span>
+<span class="g g-Whitespace">    </span><span class="mi">657</span> <span class="n">Draft6Validator</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">meta_schema</span><span class="o">=</span><span class="n">SPECIFICATIONS</span><span class="o">.</span><span class="n">contents</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>         <span class="s2">&quot;http://json-schema.org/draft-06/schema#&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">698</span>     <span class="n">applicable_validators</span><span class="o">=</span><span class="n">_legacy_keywords</span><span class="o">.</span><span class="n">ignore_ref_siblings</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">699</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span> <span class="n">Draft7Validator</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span>     <span class="n">meta_schema</span><span class="o">=</span><span class="n">SPECIFICATIONS</span><span class="o">.</span><span class="n">contents</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span>         <span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">743</span>     <span class="n">applicable_validators</span><span class="o">=</span><span class="n">_legacy_keywords</span><span class="o">.</span><span class="n">ignore_ref_siblings</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">744</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">746</span> <span class="n">Draft201909Validator</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span>     <span class="n">meta_schema</span><span class="o">=</span><span class="n">SPECIFICATIONS</span><span class="o">.</span><span class="n">contents</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">748</span>         <span class="s2">&quot;https://json-schema.org/draft/2019-09/schema&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">749</span>     <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">750</span>     <span class="n">validators</span><span class="o">=</span><span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">751</span>         <span class="s2">&quot;$recursiveRef&quot;</span><span class="p">:</span> <span class="n">_legacy_keywords</span><span class="o">.</span><span class="n">recursiveRef</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">752</span>         <span class="s2">&quot;$ref&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">ref</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span>         <span class="s2">&quot;additionalItems&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">additionalItems</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">754</span>         <span class="s2">&quot;additionalProperties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">additionalProperties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">755</span>         <span class="s2">&quot;allOf&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">allOf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">756</span>         <span class="s2">&quot;anyOf&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">anyOf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span>         <span class="s2">&quot;const&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">const</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span>         <span class="s2">&quot;contains&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">contains</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">759</span>         <span class="s2">&quot;dependentRequired&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">dependentRequired</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>         <span class="s2">&quot;dependentSchemas&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">dependentSchemas</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>         <span class="s2">&quot;enum&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">enum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">762</span>         <span class="s2">&quot;exclusiveMaximum&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">exclusiveMaximum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span>         <span class="s2">&quot;exclusiveMinimum&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">exclusiveMinimum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span>         <span class="s2">&quot;format&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">765</span>         <span class="s2">&quot;if&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">if_</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span>         <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">_legacy_keywords</span><span class="o">.</span><span class="n">items_draft6_draft7_draft201909</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span>         <span class="s2">&quot;maxItems&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">maxItems</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">768</span>         <span class="s2">&quot;maxLength&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">maxLength</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">769</span>         <span class="s2">&quot;maxProperties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">maxProperties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">770</span>         <span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">maximum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">771</span>         <span class="s2">&quot;minItems&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">minItems</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">772</span>         <span class="s2">&quot;minLength&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">minLength</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">773</span>         <span class="s2">&quot;minProperties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">minProperties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">774</span>         <span class="s2">&quot;minimum&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">minimum</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">775</span>         <span class="s2">&quot;multipleOf&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">multipleOf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">776</span>         <span class="s2">&quot;not&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">not_</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">777</span>         <span class="s2">&quot;oneOf&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">oneOf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">778</span>         <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">pattern</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">779</span>         <span class="s2">&quot;patternProperties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">patternProperties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">780</span>         <span class="s2">&quot;properties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">properties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">781</span>         <span class="s2">&quot;propertyNames&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">propertyNames</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span>         <span class="s2">&quot;required&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">required</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">784</span>         <span class="s2">&quot;unevaluatedItems&quot;</span><span class="p">:</span> <span class="n">_legacy_keywords</span><span class="o">.</span><span class="n">unevaluatedItems_draft2019</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">785</span>         <span class="s2">&quot;unevaluatedProperties&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">unevaluatedProperties</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span>         <span class="s2">&quot;uniqueItems&quot;</span><span class="p">:</span> <span class="n">_keywords</span><span class="o">.</span><span class="n">uniqueItems</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span>     <span class="p">},</span>
+<span class="g g-Whitespace">    </span><span class="mi">788</span>     <span class="n">type_checker</span><span class="o">=</span><span class="n">_types</span><span class="o">.</span><span class="n">draft201909_type_checker</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span>     <span class="n">format_checker</span><span class="o">=</span><span class="n">_format</span><span class="o">.</span><span class="n">draft201909_format_checker</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span>     <span class="n">version</span><span class="o">=</span><span class="s2">&quot;draft2019-09&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span> <span class="n">Draft202012Validator</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">meta_schema</span><span class="o">=</span><span class="n">SPECIFICATIONS</span><span class="o">.</span><span class="n">contents</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>         <span class="s2">&quot;https://json-schema.org/draft/2020-12/schema&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>     <span class="n">version</span><span class="o">=</span><span class="s2">&quot;draft2020-12&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span> <span class="n">_LATEST_VERSION</span> <span class="o">=</span> <span class="n">Draft202012Validator</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server_terminals</span><span class="o">/</span><span class="n">app</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">which</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">jupyter_core.utils</span> <span class="kn">import</span> <span class="n">ensure_async</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.application</span> <span class="kn">import</span> <span class="n">ExtensionApp</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">jupyter_server.transutils</span> <span class="kn">import</span> <span class="n">trans</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Type</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/jsonschema/validators.py:219,</span> in <span class="ni">create</span><span class="nt">(meta_schema, validators, version, type_checker, format_checker, id_of, applicable_validators)</span>
+<span class="g g-Whitespace">    </span><span class="mi">211</span> <span class="n">format_checker_arg</span> <span class="o">=</span> <span class="n">format_checker</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="n">specification</span> <span class="o">=</span> <span class="n">referencing</span><span class="o">.</span><span class="n">jsonschema</span><span class="o">.</span><span class="n">specification_with</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">dialect_id</span><span class="o">=</span><span class="n">id_of</span><span class="p">(</span><span class="n">meta_schema</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">&quot;urn:unknown-dialect&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">default</span><span class="o">=</span><span class="n">referencing</span><span class="o">.</span><span class="n">Specification</span><span class="o">.</span><span class="n">OPAQUE</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="nd">@define</span>
+<span class="ne">--&gt; </span><span class="mi">219</span> <span class="k">class</span> <span class="nc">Validator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>     <span class="n">VALIDATORS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">validators</span><span class="p">)</span>  <span class="c1"># noqa: RUF012</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>     <span class="n">META_SCHEMA</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">meta_schema</span><span class="p">)</span>  <span class="c1"># noqa: RUF012</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">extension</span><span class="o">/</span><span class="n">application</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">14</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">HasTraits</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Unicode</span><span class="p">,</span> <span class="n">default</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="kn">import</span> <span class="n">Config</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">jupyter_server.serverapp</span> <span class="kn">import</span> <span class="n">ServerApp</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">jupyter_server.transutils</span> <span class="kn">import</span> <span class="n">_i18n</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">jupyter_server.utils</span> <span class="kn">import</span> <span class="n">is_namespace_package</span><span class="p">,</span> <span class="n">url_path_join</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_next_gen.py:155,</span> in <span class="ni">define</span><span class="nt">(maybe_cls, these, repr, unsafe_hash, hash, init, slots, frozen, weakref_slot, str, auto_attribs, kw_only, cache_hash, auto_exc, eq, order, auto_detect, getstate_setstate, on_setattr, field_transformer, match_args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">153</span>     <span class="k">return</span> <span class="n">wrap</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">155</span>     <span class="k">return</span> <span class="n">wrap</span><span class="p">(</span><span class="n">maybe_cls</span><span class="p">)</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">serverapp</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">91</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.config</span> <span class="kn">import</span> <span class="n">ExtensionConfigManager</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.manager</span> <span class="kn">import</span> <span class="n">ExtensionManager</span>
-<span class="ne">---&gt; </span><span class="mi">91</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.serverextension</span> <span class="kn">import</span> <span class="n">ServerExtensionApp</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="kn">from</span> <span class="nn">jupyter_server.gateway.connections</span> <span class="kn">import</span> <span class="n">GatewayWebSocketConnection</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="kn">from</span> <span class="nn">jupyter_server.gateway.managers</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">GatewayClient</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">GatewayKernelSpecManager</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="n">GatewayMappingKernelManager</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">GatewaySessionManager</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="p">)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_next_gen.py:148,</span> in <span class="ni">define.&lt;locals&gt;.wrap</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>     <span class="k">return</span> <span class="n">do_it</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">except</span> <span class="n">UnannotatedAttributeError</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">148</span>     <span class="k">return</span> <span class="n">do_it</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_next_gen.py:90,</span> in <span class="ni">define.&lt;locals&gt;.do_it</span><span class="nt">(cls, auto_attribs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="k">def</span> <span class="nf">do_it</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">auto_attribs</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">90</span>     <span class="k">return</span> <span class="n">attrs</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>         <span class="n">maybe_cls</span><span class="o">=</span><span class="bp">cls</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span>         <span class="n">these</span><span class="o">=</span><span class="n">these</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>         <span class="nb">repr</span><span class="o">=</span><span class="nb">repr</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="nb">hash</span><span class="o">=</span><span class="nb">hash</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="n">unsafe_hash</span><span class="o">=</span><span class="n">unsafe_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>         <span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">slots</span><span class="o">=</span><span class="n">slots</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="n">frozen</span><span class="o">=</span><span class="n">frozen</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>         <span class="n">weakref_slot</span><span class="o">=</span><span class="n">weakref_slot</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="nb">str</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>         <span class="n">auto_attribs</span><span class="o">=</span><span class="n">auto_attribs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>         <span class="n">kw_only</span><span class="o">=</span><span class="n">kw_only</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>         <span class="n">cache_hash</span><span class="o">=</span><span class="n">cache_hash</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>         <span class="n">auto_exc</span><span class="o">=</span><span class="n">auto_exc</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>         <span class="n">eq</span><span class="o">=</span><span class="n">eq</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span>         <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>         <span class="n">auto_detect</span><span class="o">=</span><span class="n">auto_detect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">collect_by_mro</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="n">getstate_setstate</span><span class="o">=</span><span class="n">getstate_setstate</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="n">on_setattr</span><span class="o">=</span><span class="n">on_setattr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>         <span class="n">field_transformer</span><span class="o">=</span><span class="n">field_transformer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>         <span class="n">match_args</span><span class="o">=</span><span class="n">match_args</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>     <span class="p">)</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1006,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1603,</span> in <span class="ni">attrs</span><span class="nt">(maybe_cls, these, repr_ns, repr, cmp, hash, init, slots, frozen, weakref_slot, str, auto_attribs, kw_only, cache_hash, auto_exc, eq, order, auto_detect, collect_by_mro, getstate_setstate, on_setattr, field_transformer, match_args, unsafe_hash)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1601</span>     <span class="k">return</span> <span class="n">wrap</span>
+<span class="g g-Whitespace">   </span><span class="mi">1602</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1603</span>     <span class="k">return</span> <span class="n">wrap</span><span class="p">(</span><span class="n">maybe_cls</span><span class="p">)</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:688,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1532,</span> in <span class="ni">attrs.&lt;locals&gt;.wrap</span><span class="nt">(cls)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1528</span> <span class="n">eq</span> <span class="o">=</span> <span class="n">_determine_whether_to_implement</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1529</span>     <span class="bp">cls</span><span class="p">,</span> <span class="n">eq_</span><span class="p">,</span> <span class="n">auto_detect</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;__eq__&quot;</span><span class="p">,</span> <span class="s2">&quot;__ne__&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1530</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1531</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_exc</span> <span class="ow">and</span> <span class="n">eq</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1532</span>     <span class="n">builder</span><span class="o">.</span><span class="n">add_eq</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1533</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_exc</span> <span class="ow">and</span> <span class="n">_determine_whether_to_implement</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1534</span>     <span class="bp">cls</span><span class="p">,</span> <span class="n">order_</span><span class="p">,</span> <span class="n">auto_detect</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;__lt__&quot;</span><span class="p">,</span> <span class="s2">&quot;__le__&quot;</span><span class="p">,</span> <span class="s2">&quot;__gt__&quot;</span><span class="p">,</span> <span class="s2">&quot;__ge__&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1535</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1536</span>     <span class="n">builder</span><span class="o">.</span><span class="n">add_order</span><span class="p">()</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:879,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1026,</span> in <span class="ni">_ClassBuilder.add_eq</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span> <span class="k">def</span> <span class="nf">add_eq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span>     <span class="n">cd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cls_dict</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span>     <span class="n">cd</span><span class="p">[</span><span class="s2">&quot;__eq__&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_method_dunders</span><span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span>         <span class="n">_make_eq</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cls</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1028</span>     <span class="n">cd</span><span class="p">[</span><span class="s2">&quot;__ne__&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_method_dunders</span><span class="p">(</span><span class="n">_make_ne</span><span class="p">())</span>
+<span class="g g-Whitespace">   </span><span class="mi">1030</span>     <span class="k">return</span> <span class="bp">self</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:975,</span> in <span class="ni">get_code</span><span class="nt">(self, fullname)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:1769,</span> in <span class="ni">_make_eq</span><span class="nt">(cls, attrs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1765</span>     <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;    return True&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1767</span> <span class="n">script</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1769</span> <span class="k">return</span> <span class="n">_make_method</span><span class="p">(</span><span class="s2">&quot;__eq__&quot;</span><span class="p">,</span> <span class="n">script</span><span class="p">,</span> <span class="n">unique_filename</span><span class="p">,</span> <span class="n">globs</span><span class="p">)</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:1074,</span> in <span class="ni">get_data</span><span class="nt">(self, path)</span>
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:330,</span> in <span class="ni">_make_method</span><span class="nt">(name, script, filename, globs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_filename</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">--&gt; </span><span class="mi">330</span> <span class="n">_compile_and_eval</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">globs</span><span class="p">,</span> <span class="n">locs</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span> <span class="k">return</span> <span class="n">locs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/cs122/lib/python3.10/site-packages/attr/_make.py:302,</span> in <span class="ni">_compile_and_eval</span><span class="nt">(script, globs, locs, filename)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="k">def</span> <span class="nf">_compile_and_eval</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">globs</span><span class="p">,</span> <span class="n">locs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span><span class="sd">     &quot;Exec&quot; the script with the given global (globs) and local (locs) variables.</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">302</span>     <span class="n">bytecode</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">script</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;exec&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="nb">eval</span><span class="p">(</span><span class="n">bytecode</span><span class="p">,</span> <span class="n">globs</span><span class="p">,</span> <span class="n">locs</span><span class="p">)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

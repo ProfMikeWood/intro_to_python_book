@@ -43,8 +43,8 @@ parts:
   - caption: Web Development
     chapters:
     - file: web_development/intro_to_flask
-    - file: web_development/requests
     - file: web_development/rendering_html
+    - file: web_development/requests
     - file: web_development/adding_data
   # - caption: Beyond the Basics
   #   chapters:
