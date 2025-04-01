@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'web_development/intro_to_flask';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Get and Post Requests" href="requests.html" />
+    <link rel="next" title="Rendering HTML" href="rendering_html.html" />
     <link rel="prev" title="Additional Windows" href="../guis/new_windows.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -201,9 +201,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Flask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="requests.html">Get and Post Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rendering_html.html">Rendering HTML</a></li>
-<li class="toctree-l1"><a class="reference internal" href="adding_data.html">Adding Data to Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requests.html">Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="adding_data.html">Implementing Data</a></li>
 </ul>
 
     </div>
@@ -457,11 +457,10 @@ document.write(`
 </div>
 <p>In this case, the string “What’s Up” will just be added to the page.</p>
 <p>To run this application, we need to set up our application for use in a development environment. In a command line (with your conda environment activated), run the following lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export FLASK_APP=hey_there.py
-set FLASK_APPhey_therep.py
-export FLASK_ENV=development
-set FLASK_DEBUG=T
-```ue
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">FLASK_APP</span><span class="o">=</span><span class="n">hey_there</span><span class="o">.</span><span class="n">py</span>
+<span class="nb">set</span> <span class="n">FLASK_APP</span><span class="o">=</span><span class="n">hey_there</span><span class="o">.</span><span class="n">py</span>
+<span class="n">export</span> <span class="n">FLASK_ENV</span><span class="o">=</span><span class="n">development</span>
+<span class="nb">set</span> <span class="n">FLASK_DEBUG</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 </div>
 <p>As you can see, the <code class="docutils literal notranslate"><span class="pre">hey_there.py</span></code> script is explicitly linked in the environmental variables.</p>
@@ -515,11 +514,11 @@ set FLASK_DEBUG=T
       </div>
     </a>
     <a class="right-next"
-       href="requests.html"
+       href="rendering_html.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Get and Post Requests</p>
+        <p class="prev-next-title">Rendering HTML</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

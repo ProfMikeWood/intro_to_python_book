@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Adding Data to Pages &#8212; Introduction to Python</title>
+    <title>Implementing Data &#8212; Introduction to Python</title>
   
   
   
@@ -63,7 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'web_development/adding_data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Rendering HTML" href="rendering_html.html" />
+    <link rel="prev" title="Requests" href="requests.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -200,9 +200,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro_to_flask.html">Introduction to Flask</a></li>
-<li class="toctree-l1"><a class="reference internal" href="requests.html">Get and Post Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rendering_html.html">Rendering HTML</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Adding Data to Pages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requests.html">Requests</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementing Data</a></li>
 </ul>
 
     </div>
@@ -373,7 +373,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -384,11 +386,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Adding Data to Pages</h1>
+    <h1>Implementing Data</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-data">Local Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-data">Remote Data</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -398,13 +409,115 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="adding-data-to-pages">
-<h1>Adding Data to Pages<a class="headerlink" href="#adding-data-to-pages" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="implementing-data">
+<h1>Implementing Data<a class="headerlink" href="#implementing-data" title="Permalink to this headline">#</a></h1>
 <p>Author: Mike Wood</p>
 <p>Learning Objectives: By the end of this notebook, you should be able to:</p>
 <ol class="arabic simple">
 <li><p>Add</p></li>
 </ol>
+<section id="local-data">
+<h2>Local Data<a class="headerlink" href="#local-data" title="Permalink to this headline">#</a></h2>
+<p>In this example, we will take a look at linking local data to a page. Specificaly, we’ll make a page to toggle through different images in a dat abase. Let’s see an example script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Flask class from the flask module</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="c1"># import the render_template function</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+<span class="c1"># import the request function</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+
+<span class="c1"># create a Flask object called app</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># define a route to the home page</span>
+<span class="c1"># create a monthly_maps function</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">monthly_maps</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;month_page.html&#39;</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">)</span>
+
+<span class="c1"># define a route to the person page</span>
+<span class="c1"># add &#39;GET&#39; to the methods</span>
+<span class="c1"># create a month function</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/month&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">month</span><span class="p">():</span>
+
+    <span class="c1"># retrieve the month from the requests</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span>
+
+    <span class="c1"># pass the month arg to the render template</span>
+    <span class="c1"># for the month_page.html scriopt</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;month_page.html&#39;</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">month</span><span class="p">)</span>
+
+<span class="c1"># add a main method to run the app</span>
+<span class="c1"># as a typical Python script</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In this example, we have created two “pages” yet both of them use the same <code class="docutils literal notranslate"><span class="pre">month_page.html</span></code> template.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;Month Map&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;A page to show a map for each month&quot;&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;h2&gt;Monthly Maps&lt;/h2&gt;
+
+    &lt;!--Make a form with month action and get method--&gt;
+    &lt;form action=&quot;/month&quot; method=&quot;get&quot;&gt;
+
+        &lt;!--Make a select feature to choose the months--&gt;
+        &lt;select name=&quot;month&quot; id=&quot;months&quot;&gt;
+
+            &lt;!--Add an option on start-up for when months are not selected --&gt;
+            &lt;!--Use jinja to implement a Python if statement--&gt;
+            {% if month==&#39;default&#39;%}
+            &lt;option value=&quot;default&quot; selected disabled&gt;Choose a month:&lt;/option&gt;
+            {% else %}
+            &lt;option selected&gt;{{month}}&lt;/option&gt;
+            {% endif %}
+
+            &lt;!--Add options for each month--&gt;
+            &lt;option value=&quot;Jan&quot;&gt;Jan&lt;/option&gt;
+            &lt;option value=&quot;Feb&quot;&gt;Feb&lt;/option&gt;
+            &lt;option value=&quot;Mar&quot;&gt;Ma&lt;/option&gt;
+            &lt;option value=&quot;Apr&quot;&gt;Apr&lt;/option&gt;
+            &lt;option value=&quot;May&quot;&gt;May&lt;/option&gt;
+            &lt;option value=&quot;Jun&quot;&gt;Jun&lt;/option&gt;
+            &lt;option value=&quot;Jul&quot;&gt;Jul&lt;/option&gt;
+            &lt;option value=&quot;Aug&quot;&gt;Aug&lt;/option&gt;
+            &lt;option value=&quot;Sep&quot;&gt;Sep&lt;/option&gt;
+            &lt;option value=&quot;Oct&quot;&gt;Oct&lt;/option&gt;
+            &lt;option value=&quot;Nov&quot;&gt;Nov&lt;/option&gt;
+            &lt;option value=&quot;Dec&quot;&gt;Dec&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Update&quot;&gt;
+
+    &lt;/form&gt; &lt;br&gt;
+
+    &lt;!--Add an image for the month indicated by the month variable--&gt;
+    &lt;!--Use jinja to implement a Python if statement--&gt;
+    {% if month!=&#39;default&#39;%}
+        &lt;img src=&quot;static/{{month}}_map.png&quot;&gt;
+    {% endif %}
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre></div>
+</div>
+<p>These files should yield the following pages: <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/month_page.html">HERE</a></p>
+</section>
+<section id="remote-data">
+<h2>Remote Data<a class="headerlink" href="#remote-data" title="Permalink to this headline">#</a></h2>
+<p>Try Checkout an example <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/wave_page.html">HERE</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -439,12 +552,12 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rendering_html.html"
+       href="requests.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Rendering HTML</p>
+        <p class="prev-next-title">Requests</p>
       </div>
     </a>
 </div></div>
@@ -456,6 +569,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-data">Local Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-data">Remote Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
