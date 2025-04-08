@@ -397,8 +397,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-requests">Get Requests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-requests">Post Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-requests">GET Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-requests">POST Requests</a></li>
 </ul>
             </nav>
         </div>
@@ -419,8 +419,8 @@ document.write(`
 <li><p>Implement a POST request to implement a hidden request</p></li>
 </ol>
 <section id="get-requests">
-<h2>Get Requests<a class="headerlink" href="#get-requests" title="Permalink to this headline">#</a></h2>
-<p>In this first example, let’s consider a typical example of a user enters some information - say, their name into a registration form, as shown on the page <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/simple_form.html">HERE</a> - and then this information is reflected in a subsequent page.</p>
+<h2>GET Requests<a class="headerlink" href="#get-requests" title="Permalink to this headline">#</a></h2>
+<p>In this first example, let’s consider a typical example of a user enters some information - say, their name into a registration form, as shown on the page <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/simple_form.html">HERE</a> - and then this information is reflected in a subsequent page (i.e. it is public).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the Flask class from the flask module</span>
 <span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
 
@@ -451,7 +451,7 @@ document.write(`
 
     <span class="c1"># pass the fname and lname args to the render template</span>
     <span class="c1"># for the person_form.html script</span>
-    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;person_form.html&#39;</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="o">=</span><span class="n">lname</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;person_form.html&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="o">=</span><span class="n">lname</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This page generates a submittable form which is created with the <code class="docutils literal notranslate"><span class="pre">simple_form.html</span></code> template:</p>
@@ -472,13 +472,13 @@ document.write(`
 
         &lt;!--Add a a label and input for first name
             Be sure to link the name to the fname variable--&gt;
-        &lt;label for=&quot;fname&quot;&gt;First name:&lt;/label&gt;&lt;br&gt;
-        &lt;input type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
+        &lt;label&gt;First name:&lt;/label&gt;&lt;br&gt;
+        &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;&lt;br&gt;
 
         &lt;!--Add a a label and input for last name
             Be sure to link the name to the lname variable--&gt;
-        &lt;label for=&quot;lname&quot;&gt;Last name:&lt;/label&gt;&lt;br&gt;
-        &lt;input type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname&quot;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;label&gt;Last name:&lt;/label&gt;&lt;br&gt;
+        &lt;input type=&quot;text&quot; name=&quot;lname&quot;&gt;&lt;br&gt;&lt;br&gt;
 
         &lt;!--Make a submit button with the text Register--&gt;
         &lt;input type=&quot;submit&quot; value=&quot;Register&quot;&gt;
@@ -489,17 +489,17 @@ document.write(`
 </pre></div>
 </div>
 <p>As you can see, the input fields are provided with keys for <code class="docutils literal notranslate"><span class="pre">name=fname</span></code> and <code class="docutils literal notranslate"><span class="pre">name=lname</span></code> in these lines:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;fname&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fname&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;lname&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;lname&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;fname&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;lname&quot;</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Note that these are passed to the <code class="docutils literal notranslate"><span class="pre">person_page.html</span></code> template via a get request in the following lines:</p>
+<p>Note that these are passed explicitly to the <code class="docutils literal notranslate"><span class="pre">person_page.html</span></code> template in the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;fname&#39;</span><span class="p">]</span>
 <span class="n">lname</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s1">&#39;lname&#39;</span><span class="p">]</span>
-<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;person_form.html&#39;</span><span class="p">,</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="o">=</span><span class="n">lname</span><span class="p">)</span>
+<span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;person_form.html&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="o">=</span><span class="n">lname</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In the <code class="docutils literal notranslate"><span class="pre">person_page.html</span></code> template, these are then implemented as variables <code class="docutils literal notranslate"><span class="pre">{{fname}}</span></code> and <code class="docutils literal notranslate"><span class="pre">{{lname}}</span></code> as shown below:</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">person_page.html</span></code> template, the values in <code class="docutils literal notranslate"><span class="pre">fname</span></code> and <code class="docutils literal notranslate"><span class="pre">lname</span></code> are then implemented as variables <code class="docutils literal notranslate"><span class="pre">{{fname}}</span></code> and <code class="docutils literal notranslate"><span class="pre">{{lname}}</span></code> as shown below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!doctype html&gt;
 &lt;html&gt;
 
@@ -512,8 +512,8 @@ document.write(`
     &lt;h2&gt;Person Details&lt;/h2&gt;
     &lt;form&gt;
         &lt;!--Add a labels for the first name and lat name--&gt;
-        &lt;label for=&quot;fname&quot;&gt;First name: {{fname}}&lt;/label&gt;&lt;br&gt;
-        &lt;label for=&quot;lname&quot;&gt;Last name: {{lname}}&lt;/label&gt;&lt;br&gt;
+        &lt;label&gt;First name: {{fname}}&lt;/label&gt;&lt;br&gt;
+        &lt;label&gt;Last name: {{lname}}&lt;/label&gt;&lt;br&gt;
      &lt;/form&gt; 
 &lt;/body&gt;
 
@@ -522,11 +522,32 @@ document.write(`
 </div>
 <p>You can try it for yourself on your machine. When entering a name on your page, you should get a page similar to the one shown
 <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/web_development/html_examples/person_form.html">HERE</a>.</p>
-<p>Note that the Get requests displays the requested information directly in the URL. In effect, this type of information should not be used for sensitive data.</p>
+<p>Note that the GET requests displays the requested information directly in the URL. In effect, this type of information should not be used for sensitive data.</p>
 </section>
 <section id="post-requests">
-<h2>Post Requests<a class="headerlink" href="#post-requests" title="Permalink to this headline">#</a></h2>
-<p>In contrast to Get requests, Post request are hidden.</p>
+<h2>POST Requests<a class="headerlink" href="#post-requests" title="Permalink to this headline">#</a></h2>
+<p>In contrast to GET requests, POST request are hidden and are more suitable for a form where information will be submitted.</p>
+<p>To implement a POST request, we can modify the <code class="docutils literal notranslate"><span class="pre">person</span></code> function above as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/person&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">person</span><span class="p">():</span>
+    <span class="c1"># pass the form to the person_form page</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+
+    <span class="c1"># using the request.form attribute</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;person_form.html&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As we can see, the <code class="docutils literal notranslate"><span class="pre">lname</span></code> and <code class="docutils literal notranslate"><span class="pre">fname</span></code> variables are no longer passed explicitly. Instead a <code class="docutils literal notranslate"><span class="pre">form</span></code> is passed.</p>
+<p>This is reflected in the registration page by updating the request pethod to post as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/person&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Then, in the person form, the variables are now accessed as attributed of the form that has been passed to the template:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span> <span class="n">First</span> <span class="n">Name</span><span class="p">:</span> <span class="p">{{</span><span class="n">form</span><span class="o">.</span><span class="n">fname</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span> <span class="n">Last</span> <span class="n">Name</span><span class="p">:</span> <span class="p">{{</span><span class="n">form</span><span class="o">.</span><span class="n">lname</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now, when looking at the <code class="docutils literal notranslate"><span class="pre">person_form.html</span></code> page, the registration image will no longer be presented in the header of the page.</p>
 </section>
 </section>
 
@@ -597,8 +618,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-requests">Get Requests</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-requests">Post Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-requests">GET Requests</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-requests">POST Requests</a></li>
 </ul>
   </nav></div>
 
