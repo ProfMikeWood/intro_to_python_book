@@ -464,6 +464,10 @@ document.write(`
 <span class="nb">set</span> <span class="n">FLASK_DEBUG</span><span class="o">=</span><span class="kc">True</span>
 </pre></div>
 </div>
+<p>If you are on Windows and using Powershell, you can set environment variables as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$env:FLASK_APP = &quot;hey_there.py&quot;
+</pre></div>
+</div>
 <p>As you can see, the <code class="docutils literal notranslate"><span class="pre">hey_there.py</span></code> script is explicitly linked in the environmental variables.</p>
 <p>Once you’ve set up these lines, the app is ready to run! From the command line, run</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flask</span> <span class="n">run</span>
