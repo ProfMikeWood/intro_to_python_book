@@ -538,11 +538,11 @@ document.write(`
 </pre></div>
 </div>
 <p>As we can see, the <code class="docutils literal notranslate"><span class="pre">lname</span></code> and <code class="docutils literal notranslate"><span class="pre">fname</span></code> variables are no longer passed explicitly. Instead a <code class="docutils literal notranslate"><span class="pre">form</span></code> is passed.</p>
-<p>This is reflected in the registration page by updating the request pethod to post as follows:</p>
+<p>This is reflected in the registration page by updating the request method to post as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/person&quot;</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Then, in the person form, the variables are now accessed as attributed of the form that has been passed to the template:</p>
+<p>Then, in the person form, the variables are now accessed as attributes of the form that has been passed to the template:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span> <span class="n">First</span> <span class="n">Name</span><span class="p">:</span> <span class="p">{{</span><span class="n">form</span><span class="o">.</span><span class="n">fname</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 <span class="o">&lt;</span><span class="n">label</span><span class="o">&gt;</span> <span class="n">Last</span> <span class="n">Name</span><span class="p">:</span> <span class="p">{{</span><span class="n">form</span><span class="o">.</span><span class="n">lname</span><span class="p">}}</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 </pre></div>
