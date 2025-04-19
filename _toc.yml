@@ -46,13 +46,12 @@ parts:
     - file: web_development/rendering_html
     - file: web_development/requests
     - file: web_development/adding_data
-  # - caption: Beyond the Basics
-  #   chapters:
-  #   - file: beyond_the_basics/scraping-the-web
-  #   - file: beyond_the_basics/gui-with-tkinter
-  #   - file: beyond_the_basics/flask-web_development
-  # - caption: Data Analysis and Visualization
-  #   chapters:
-  #   - file: data_analysis_and_visualization/numpy-intro
-  #   - file: data_analysis_and_visualization/pandas-intro
-  #   - file: data_analysis_and_visualization/plotting_with_matplotlib
+  - caption: Data Visualization
+    chapters:
+    - file: data_visualization/basic_matplotlib_plots
+    - file: data_visualization/cartopy_maps
+  - caption: Data Analysis
+    chapters:
+    - file: data_analysis/intro_to_numpy
+    - file: data_analysis/timeseries_with_numpy
+
