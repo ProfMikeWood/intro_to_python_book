@@ -1,0 +1,1438 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Pandas Dataframes &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_analysis/pandas_dataframes';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installing Python and Jupyter</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/getting-familiar.html">Getting Familiar with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/sequence-data.html">Sequential Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/dictionaries.html">Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/if-statements.html">If Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_basics/exceptions.html">Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Code Organization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code_organization/packages.html">Packages and Libraries</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../files/using_the_filesystem.html">Using the file system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/file-io.html">File Inputs and Outputs (I/O)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Object-Oriented Programming</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../oop/classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oop/oop_pillars.html">Pillars of Object-Oriented Programming</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with the Internet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web/http_requests.html">HTTP Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/using_apis.html">Obtaining Data with APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web/github.html">Github and git</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic User Interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../guis/tkinter.html">Introduction to Tkinter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/widgets.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/binding_widgets.html">Binding Actions to Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guis/new_windows.html">Additional Windows</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../web_development/intro_to_flask.html">Introduction to Flask</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Implementing Data</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/basic_matplotlib_plots.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/cartopy_maps.html">Maps with Cartopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro_to_numpy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timeseries_with_numpy.html">Time Series with Numpy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata_analysis/pandas_dataframes.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data_analysis/pandas_dataframes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas Dataframes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-libraries-for-this-notebook">Import the libraries for this notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-into-a-dataframe">Importing data into a dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-column-to-a-dataframe">Adding a New Column to a Dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-subsets">Computing Subsets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-labels">Assigning Labels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-dataframes">
+<h1>Pandas Dataframes<a class="headerlink" href="#pandas-dataframes" title="Permalink to this headline">#</a></h1>
+<p>Author: Mike Wood</p>
+<p>Learning Objectives: By the end of this notebook, you should be able to:</p>
+<ol class="arabic simple">
+<li><p>Read data into a Pandas dataframe</p></li>
+<li><p>Edit a dataframe with new columns</p></li>
+<li><p>Subset a dataframe with query parameters</p></li>
+<li><p>Plot data contained in a dataframe</p></li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package is a popular package in data science because it allows for convenient, dictionary-like access to labeled data. In this notebook, we will use a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe  - the key organizational structure introduced by this library - to investigate the S&amp;P 500 Index.</p>
+<section id="import-the-libraries-for-this-notebook">
+<h2>Import the libraries for this notebook<a class="headerlink" href="#import-the-libraries-for-this-notebook" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the pandas and matplotlib libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="importing-data-into-a-dataframe">
+<h2>Importing data into a dataframe<a class="headerlink" href="#importing-data-into-a-dataframe" title="Permalink to this headline">#</a></h2>
+<p>The pandas library provides us with a convenient way to read in data from a csv using the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the file name</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;SP500_Index_Long.csv&#39;</span>
+
+<span class="c1"># read in the data to a dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+
+<span class="c1"># print the first 5 rows of the dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1927-12-30</td>
+      <td>17.660000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1928-1-3</td>
+      <td>17.760000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1928-1-4</td>
+      <td>17.719999</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1928-1-5</td>
+      <td>17.549999</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1928-1-6</td>
+      <td>17.660000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Each column in a dataframe has a given type:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check the types of the columns</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date      object
+Index    float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see above, variables types are automaticlly assigned to each column in the dataframe. We notice that the Date column was assigned a generic “object” type. However, we want to interpret these numbers as actual dates and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> provides a conventient way to deal with this type of data in the form of “datetimes”. Let’s conver the Date column now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert the dates to dates</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Date column looks similar to above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1927-12-30</td>
+      <td>17.660000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1928-01-03</td>
+      <td>17.760000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1928-01-04</td>
+      <td>17.719999</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1928-01-05</td>
+      <td>17.549999</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1928-01-06</td>
+      <td>17.660000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>However, the types are different:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date     datetime64[ns]
+Index           float64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>This datetime type is important because it allows us to plot the data - something which would be impossible with the dates stores as objects (strings). The following plot uses code introduced in the previous <code class="docutils literal notranslate"><span class="pre">numpy</span></code> notebook <a class="reference external" href="https://profmikewood.github.io/intro_to_python_book/data_analysis/timeseries_with_numpy.html#make-a-plot-of-the-data">HERE</a> but modified to use the variables in the dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a new figure object</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="c1"># plot the timeseries</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">])</span>
+
+<span class="c1"># add labels to the y axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;S&amp;P Index&#39;</span><span class="p">)</span>
+
+<span class="c1"># add gridlines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># format the axis to only print every other year</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">mdates</span><span class="o">.</span><span class="n">YearLocator</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fb428fcd5cb8ca8f2a46b9b96aad56685447c6a86cfcd556d31427f376bbe5dc.png" src="../_images/fb428fcd5cb8ca8f2a46b9b96aad56685447c6a86cfcd556d31427f376bbe5dc.png" />
+</div>
+</div>
+</section>
+<section id="adding-a-new-column-to-a-dataframe">
+<h2>Adding a New Column to a Dataframe<a class="headerlink" href="#adding-a-new-column-to-a-dataframe" title="Permalink to this headline">#</a></h2>
+<p>In the dataframe above, we have two columns - one for the date and one for the index. What if we wanted to add more information to our dataframe. For example, what if we wanted to compare the S&amp;P 500 Index to the president in office at the time? Let’s add a new column in our dataframe for the president.</p>
+<p>Add a new column is easy - it’s just like adding a new entry to a dictionary. Let’s add a new column for president and then fill it with the string “None” (we’ll update this in a second):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The list of presidents in the U.S. during the time period that the S&amp;P 500 has existed are as follows:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Inaguration Date</p></th>
+<th class="head"><p>President</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3/4/1925</p></td>
+<td><p>Calvin Coolidge</p></td>
+</tr>
+<tr class="row-odd"><td><p>3/4/1929</p></td>
+<td><p>Herbert Hoover</p></td>
+</tr>
+<tr class="row-even"><td><p>3/4/1933</p></td>
+<td><p>Franklin D. Roosevelt</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1937</p></td>
+<td><p>Franklin D. Roosevelt</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1941</p></td>
+<td><p>Franklin D. Roosevelt</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1945</p></td>
+<td><p>Franklin D. Roosevelt</p></td>
+</tr>
+<tr class="row-even"><td><p>4/12/1945</p></td>
+<td><p>Harry S. Truman</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1949</p></td>
+<td><p>Harry S. Truman</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1953</p></td>
+<td><p>Dwight D. Eisenhower</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/21/1957</p></td>
+<td><p>Dwight D. Eisenhower</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1961</p></td>
+<td><p>John F. Kennedy</p></td>
+</tr>
+<tr class="row-odd"><td><p>11/22/1963</p></td>
+<td><p>Lyndon B. Johnson</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1965</p></td>
+<td><p>Lyndon B. Johnson</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1969</p></td>
+<td><p>Richard M. Nixon</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1973</p></td>
+<td><p>Richard M. Nixon</p></td>
+</tr>
+<tr class="row-odd"><td><p>8/9/1974</p></td>
+<td><p>Gerald R. Ford</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1977</p></td>
+<td><p>Jimmy Carter</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1981</p></td>
+<td><p>Ronald Reagan</p></td>
+</tr>
+<tr class="row-even"><td><p>1/21/1985</p></td>
+<td><p>Ronald Reagan</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1989</p></td>
+<td><p>George H. W. Bush</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/1993</p></td>
+<td><p>Bill Clinton</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/1997</p></td>
+<td><p>Bill Clinton</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/2001</p></td>
+<td><p>George W. Bush</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/2005</p></td>
+<td><p>George W. Bush</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/2009</p></td>
+<td><p>Barack Obama</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/21/2013</p></td>
+<td><p>Barack Obama</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/2017</p></td>
+<td><p>Donald Trump</p></td>
+</tr>
+<tr class="row-odd"><td><p>1/20/2021</p></td>
+<td><p>Joe Biden</p></td>
+</tr>
+<tr class="row-even"><td><p>1/20/2025</p></td>
+<td><p>Donald Trump</p></td>
+</tr>
+</tbody>
+</table>
+<p>We can add all of these dates to big dictionary as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">term_dates</span> <span class="o">=</span> <span class="p">{(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1925-03-04&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1929-03-03&quot;</span><span class="p">)):</span><span class="s1">&#39;Calvin Coolidge 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1929-03-04&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1933-03-03&quot;</span><span class="p">)):</span><span class="s1">&#39;Herbert Hoover 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1933-03-04&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1937-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Franklin Roosevelt 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1937-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1941-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Franklin Roosevelt 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1941-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1945-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Franklin Roosevelt 3&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1945-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1945-04-11&quot;</span><span class="p">)):</span><span class="s1">&#39;Franklin Roosevelt 4&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1945-04-12&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1949-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Harry Truman 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1949-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1953-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Harry Truman 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1953-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1957-01-20&quot;</span><span class="p">)):</span><span class="s1">&#39;Dwight Eisenhower 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1957-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1961-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Dwight Eisenhower 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1961-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1963-11-21&quot;</span><span class="p">)):</span><span class="s1">&#39;John Kennedy 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1963-11-22&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1965-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Lyndon Johnson 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1965-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1969-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Lyndon Johnson 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1969-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1973-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Richard Nixon 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1973-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1974-08-18&quot;</span><span class="p">)):</span><span class="s1">&#39;Richard Nixon 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1974-08-09&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1977-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Gerald Ford 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1977-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1981-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Jimmy Carter 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1981-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1985-01-20&quot;</span><span class="p">)):</span><span class="s1">&#39;Ronald Reagan 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1985-01-21&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1989-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Ronald Reagan 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1989-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1993-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;George H. W. Bush 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1993-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1997-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Bill Clinton 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;1997-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2001-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Bill Clinton 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2001-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2005-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;George W. Bush 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2005-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2009-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;George W. Bush 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2009-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2013-01-20&quot;</span><span class="p">)):</span><span class="s1">&#39;Barack Obama 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2013-01-21&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2017-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Barack Obama 2&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2017-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2021-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Donald Trump 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2021-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2025-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Joe Biden 1&#39;</span><span class="p">,</span>
+              <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2025-01-20&quot;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2029-01-19&quot;</span><span class="p">)):</span><span class="s1">&#39;Donald Trump 2&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, to update our ‘President’ column, we can write a little loop through each of the entries in our dictionary. In each case, we will use the <code class="docutils literal notranslate"><span class="pre">.loc</span></code> method to identify and assign the correct locations of our data frame</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through each term</span>
+<span class="k">for</span> <span class="n">term_range</span> <span class="ow">in</span> <span class="n">term_dates</span><span class="p">:</span>
+    
+    <span class="c1"># determine the indices of the date column corresponding to these ranges</span>
+    <span class="n">start_date</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">term_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">end_date</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">term_range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># update the President column with the president during these dates</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">start_date</span><span class="o">&amp;</span><span class="n">end_date</span><span class="p">),</span> <span class="s1">&#39;President&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">term_dates</span><span class="p">[</span><span class="n">term_range</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can double check our dataframe by looking at the head and the tail:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+      <th>President</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>24435</th>
+      <td>2025-04-10</td>
+      <td>5268.05</td>
+      <td>Donald Trump 2</td>
+    </tr>
+    <tr>
+      <th>24436</th>
+      <td>2025-04-11</td>
+      <td>5363.36</td>
+      <td>Donald Trump 2</td>
+    </tr>
+    <tr>
+      <th>24437</th>
+      <td>2025-04-14</td>
+      <td>5405.97</td>
+      <td>Donald Trump 2</td>
+    </tr>
+    <tr>
+      <th>24438</th>
+      <td>2025-04-15</td>
+      <td>5396.63</td>
+      <td>Donald Trump 2</td>
+    </tr>
+    <tr>
+      <th>24439</th>
+      <td>2025-04-16</td>
+      <td>5275.70</td>
+      <td>Donald Trump 2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+      <th>President</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1927-12-30</td>
+      <td>17.660000</td>
+      <td>Calvin Coolidge 1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1928-01-03</td>
+      <td>17.760000</td>
+      <td>Calvin Coolidge 1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1928-01-04</td>
+      <td>17.719999</td>
+      <td>Calvin Coolidge 1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1928-01-05</td>
+      <td>17.549999</td>
+      <td>Calvin Coolidge 1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1928-01-06</td>
+      <td>17.660000</td>
+      <td>Calvin Coolidge 1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="computing-subsets">
+<h2>Computing Subsets<a class="headerlink" href="#computing-subsets" title="Permalink to this headline">#</a></h2>
+<p>A subset of a dataframe can be computed using similar indexing defined above and passed in directly to the dataframe. For example, if we wanted to get a dataframe corresponding to Obama’s first term, we could write</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_obama</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Barack Obama 1&#39;</span><span class="p">]</span>
+<span class="n">df_obama</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+      <th>President</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20352</th>
+      <td>2009-01-20</td>
+      <td>849.640015</td>
+      <td>Barack Obama 1</td>
+    </tr>
+    <tr>
+      <th>20353</th>
+      <td>2009-01-21</td>
+      <td>841.719971</td>
+      <td>Barack Obama 1</td>
+    </tr>
+    <tr>
+      <th>20354</th>
+      <td>2009-01-22</td>
+      <td>839.739990</td>
+      <td>Barack Obama 1</td>
+    </tr>
+    <tr>
+      <th>20355</th>
+      <td>2009-01-23</td>
+      <td>838.609985</td>
+      <td>Barack Obama 1</td>
+    </tr>
+    <tr>
+      <th>20356</th>
+      <td>2009-01-26</td>
+      <td>852.530029</td>
+      <td>Barack Obama 1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s make a qucik plot of this data to ensure it’s for the dates expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_obama</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="n">df_obama</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;dodgerblue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e06a0f825bcc0f64d20a49607d41e3080751b07d53dfe47e9af63a7486c18973.png" src="../_images/e06a0f825bcc0f64d20a49607d41e3080751b07d53dfe47e9af63a7486c18973.png" />
+</div>
+</div>
+</section>
+<section id="assigning-labels">
+<h2>Assigning Labels<a class="headerlink" href="#assigning-labels" title="Permalink to this headline">#</a></h2>
+<p>In addition to the column for presidents above, we may also be interested in their political party. The following dictionary links each president with their political party:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parties</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Calvin Coolidge&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Herbert Hoover&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Franklin Roosevelt&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Harry Truman&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Dwight Eisenhower&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;John Kennedy&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Lyndon Johnson&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Richard Nixon&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Gerald Ford&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Jimmy Carter&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Ronald Reagan&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;George H. W. Bush&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Bill Clinton&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;George W. Bush&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Barack Obama&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Donald Trump&#39;</span><span class="p">:</span><span class="s1">&#39;Republican&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;Joe Biden&#39;</span><span class="p">:</span><span class="s1">&#39;Democrat&#39;</span><span class="p">}</span>
+<span class="n">presidents</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">parties</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can generate a new column in our dataframe which lists the part in power for each day:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;None&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop through each president and assign party keys in the dataframe</span>
+<span class="k">for</span> <span class="n">president</span> <span class="ow">in</span> <span class="n">presidents</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">president</span><span class="p">),</span> <span class="s1">&#39;Party&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parties</span><span class="p">[</span><span class="n">president</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+      <th>President</th>
+      <th>Party</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1927-12-30</td>
+      <td>17.660000</td>
+      <td>Calvin Coolidge 1</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1928-01-03</td>
+      <td>17.760000</td>
+      <td>Calvin Coolidge 1</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1928-01-04</td>
+      <td>17.719999</td>
+      <td>Calvin Coolidge 1</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1928-01-05</td>
+      <td>17.549999</td>
+      <td>Calvin Coolidge 1</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1928-01-06</td>
+      <td>17.660000</td>
+      <td>Calvin Coolidge 1</td>
+      <td>Republican</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Index</th>
+      <th>President</th>
+      <th>Party</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>24435</th>
+      <td>2025-04-10</td>
+      <td>5268.05</td>
+      <td>Donald Trump 2</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>24436</th>
+      <td>2025-04-11</td>
+      <td>5363.36</td>
+      <td>Donald Trump 2</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>24437</th>
+      <td>2025-04-14</td>
+      <td>5405.97</td>
+      <td>Donald Trump 2</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>24438</th>
+      <td>2025-04-15</td>
+      <td>5396.63</td>
+      <td>Donald Trump 2</td>
+      <td>Republican</td>
+    </tr>
+    <tr>
+      <th>24439</th>
+      <td>2025-04-16</td>
+      <td>5275.70</td>
+      <td>Donald Trump 2</td>
+      <td>Republican</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Using the assignment above, we can identify components of the S&amp;P 500 index time series that correspond to each part:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">president</span> <span class="ow">in</span> <span class="n">presidents</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">term</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]:</span>
+        <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">president</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">term</span><span class="p">)]</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Republican&#39;</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;firebrick&#39;</span>
+            <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Democrat&#39;</span><span class="p">:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+  
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;S&amp;P 500 Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/94e7af701a28e870520b2bd081c625460f16c8df57b006d943a70836996a58df.png" src="../_images/94e7af701a28e870520b2bd081c625460f16c8df57b006d943a70836996a58df.png" />
+</div>
+</div>
+<p>It’s a little hard to see in this plot how much the market grew or shrank. Let’s make the plot reflect the days since teh start of the term:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">presidents</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Bill Clinton 1&#39;</span><span class="p">,</span><span class="s1">&#39;Bill Clinton 2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;George W. Bush 1&#39;</span><span class="p">,</span> <span class="s1">&#39;George W. Bush 2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Barack Obama 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Barack Obama 2&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Donald Trump 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Donald Trump 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Joe Biden 1&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">president</span> <span class="ow">in</span> <span class="n">presidents</span><span class="p">:</span>
+    <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">president</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Republican&#39;</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;firebrick&#39;</span>
+    <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Democrat&#39;</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
+        
+    <span class="c1"># create time and date variables with the first</span>
+    <span class="c1"># value removed</span>
+    <span class="n">days_in_term</span> <span class="o">=</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">index_change</span> <span class="o">=</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># convert the time to days</span>
+    <span class="n">days_in_term</span> <span class="o">=</span> <span class="n">days_in_term</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+    
+    <span class="c1"># plto the line</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days_in_term</span><span class="p">,</span> <span class="n">index_change</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    
+    <span class="c1"># add a label to the end</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">days_in_term</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">30</span><span class="p">,</span> <span class="n">index_change</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">president</span><span class="p">)</span>
+
+<span class="c1"># format the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since Inauguration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Change in Index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8d2ae2b421d3901252643d4790538ee5d6ea61722586804835486cc65dba6ccf.png" src="../_images/8d2ae2b421d3901252643d4790538ee5d6ea61722586804835486cc65dba6ccf.png" />
+</div>
+</div>
+<section id="mini-exercise">
+<h3>🤔 Mini-Exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this headline">#</a></h3>
+<p>Revise the plot above to compare the percentage increase in the index growth since the start of the administration.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">president</span> <span class="ow">in</span> <span class="n">presidents</span><span class="p">:</span>
+    
+    <span class="c1"># make a subset data frame</span>
+    <span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;President&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">president</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Republican&#39;</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;firebrick&#39;</span>
+    <span class="k">if</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Party&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Democrat&#39;</span><span class="p">:</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;dodgerblue&#39;</span>
+        
+    <span class="c1"># create time and date variables with the first</span>
+    <span class="c1"># value removed</span>
+    <span class="n">days_in_term</span> <span class="o">=</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">index_change</span> <span class="o">=</span> <span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># convert the time to days</span>
+    <span class="n">days_in_term</span> <span class="o">=</span> <span class="n">days_in_term</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">days</span>
+    
+    <span class="c1"># create a variable for the percent change</span>
+    <span class="n">percent_change</span> <span class="o">=</span> <span class="mi">100</span><span class="o">*</span><span class="n">index_change</span><span class="o">/</span><span class="n">df_sub</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># plot the line and add a label</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">days_in_term</span><span class="p">,</span> <span class="n">percent_change</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">days_in_term</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">30</span><span class="p">,</span> <span class="n">percent_change</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">president</span><span class="p">)</span>
+
+<span class="c1"># format the axes</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">365</span><span class="o">*</span><span class="mi">5</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days since Inauguration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Percent Change (%)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/23366f4763212218fc5900824920d3bf59b72227c19c8e04e98a833773552db3.png" src="../_images/23366f4763212218fc5900824920d3bf59b72227c19c8e04e98a833773552db3.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "cs122"
+        },
+        kernelOptions: {
+            name: "cs122",
+            path: "./data_analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'cs122'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-libraries-for-this-notebook">Import the libraries for this notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data-into-a-dataframe">Importing data into a dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-column-to-a-dataframe">Adding a New Column to a Dataframe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computing-subsets">Computing Subsets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assigning-labels">Assigning Labels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">🤔 Mini-Exercise</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mike Wood
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
