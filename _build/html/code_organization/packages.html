@@ -191,6 +191,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../web/using_apis.html">Obtaining Data with APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web/github.html">Github and git</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/basic_matplotlib_plots.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_visualization/cartopy_maps.html">Maps with Cartopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../data_analysis/intro_to_numpy.html">Introduction to NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_analysis/timeseries_with_numpy.html">Time Series with Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_analysis/pandas_dataframes.html">Pandas Dataframes</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic User Interfaces</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../guis/tkinter.html">Introduction to Tkinter</a></li>
@@ -204,16 +215,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../web_development/rendering_html.html">Rendering HTML</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_development/requests.html">Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../web_development/adding_data.html">Implementing Data</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualization</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../data_visualization/basic_matplotlib_plots.html">Plotting Basics in Matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_visualization/cartopy_maps.html">Maps with Cartopy</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../data_analysis/intro_to_numpy.html">Introduction to NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data_analysis/timeseries_with_numpy.html">Timeseries with Numpy</a></li>
 </ul>
 
     </div>
@@ -525,47 +526,99 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="k">if</span> <span class="n">onerror</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">sklearn</span><span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">13</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">._affinity_propagation</span> <span class="kn">import</span> <span class="n">AffinityPropagation</span><span class="p">,</span> <span class="n">affinity_propagation</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">._agglomerative</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">AgglomerativeClustering</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">FeatureAgglomeration</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">linkage_tree</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>     <span class="n">ward_tree</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">._bicluster</span> <span class="kn">import</span> <span class="n">SpectralBiclustering</span><span class="p">,</span> <span class="n">SpectralCoclustering</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">._birch</span> <span class="kn">import</span> <span class="n">Birch</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">._bisect_k_means</span> <span class="kn">import</span> <span class="n">BisectingKMeans</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">terminal</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Shims</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals</span> <span class="kn">import</span> <span class="n">api_handlers</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals.handlers</span> <span class="kn">import</span> <span class="n">TermSocket</span>  <span class="c1"># noqa</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">jupyter_server_terminals.terminalmanager</span> <span class="kn">import</span> <span class="n">TerminalManager</span>  <span class="c1"># noqa</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">sklearn</span><span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">_bicluster</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">..utils.extmath</span> <span class="kn">import</span> <span class="n">make_nonnegative</span><span class="p">,</span> <span class="n">randomized_svd</span><span class="p">,</span> <span class="n">safe_sparse_dot</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="n">assert_all_finite</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">._kmeans</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">MiniBatchKMeans</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;SpectralCoclustering&quot;</span><span class="p">,</span> <span class="s2">&quot;SpectralBiclustering&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="k">def</span> <span class="nf">_scale_normalize</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server_terminals</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># type:ignore</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Jupyter Server Terminals requires Jupyter Server 2.0+&quot;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">.app</span> <span class="kn">import</span> <span class="n">TerminalsExtensionApp</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="k">def</span> <span class="nf">_jupyter_server_extension_points</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="k">return</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>         <span class="p">{</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>             <span class="s2">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;jupyter_server_terminals.app&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>             <span class="s2">&quot;app&quot;</span><span class="p">:</span> <span class="n">TerminalsExtensionApp</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>         <span class="p">},</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="p">]</span>
 
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">sklearn</span><span class="o">/</span><span class="n">cluster</span><span class="o">/</span><span class="n">_kmeans</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">48</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span> <span class="kn">from</span> <span class="nn">..utils.validation</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">_check_sample_weight</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">_is_arraylike_not_scalar</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">check_is_fitted</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="kn">from</span> <span class="nn">._k_means_common</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="n">CHUNK_SIZE</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="n">_inertia_dense</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="n">_inertia_sparse</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">_is_same_clustering</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">._k_means_elkan</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="n">elkan_iter_chunked_dense</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">elkan_iter_chunked_sparse</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="n">init_bounds_dense</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span>     <span class="n">init_bounds_sparse</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span> <span class="kn">from</span> <span class="nn">._k_means_lloyd</span> <span class="kn">import</span> <span class="n">lloyd_iter_chunked_dense</span><span class="p">,</span> <span class="n">lloyd_iter_chunked_sparse</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="kn">from</span> <span class="nn">._k_means_minibatch</span> <span class="kn">import</span> <span class="n">_minibatch_update_dense</span><span class="p">,</span> <span class="n">_minibatch_update_sparse</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server_terminals</span><span class="o">/</span><span class="n">app</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">which</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">jupyter_core.utils</span> <span class="kn">import</span> <span class="n">ensure_async</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.application</span> <span class="kn">import</span> <span class="n">ExtensionApp</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">jupyter_server.transutils</span> <span class="kn">import</span> <span class="n">trans</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Type</span>
 
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:404,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">extension</span><span class="o">/</span><span class="n">application</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">traitlets</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">HasTraits</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Unicode</span><span class="p">,</span> <span class="n">default</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">traitlets.config</span> <span class="kn">import</span> <span class="n">Config</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">jupyter_server.serverapp</span> <span class="kn">import</span> <span class="n">ServerApp</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">jupyter_server.transutils</span> <span class="kn">import</span> <span class="n">_i18n</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">jupyter_server.utils</span> <span class="kn">import</span> <span class="n">is_namespace_package</span><span class="p">,</span> <span class="n">url_path_join</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">serverapp</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">92</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.manager</span> <span class="kn">import</span> <span class="n">ExtensionManager</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="kn">from</span> <span class="nn">jupyter_server.extension.serverextension</span> <span class="kn">import</span> <span class="n">ServerExtensionApp</span>
+<span class="ne">---&gt; </span><span class="mi">92</span> <span class="kn">from</span> <span class="nn">jupyter_server.gateway.connections</span> <span class="kn">import</span> <span class="n">GatewayWebSocketConnection</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="kn">from</span> <span class="nn">jupyter_server.gateway.managers</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">GatewayClient</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">GatewayKernelSpecManager</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="n">GatewayMappingKernelManager</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">GatewaySessionManager</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span> <span class="kn">from</span> <span class="nn">jupyter_server.log</span> <span class="kn">import</span> <span class="n">log_request</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">gateway</span><span class="o">/</span><span class="n">connections</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">..services.kernels.connection.base</span> <span class="kn">import</span> <span class="n">BaseKernelWebsocketConnection</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">..utils</span> <span class="kn">import</span> <span class="n">url_path_join</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">.managers</span> <span class="kn">import</span> <span class="n">GatewayClient</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="k">class</span> <span class="nc">GatewayWebSocketConnection</span><span class="p">(</span><span class="n">BaseKernelWebsocketConnection</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Web socket connection that proxies to a kernel/enterprise gateway.&quot;&quot;&quot;</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">jupyter_server</span><span class="o">/</span><span class="n">gateway</span><span class="o">/</span><span class="n">managers</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">14</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">monotonic</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">websocket</span>  <span class="c1"># type:ignore</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">jupyter_client.asynchronous.client</span> <span class="kn">import</span> <span class="n">AsyncKernelClient</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">jupyter_client.clientabc</span> <span class="kn">import</span> <span class="n">KernelClientABC</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">websocket</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> __init__.py</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> websocket - WebSocket client library for Python</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd"> limitations under the License.</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">._abnf</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="kn">from</span> <span class="nn">._app</span> <span class="kn">import</span> <span class="n">WebSocketApp</span><span class="p">,</span> <span class="n">setReconnect</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">._core</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">cs122</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">websocket</span><span class="o">/</span><span class="n">_abnf</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Lock</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">._exceptions</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">._utils</span> <span class="kn">import</span> <span class="n">validate_utf8</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd"> _abnf.py</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> websocket - WebSocket client library for Python</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span><span class="sd"> limitations under the License.</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="sd"> &quot;&quot;&quot;</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1027,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1006,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:688,</span> in <span class="ni">_load_unlocked</span><span class="nt">(spec)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:879,</span> in <span class="ni">exec_module</span><span class="nt">(self, module)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:975,</span> in <span class="ni">get_code</span><span class="nt">(self, fullname)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap_external&gt;:1074,</span> in <span class="ni">get_data</span><span class="nt">(self, path)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

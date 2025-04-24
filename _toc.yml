@@ -34,6 +34,15 @@ parts:
     - file: web/http_requests
     - file: web/using_apis
     - file: web/github
+  - caption: Data Visualization
+    chapters:
+    - file: data_visualization/basic_matplotlib_plots
+    - file: data_visualization/cartopy_maps
+  - caption: Data Analysis
+    chapters:
+    - file: data_analysis/intro_to_numpy
+    - file: data_analysis/timeseries_with_numpy
+    - file: data_analysis/pandas_dataframes
   - caption: Graphic User Interfaces
     chapters:
     - file: guis/tkinter
@@ -46,12 +55,4 @@ parts:
     - file: web_development/rendering_html
     - file: web_development/requests
     - file: web_development/adding_data
-  - caption: Data Visualization
-    chapters:
-    - file: data_visualization/basic_matplotlib_plots
-    - file: data_visualization/cartopy_maps
-  - caption: Data Analysis
-    chapters:
-    - file: data_analysis/intro_to_numpy
-    - file: data_analysis/timeseries_with_numpy
 
