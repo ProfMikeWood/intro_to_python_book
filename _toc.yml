@@ -36,13 +36,15 @@ parts:
     - file: web/github
   - caption: Data Visualization
     chapters:
-    - file: data_visualization/basic_matplotlib_plots
+    - file: data_visualization/matplotlib_plots_1D
+    - file: data_visualization/matplotlib_plots_2D
     - file: data_visualization/cartopy_maps
   - caption: Data Analysis
     chapters:
     - file: data_analysis/intro_to_numpy
     - file: data_analysis/timeseries_with_numpy
     - file: data_analysis/pandas_dataframes
+    - file: data_analysis/interpolation
   - caption: Graphic User Interfaces
     chapters:
     - file: guis/tkinter
