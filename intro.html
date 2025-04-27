@@ -192,7 +192,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="data_visualization/basic_matplotlib_plots.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization/matplotlib_plots_1D.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization/matplotlib_plots_2D.html">Plotting in 2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_visualization/cartopy_maps.html">Maps with Cartopy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Analysis</span></p>
@@ -200,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/intro_to_numpy.html">Introduction to NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/timeseries_with_numpy.html">Time Series with Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/pandas_dataframes.html">Pandas Dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis/interpolation.html">Interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Graphic User Interfaces</span></p>
 <ul class="nav bd-sidenav">
@@ -407,6 +409,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welcome-to-an-introduction-to-python">Welcome to an Introduction to Python!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
@@ -423,12 +426,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python">
 <h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">#</a></h1>
-<p>Welcome to an Introduction to Python!</p>
-<p>This book is designed to be a practical introduction to coding with Python. However, it is not intended to be an introduction to programming overall and the ideal reader will have some familiarity with another coding language in other computer science settings (e.g. Java, C) or in applied data science (e.g. MATLAB, R)</p>
+<section id="welcome-to-an-introduction-to-python">
+<h2>Welcome to an Introduction to Python!<a class="headerlink" href="#welcome-to-an-introduction-to-python" title="Permalink to this headline">#</a></h2>
+<p>This is a compilation of course notes designed to guide users through the essential concepts, patterns, and practical skills needed to become proficient in Python. These notes originate from the upper-division <strong>CS 122 Advanced Programming in Python</strong> course at San José State University, intended for students who have experience with programming but are new to Python specifically. If you’ve previously worked with programming languages such as Java or C++ or data science software such as MATLAB or R, you will find many concepts familiar. However, Python’s unique style, philosophy, and features will offer new perspectives and capabilities.</p>
+<p>The goal of this “book” is twofold. First, it serves as a practical guide to using Python effectively in data science applications. Second, it acts as a reference manual that highlights key libraries and tools that working Python programmers routinely rely on. These notes are not necessarily structured like a traditional textbook; instead, they are organized around topics and examples that arose naturally during the course of instruction, projects, and discussions.</p>
+<p>I am a big Python fan because of its readability, simplicity, and flexibility. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Unlike many languages where structure is rigidly enforced, Python gives you a degree of freedom in how you solve problems.</p>
+<p>Because the course assumed a prior background in programming, these notes are not a beginner’s introduction to variables, loops, and if-statements. Instead, I focus on what makes Python different and what it enables. I also include notes on modern Python tools and popular libraries for data analysis, web development, and graphic user interfaces.</p>
+<p>These notes are intended to be somewhat of a living document. As I continue to teach the CS 122 course and other like it over future semesters, updates and additions will be made to reflect best practices, new features, and emerging tools. In this way, this compilation remains not just a record of a single class, but an ongoing resource for learning and improving your Python skills.</p>
+<p>Let’s get started!</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This book is currently being written for a course at San José State University. It is a work in progress and will continue to be updated. If you have any feedback or constructive suggestions, feel free to submit an issue on the <a class="reference external" href="https://github.com/ProfMikeWood/intro_to_python">Github repository</a> for this book.</p>
+<p>This “book” is a work in progress and will continue to be updated. If you have any feedback or constructive suggestions, feel free to submit an issue on the <a class="reference external" href="https://github.com/ProfMikeWood/intro_to_python">Github repository</a> for this book.</p>
 </div>
+</section>
 <section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
 <div class="toctree-wrapper compound">
@@ -482,7 +492,8 @@ document.write(`
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Visualization</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="data_visualization/basic_matplotlib_plots.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization/matplotlib_plots_1D.html">Plotting Basics in Matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_visualization/matplotlib_plots_2D.html">Plotting in 2D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_visualization/cartopy_maps.html">Maps with Cartopy</a></li>
 </ul>
 </div>
@@ -492,6 +503,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/intro_to_numpy.html">Introduction to NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/timeseries_with_numpy.html">Time Series with Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_analysis/pandas_dataframes.html">Pandas Dataframes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_analysis/interpolation.html">Interpolation</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -512,7 +524,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="web_development/adding_data.html">Implementing Data</a></li>
 </ul>
 </div>
-<p>This book was initially created as a set of lecture notes for the CS 122: Advanced Programming with Python class at San José State University.</p>
 </section>
 </section>
 
@@ -574,6 +585,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welcome-to-an-introduction-to-python">Welcome to an Introduction to Python!</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
