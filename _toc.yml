@@ -39,6 +39,7 @@ parts:
     - file: data_visualization/matplotlib_plots_1D
     - file: data_visualization/matplotlib_plots_2D
     - file: data_visualization/cartopy_maps
+    - file: data_visualization/making_movies
   - caption: Data Analysis
     chapters:
     - file: data_analysis/intro_to_numpy
