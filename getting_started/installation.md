@@ -12,7 +12,7 @@ After you have downloaded miniconda, set up a conda environment. Begin by openin
 With your terminal open, create a conda environment called cs122 with Python version 3.11 using the following command:
 
 ```
-conda create --name cs122 python=3.11
+conda create --name cs122 python=3.12
 ```
 By default, conda will automatically activate a "base" environment on your machine. To disable this behavior, you may want to run the following:
 ```
@@ -31,6 +31,7 @@ Next, download the pertinent modules required for this course:
 ```
 conda install numpy
 conda install matplotlib
+conda install flask
 ```
 
 Finally, configure your environment to use in a jupyter notebook. 

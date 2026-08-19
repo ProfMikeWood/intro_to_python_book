@@ -1,0 +1,73 @@
+version: 1
+project:
+  title: Introduction to Python
+  authors:
+    - name: Mike Wood
+  github: executablebooks/jupyter-book
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - title: Getting Started
+      children:
+        - file: getting_started/installation.md
+    - title: Python Basics
+      children:
+        - file: python_basics/getting-familiar.ipynb
+        - file: python_basics/sequence-data.ipynb
+        - file: python_basics/strings.ipynb
+        - file: python_basics/dictionaries.ipynb
+        - file: python_basics/if-statements.ipynb
+        - file: python_basics/loops.ipynb
+        - file: python_basics/exceptions.ipynb
+    - title: Code Organization
+      children:
+        - file: code_organization/functions.ipynb
+        - file: code_organization/modules.ipynb
+        - file: code_organization/packages.ipynb
+    - title: Files
+      children:
+        - file: files/using_the_filesystem.ipynb
+        - file: files/file-io.ipynb
+    - title: Object-Oriented Programming
+      children:
+        - file: oop/classes.ipynb
+        - file: oop/oop_pillars.ipynb
+    - title: Working Online
+      children:
+        - file: web/http_requests.ipynb
+        - file: web/using_apis.ipynb
+        - file: web/github.ipynb
+    - title: Data Visualization
+      children:
+        - file: data_visualization/matplotlib_plots_1D.ipynb
+        - file: data_visualization/matplotlib_plots_2D.ipynb
+        - file: data_visualization/cartopy_maps.ipynb
+        - file: data_visualization/making_movies.ipynb
+    - title: Data Analysis
+      children:
+        - file: data_analysis/intro_to_numpy.ipynb
+        - file: data_analysis/timeseries_with_numpy.ipynb
+        - file: data_analysis/pandas_dataframes.ipynb
+        - file: data_analysis/interpolation.ipynb
+    - title: Graphic User Interfaces
+      children:
+        - file: guis/tkinter.ipynb
+        - file: guis/widgets.ipynb
+        - file: guis/binding_widgets.ipynb
+        - file: guis/new_windows.ipynb
+    - title: Web Development
+      children:
+        - file: web_development/intro_to_flask.ipynb
+        - file: web_development/rendering_html.ipynb
+        - file: web_development/requests.ipynb
+        - file: web_development/adding_data.ipynb
+site:
+  options:
+    logo: logo.png
+    folders: true
+  template: book-theme
