@@ -29,6 +29,7 @@ Every time you use your environment, you will need to activate it from the comma
 Next, download the pertinent modules required for this course:
 
 ```
+conda install jupyter
 conda install numpy
 conda install matplotlib
 conda install flask
